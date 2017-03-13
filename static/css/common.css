@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 400 16px/1.7 "Microsoft JhengHei", sans-serif;
+    background-color: #fff;
+    min-height: 100%;
+    color: #444;
+}
+
+::selection{
+    background-color:#222;
+    color:#f9f9f9;
+}
+
+body {
+    max-width: 700px;
+    padding: 0 20px;
+    margin: 0 auto;
+    overflow-x: hidden;
+	/*overflow-wrap: break-word;*/
+}

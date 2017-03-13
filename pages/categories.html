@@ -1,0 +1,35 @@
+---
+layout: default
+title: 文章分类
+css: [common.css,header.css,footer.css,totop.css,categories.css,articlelist.css]
+js: [common.js,header.js,totop.js]
+---
+<!-- categories.css -->
+<div id="listcategories">
+    <blockquote>标签云</blockquote>
+    <ul>
+		{% for category in site.categories %}
+			<li><a href="#{{ category[0] }}">{{ category[0] }}</a></li>
+		{% endfor %}
+    </ul>
+</div>
+<!-- main.css -->
+<div id="articlelist">
+	{% for category in site.categories %}
+		<div class="type-head" name="{{ category[0] }}" id="{{ category[0] }}">{{ category[0] }}</div>
+		<ul>
+			{% for post in category[1] %}
+				<li>
+					<time>{{ post.date | date: "%Y/%m/%d" }}&nbsp;</time>
+					<a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a>
+					<span>&nbsp;
+					{% for cat in post.categories %}
+						<a href="{{ site.baseurl }}/pages/categories/#{{ cat }}">{{ cat }}</a>
+					{% endfor %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% endfor %}
+</div>
+
+

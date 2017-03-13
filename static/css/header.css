@@ -1,0 +1,130 @@
+#header {
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+#header .logo {
+    border-radius: 50%;
+    margin-right: 25px;
+    width: 26px;
+    height: 26px;
+    float: left;
+    background:url("../img/logo.jpg") ;
+    background-size: cover;
+}
+
+#header .title{
+    display: none;
+}
+
+#header .title a{
+    color: #111;
+    text-decoration: none;
+    cursor: auto;
+}
+
+#header .nav{
+    float: left;
+}
+
+#header .nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#header .nav ul li{
+    height: 26px;
+    display: inline-block;
+    line-height: 26px;
+}
+
+#header .nav ul li span{
+    padding: 0px 10px;
+}
+
+#header .nav ul li a{
+    color: #111;
+    word-wrap: break-word;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+#header .nav  ul li a:hover{
+    color: #555;
+}
+
+#header .menu-tool{
+    display: none;
+}
+
+#header:after {
+    clear:both;
+    content:'.';
+    display:block;
+    width: 0;
+    height: 0;
+    visibility:hidden;
+}
+
+
+@media screen and (max-width: 540px){
+    #header{
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    #header .title{
+        float: left;
+        display: block;
+    }
+
+    #header .menu-tool{
+        display: block;
+        width: 22px;
+        height: 22px;
+        float: right;
+        background: url("../img/menu.png");
+        margin-top: 2px;
+    }
+
+    #header .nav{
+        position: fixed;
+		display:none;
+        top:50px;
+        right:20px;
+		z-index: 999;
+    }
+
+    #header .nav ul{
+        background-color: white;
+        min-width: 100px;
+        box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+        list-style: none;
+        font-size: 14px;
+    }
+
+    #header .nav ul li{
+        height: 30px;
+        display: block;
+    }
+
+    #header .nav ul li span{
+        display: none;
+    }
+
+    #header .nav ul li a{
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+        line-height: 30px;
+        text-decoration: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #header .nav ul li a:hover{
+        color: #111;
+        background-color: #EEE;
+    }
+}

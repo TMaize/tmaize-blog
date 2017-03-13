@@ -1,0 +1,19 @@
+---
+layout: default
+title: 留言板
+css: [common.css,header.css,footer.css,totop.css]
+js: [common.js,header.js,totop.js,chat.js]
+---
+<div id="loadingtip">评论框加载中......</div>
+<div class="ds-thread" data-thread-key="1" data-title="{{ page.title }}" data-url="{{ site.realchaturl }}"></div>
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"tmaize"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>

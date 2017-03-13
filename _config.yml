@@ -1,0 +1,23 @@
+encoding: utf-8
+title: TMaize'Blog
+
+# seo
+description: TMaize'Blog
+keywords: TMaize,Blog,TMaize'Blog
+author: TMaize
+
+baseurl: ""
+home: /
+categoriesurl: /pages/categories
+searchurl: /pages/search
+linksurl: /pages/links
+chaturl: /pages/chat
+abouturl: /pages/about
+
+# 用于多说评论 填入留言板地址
+realchaturl: http://tmaize.oschina.io/pages/chat
+
+cssurl: /static/css
+jsurl: /static/js
+
+permalink: /posts/:title.html

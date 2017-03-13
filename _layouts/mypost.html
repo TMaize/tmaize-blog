@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html baseurl="{{site.baseurl}}">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="{{ site.description }}"/>
+		<meta name="keywords" content="{{ site.keywords }},{{ page.title }}"/>
+		<meta name="author" content="{{ site.author }}" />
+		<meta name="robots" content="all">
+		<link rel="stylesheet" href="{{site.cssurl}}/common.css">
+		<link rel="stylesheet" href="{{site.cssurl}}/header.css">
+		<link rel="stylesheet" href="{{site.cssurl}}/footer.css">
+		<link rel="stylesheet" href="{{site.cssurl}}/totop.css">
+		<link rel="stylesheet" href="{{site.cssurl}}/syntax.css">
+		<link rel="stylesheet" href="{{site.cssurl}}/mypost.css">
+		<script type="text/javascript" src="{{site.jsurl}}/common.js"></script>
+		<script type="text/javascript" src="{{site.jsurl}}/header.js"></script>
+		<script type="text/javascript" src="{{site.jsurl}}/totop.js"></script>
+		<title>{{ page.title }}</title>
+	</head>
+<body>
+{% include header.html %}
+    <div id="mypost">
+		{% if page.title %}
+		<div class="postinfo">
+			{{ page.title }}
+		</div>
+		{% endif %}
+		<div class="main">
+			{{ content }}
+		</div>
+	</div>
+{% include footer.html %}
+{% include totop.html %}
+</body>
+</html>

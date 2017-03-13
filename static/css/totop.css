@@ -1,0 +1,16 @@
+#totop{
+	display: none;
+	position: fixed;
+	width: 38px;
+	height: 38px;
+	bottom: 45px;
+	right: 25px;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	text-decoration: none;
+	background-color: #777;
+}
+#totop:hover{
+	background-color: #444;
+}
