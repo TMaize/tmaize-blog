@@ -221,7 +221,7 @@ public static Object invokeGet(String fieldName,Object object) {
 
 //Test.java
 User u = new User();  
-u.setUserName("JTZeng");
+u.setUserName("haha");
 u.setId(10);
 
 System.out.println(ReturnQuery.query(u));
