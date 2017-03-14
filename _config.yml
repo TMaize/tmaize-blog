@@ -15,7 +15,7 @@ chaturl: /pages/chat
 abouturl: /pages/about
 
 # 用于多说评论 填入留言板地址
-realchaturl: http://tmaize.oschina.io/pages/chat
+realchaturl: http://blog.tmaize.net/pages/chat
 
 cssurl: /static/css
 jsurl: /static/js
