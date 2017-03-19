@@ -1,0 +1,54 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+       http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">	
+{% for post in site.posts  %}
+{% if forloop.first %}
+<url>
+<loc>http://blog.tmaize.net</loc>
+<priority>1.00</priority>
+<lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+<changefreq>daily</changefreq>
+</url>
+<url>
+<url>
+<loc>http://blog.tmaize.net/pages/categories</loc>
+<priority>1.00</priority>
+<lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+<changefreq>daily</changefreq>
+</url>
+<url>
+<url>
+<loc>http://blog.tmaize.net/pages/search</loc>
+<priority>1.00</priority>
+<lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+<changefreq>daily</changefreq>
+</url>
+<url>
+<url>
+<loc>http://blog.tmaize.net/pages/links</loc>
+<priority>1.00</priority>
+<lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+<changefreq>daily</changefreq>
+</url>
+<url>
+<url>
+<loc>http://blog.tmaize.net/pages/chat</loc>
+<priority>1.00</priority>
+<lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+<changefreq>daily</changefreq>
+</url>
+{% endif %}
+<url>
+<loc>{{ site.domain }}{{ site.baseurl }}{{ post.url }}</loc>
+<priority>0.5</priority>
+<lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+<changefreq>monthly</changefreq>
+</url>
+{% endfor %}
+

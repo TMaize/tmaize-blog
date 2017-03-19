@@ -17,6 +17,8 @@ abouturl: /pages/about
 # 用于多说评论 填入留言板地址
 realchaturl: http://blog.tmaize.net/pages/chat
 
+domain: http://blog.tmaize.net
+
 cssurl: /static/css
 jsurl: /static/js
 
