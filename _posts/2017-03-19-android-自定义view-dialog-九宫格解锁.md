@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: android 自定义view-九宫格解锁
+title: android 自定义view/dialog-九宫格解锁
 categories: [android]
 ---
 
