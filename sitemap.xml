@@ -15,34 +15,35 @@ layout: null
 <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
 <changefreq>daily</changefreq>
 </url>
-<url>
+
 <url>
 <loc>http://blog.tmaize.net/pages/categories</loc>
 <priority>1.00</priority>
 <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
 <changefreq>daily</changefreq>
 </url>
-<url>
+
 <url>
 <loc>http://blog.tmaize.net/pages/search</loc>
 <priority>1.00</priority>
 <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
 <changefreq>daily</changefreq>
 </url>
-<url>
+
 <url>
 <loc>http://blog.tmaize.net/pages/links</loc>
 <priority>1.00</priority>
 <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
 <changefreq>daily</changefreq>
 </url>
-<url>
+
 <url>
 <loc>http://blog.tmaize.net/pages/chat</loc>
 <priority>1.00</priority>
 <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
 <changefreq>daily</changefreq>
 </url>
+
 {% endif %}
 <url>
 <loc>{{ site.domain }}{{ site.baseurl }}{{ post.url }}</loc>
