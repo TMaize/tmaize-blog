@@ -102,6 +102,7 @@
 
 /*表格样式*/
 #mypost .main table{
+	display: block;
 	min-width: 100%;
 	overflow: auto;
     margin: 13px 0;
