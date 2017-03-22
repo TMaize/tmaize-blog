@@ -1,8 +1,23 @@
 ---
 layout: mypost
-title: Struts2学习笔记02 配置文件
+title: Struts2学习笔记02 配置文件,Action编写访问
 categories: [java]
 ---
+# web.xml配置
+
+```xml
+<filter>
+      <filter-name>struts2</filter-name>
+      <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>/*</url-pattern>
+  </filter-mapping>
+```
+
+注意在2.3版本之前class为`org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter`
 
 # struts配置
 
@@ -78,4 +93,43 @@ name的值来自/org/apache/struts2/default.properties
 </struts>
 ```
 
+# Action
 
+## Action的编写方式
+
+1. 创建普通类，不继承任何类，不实现任何接口
+
+2. 创建类，实现Action接口
+
+3. 创建类，继承ActionSupport（一般使用这种）
+
+第二种和第三种可以使用Action接口里面定义的接口
+另外ActionSupport里面有好多定义好的方法，重写就可以用了
+
+## 通过url访问Action的方法
+
+1. 使用action标签的method属性
+
+    `<action name="test" class="com.day01.Test" method="execute">`
+
+    缺点：访问同一个action的不同方法需要配置好多的action，推荐第二种通配的方式
+
+2. 使用通配符方式实现
+
+    在<action>的name属性中使用*来代表任意字符,当通过url访问user_add时，会执行Action里的add方法
+
+    ```xml
+    <action name="user_*"  class="com.day01.Test" method="{1}">
+        <result name="add">/add.jsp</result>
+        <result name="delete">/add.jsp</result>                                    
+    </action>                 
+    ```
+    注意在struts2.5以后按照上述方式配置会有404错误，要在<action>里面加上一句
+    
+    `<allowed-methods>login</allowed-methods>` 方法名之间用逗号隔开
+
+3. 动态访问实现（不用）
+
+    默认是不开启的`struts.enable.DynamicMethodInvocation = false`需要在常量中配置为true
+
+    <action>中不用配置method，通过url:actionName!methodName.action的方式访问
