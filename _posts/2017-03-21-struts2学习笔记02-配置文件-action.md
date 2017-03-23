@@ -126,7 +126,7 @@ name的值来自/org/apache/struts2/default.properties
     ```
     注意在struts2.5以后按照上述方式配置会有404错误，要在<action>里面加上一句
     
-    `<allowed-methods>login</allowed-methods>` 方法名之间用逗号隔开
+    `<allowed-methods>add</allowed-methods>` 方法名之间用逗号隔开
 
 3. 动态访问实现（不用）
 
