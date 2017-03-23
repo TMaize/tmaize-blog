@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: Struts2学习笔记02 配置文件,Action编写访问
+title: Struts2学习笔记02 配置文件 Action编写访问
 categories: [java]
 ---
 # web.xml配置
@@ -124,9 +124,15 @@ name的值来自/org/apache/struts2/default.properties
         <result name="delete">/add.jsp</result>                                    
     </action>                 
     ```
-    注意在struts2.5以后按照上述方式配置会有404错误，要在<action>里面加上一句
+    注意在struts2.5以后为了提高安全性按照上述方式配置会有404错误，要在<action>里面加上一句
     
-    `<allowed-methods>add</allowed-methods>` 方法名之间用逗号隔开
+    `<allowed-methods>add,delete</allowed-methods>` 方法名之间用逗号隔开
+
+    或者`<allowed-methods>regex:.*</allowed-methods>`
+
+    或者在<package>里面全局配置`<global-allowed-methods>regex:.*</global-allowed-methods>`
+
+    或者在Action里面采用注解 `@AllowedMethods`
 
 3. 动态访问实现（不用）
 
