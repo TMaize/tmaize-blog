@@ -24,7 +24,7 @@ js: [common.js,header.js,totop.js]
 					<a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a>
 					<span>&nbsp;
 					{% for cat in post.categories %}
-						<a href="{{ site.baseurl }}/pages/categories/#{{ cat }}">{{ cat }}</a>
+						<a href="{{ site.baseurl }}/pages/categories#{{ cat }}">{{ cat }}</a>
 					{% endfor %}
 				</li>
 			{% endfor %}
