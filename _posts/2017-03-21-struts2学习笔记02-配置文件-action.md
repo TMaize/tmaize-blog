@@ -95,6 +95,8 @@ name的值来自/org/apache/struts2/default.properties
 
 # Action
 
+servlet和action的区别，servlet默认在第一次访问时创建，action每次访问都是一个新的对象
+
 ## Action的编写方式
 
 1. 创建普通类，不继承任何类，不实现任何接口
