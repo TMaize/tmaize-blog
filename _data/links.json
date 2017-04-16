@@ -2,7 +2,7 @@
 {"name":"码云","url":"http://git.oschina.net/","description":"访问GitHub太慢,只能用这个"},
 {"name":"云签到","url":"http://test.tmaize.net/qiandao/","description":"搭建的贴吧云签到"},
 {"name":"phpMyAdmin","url":"http://test.tmaize.net/phpMyAdmin/","description":"服务器的phpMyAdmin地址"},
-{"name":"Tomcat管理","url":"http://git.oschina.net/","description":"自己服务器的Tomcat的管理地址"},
+{"name":"Tomcat管理","url":"http://test.tmaize.net:8080/","description":"自己服务器的Tomcat的管理地址"},
 {"name":"翻译君","url":"http://tmaize.oschina.io/translate/","description":"自己写的一款在线翻译软件..."},
 {"name":"知乎日报","url":"http://test.tmaize.net:8080/zh_daily2/","description":"自己写的知乎日报网页版,可以查看历史日报..."},
 {"name":"Pixiv Viewer 图源断了","url":"http://tmaize.oschina.io/pixiv_viewer/","description":"自己写的第三方P站看图网站,瀑布流,LightBox,无限加载..."}
