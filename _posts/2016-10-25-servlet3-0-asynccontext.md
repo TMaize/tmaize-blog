@@ -133,3 +133,7 @@ public class Service_1 extends HttpServlet{
 
 }
 ```
+
+效果图
+
+![p1](20161025-01.jpg)
