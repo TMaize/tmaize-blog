@@ -46,7 +46,7 @@ layout: null
 
 {% endif %}
 <url>
-<loc>{{ site.domain }}{{ site.baseurl }}{{ post.url }}</loc>
+<loc>{{ site.baseurl }}{{ post.url }}</loc>
 <priority>0.5</priority>
 <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
 <changefreq>monthly</changefreq>
