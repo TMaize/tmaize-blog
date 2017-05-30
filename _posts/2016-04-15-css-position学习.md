@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: css的position定位
-categories: [html]
+categories: [html/css]
 ---
 
 # 文档流介绍
