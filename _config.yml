@@ -17,4 +17,4 @@ abouturl: /pages/about
 cssurl: /static/css
 jsurl: /static/js
 
-permalink: /posts/:title.html
+permalink: /posts/:year/:month/:day/:title.html
