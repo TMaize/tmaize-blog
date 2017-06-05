@@ -8,7 +8,7 @@ categories: [android]
 
 本以为会有现成的轮子，结果在GitHub上找半天没找到,自己写了一个，[项目地址-GitHub](https://github.com/TMaize/lock-view)
 
-![一种漂亮的Dialog](20170319-01.png)
+![一种漂亮的Dialog](01.png)
 
 # 主要代码实现
 
@@ -215,7 +215,7 @@ categories: [android]
 
 6. Demo预览
 
-    ![Demo预览](20170319-02.gif)
+    ![Demo预览](02.gif)
 
 # 总结
 
