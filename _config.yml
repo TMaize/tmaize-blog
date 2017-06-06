@@ -7,6 +7,8 @@ keywords: TMaize,Blog,TMaize'Blog
 author: TMaize
 
 baseurl: ""
+domainurl: "http://blog.tmaize.net"
+
 home: /
 categoriesurl: /pages/categories
 searchurl: /pages/search
@@ -18,3 +20,5 @@ cssurl: /static/css
 jsurl: /static/js
 
 permalink: /posts/:year/:month/:day/:title.html
+
+beian: "皖ICP备16016174号"
