@@ -20,6 +20,9 @@ function menutoggle(){
 			nav.style.right="-200px";
 		}
 	}
+}
+
+function onscrollmenutoggle(){
 	/*向下滑动到一定程度隐藏菜单*/
 	if (getScrollTop()>200){
 		if(window.getComputedStyle(nav, null).right!="-200px"){
@@ -30,7 +33,9 @@ function menutoggle(){
 
 if (document.all){
     window.attachEvent("onload",menutoggle);
+	window.attachEvent("onscroll",onscrollmenutoggle);
 }
 else{
     window.addEventListener("load",menutoggle,false);
+	window.addEventListener("scroll",onscrollmenutoggle,false);
 }
