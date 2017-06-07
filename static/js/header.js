@@ -1,45 +1,36 @@
 var menu;
 var nav;
-var navopen = false;
 
 function menutoggle(){
 	menu = document.getElementById("menu-tool");
     nav  = document.getElementById("nav");
-    menu.onclick = function () {
-        if (navopen){
-            nav.style.display = "none";
-            navopen = false;
-        }else {
-            nav.style.display = "block";
-            navopen = true;
-        }
+
+	menu.onclick = function () {
+		if(window.getComputedStyle(nav, null).right=="-200px"){
+			nav.style.right="20px";
+		}else{
+			nav.style.right="-200px";
+		}
 		event.stopPropagation();//阻止事件向上冒泡
-        event.cancelBubble = true;//兼容IE
-    }
-}
-function haha(){
-    document.onclick = function () {
-        if(navopen){
-			nav.style.display = "none";
-			navopen = false;
+		event.cancelBubble = true;//兼容IE
+	}
+	/*点击空白处关闭菜单*/
+	document.onclick = function () {
+		if(window.getComputedStyle(nav, null).right!="-200px"){
+			nav.style.right="-200px";
 		}
-    }
-
-	window.onresize = function () {
-        console.info("winonresize........");
-		if(document.body.clientWidth>540){
-			nav.style.display = "block";
-			var navopen = false;
+	}
+	/*向下滑动到一定程度隐藏菜单*/
+	if (getScrollTop()>200){
+		if(window.getComputedStyle(nav, null).right!="-200px"){
+			nav.style.right="-200px";
 		}
-    }
+	}
 }
-
 
 if (document.all){
     window.attachEvent("onload",menutoggle);
-	window.attachEvent("onload",haha);
 }
 else{
     window.addEventListener("load",menutoggle,false);
-	window.addEventListener("load",haha,false);
 }

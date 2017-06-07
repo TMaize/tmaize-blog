@@ -90,10 +90,12 @@
 
     #header .nav{
         position: fixed;
-		display:none;
         top:50px;
-        right:20px;
+		/*移动端打开默认看不到*/
+        right:-200px;
 		z-index: 999;
+		/*过渡效果*/
+		transition: all 500ms ease 0ms;
     }
 
     #header .nav ul{
