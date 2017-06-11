@@ -194,7 +194,7 @@ public class ItemController implements Controller{
 
 再Handler中指定了路径`modelAndView.setViewName("/WEB-INF/jsp/itemList.jsp")`，所以在这个路径下编写ViewResolver所支持的界面，这里的是jsp页面，并且使用了jstl标签库
 
-```jsp
+```
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
