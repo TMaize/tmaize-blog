@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: Spring MVC 运行流程及基本配置代码
+title: SpringMVC 运行流程及基本配置代码
 categories: [java]
 ---
 
