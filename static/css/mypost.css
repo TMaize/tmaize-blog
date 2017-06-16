@@ -135,3 +135,17 @@
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
+
+/*添加动画*/
+#mypost .postinfo{
+    animation-duration: 1s;
+	animation-fill-mode: both;
+	animation-name: fadeInLeft;
+}
+
+/*添加动画*/
+#mypost .main{
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	animation-name: fadeInUp;
+}

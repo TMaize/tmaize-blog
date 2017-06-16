@@ -44,20 +44,10 @@
     }
 }
 
+/*添加动画*/
 #articlelist ul{
 	animation-duration: 1s;
 	animation-fill-mode: both;
 	animation-name: fadeInLeft;
 }
 
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translate3d(-100%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
