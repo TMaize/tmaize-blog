@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: CentOS6.3搭建LNMP环境
-categories: [linux]
+categories: [linux,php]
 ---
 CentOS6.3纯净系统
 
