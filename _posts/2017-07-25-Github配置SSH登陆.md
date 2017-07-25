@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: Github配SSH登陆
+title: Github配置SSH登陆
 categories: [小技巧]
 ---
 
@@ -80,6 +80,8 @@ Hi TMaize! You've successfully authenticated, but GitHub does not provide shell 
 在使用TortoiseGit图形界面clone时老是失败，只需要修改TortoiseGit的设计即可
 
 在设置-网络里配置SSH客户端为`E:\Git\usr\bin\ssh.exe`即可
+
+![p01](01.jpg)
 
 ## 将本地项目的远端https修改为ssh
 
