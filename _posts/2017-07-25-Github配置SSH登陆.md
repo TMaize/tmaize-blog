@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: Github配置SSH登陆
+title: GitHub配置SSH登陆
 categories: [小技巧]
 ---
 
