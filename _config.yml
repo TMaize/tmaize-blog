@@ -22,3 +22,6 @@ jsurl: /static/js
 permalink: /posts/:year/:month/:day/:title.html
 
 beian: "皖ICP备16016174号"
+
+coderay:
+  coderay_tab_width: 4
