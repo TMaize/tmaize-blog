@@ -80,12 +80,18 @@
     }
 
     #header .menu-tool{
-        display: block;
-        width: 22px;
-        height: 22px;
+        display: inline-block;
         float: right;
-        background: url("../img/menu.png");
         margin-top: 2px;
+		font-size: 0;
+    }
+
+	#header .menu-tool em{
+		margin-bottom: 3px;
+		display: block;
+		width: 20px;
+		height: 2px;
+		background: #ccc;
     }
 
     #header .nav{
