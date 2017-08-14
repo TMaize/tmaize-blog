@@ -131,9 +131,21 @@ try{
 
 # Session与本地线程绑定
 
-单线程对象，当多个用户使用时很难保证session是唯一的对象
+为什么要把Session与本地线程绑定？官方对他的解释如下：
 
-通过配置实现本地线程绑定session
+只要你持有SessionFactory，在任何时候、任何地点调用getCurrentSession方法总会返回“当前的”工作单元,也就是自动为每个线程维护一个私有变量空间
+
+openSession方法
+
++ 总是创建一个新的session对象
+
++ 你需要去明确的关闭session对象
+
++ 在单线程环境它比getCurrentSession()更慢
+
++ 你也不需要去配置任何属性，你就能够使用这个方法
+
+getCurrentSession方法
 
 + 如果session不存在，它将创建一个新的session，否则在当前hibernate环境中使用同一个session
 
@@ -142,3 +154,17 @@ try{
 + 在单线程环境它比opensession更快
 
 + 你需要去配置中附加hibernate.current_session_context_class这个属性，才能够调用getCurrentSession()方法否则将会抛出异常
+
+```
+<property name="current_session_context_class">thread</property>
+
+public class HibernateUtil {
+	
+    ...
+	
+    public static Session openCurrentSession() {
+        return sessionFactory.getCurrentSession();
+    }
+    ...
+}
+```
