@@ -1,8 +1,9 @@
 ---
 layout: mypost
-title: Struts2学习笔记02 配置文件 Action编写访问
+title: Struts2学习-02 配置 注解 Action
 categories: [java]
 ---
+
 # web.xml配置
 
 ```xml
@@ -141,3 +142,35 @@ servlet和action的区别，servlet默认在第一次访问时创建，action每
     默认是不开启的`struts.enable.DynamicMethodInvocation = false`需要在常量中配置为true
 
     <action>中不用配置method，通过url:actionName!methodName.action的方式访问
+
+# 注解配置Action
+
+依赖于struts2-convention这个jar包
+
+```
+import javax.annotation.Resource;
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
+import com.opensymphony.xwork2.ActionSupport;
+import dao.UserDao;
+
+@Results({
+	@Result(name="ok",location="/test.jsp"),  
+	@Result(name="failure",location="/failure.jsp")})
+@Action(value="test")
+public class UserAction extends ActionSupport{
+	
+	private static final long serialVersionUID = 1L;
+	
+    //Spring注入
+	@Resource(name="UserDaoImpl")
+	UserDao userDao;
+	
+	@Override
+	public String execute() throws Exception {
+		userDao.sayHello();
+		return "ok";
+	}
+}
+```

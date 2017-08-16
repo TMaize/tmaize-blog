@@ -1,8 +1,9 @@
 ---
 layout: mypost
-title: Struts2学习笔记01 环境搭建 第一个demo
+title: Struts2学习-01 First Demo
 categories: [java]
 ---
+
 # 基本步骤
 
 + 去[Struts官网](http://struts.apache.org/)下载最新的开发包
