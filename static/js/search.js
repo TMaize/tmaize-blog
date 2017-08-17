@@ -2,21 +2,22 @@
 layout: null
 ---
 
-
 function search() {
-    var baseurl = "{{ site.baseurl }}";
-    var categoriesurl = "{{ site.categoriesurl }}";
-    var data = [
-        { % for post in site.posts % } 
-            {
-                "title": "{{ post.title }}",
-                "time": "{{ post.date | date: " % Y / % m / % d " }}",
-                "categories": "{% for cat in post.categories %}{{ cat }}{% if forloop.rindex != 1 %}@{% endif %}{% endfor %}",
-                "url": "{{ post.url }}"
-            }
-            { % if forloop.rindex != 1 % },{ % endif % }
-        { % endfor % }
-    ];
+var baseurl = "{{ site.baseurl }}";
+var categoriesurl = "{{ site.categoriesurl }}";
+var data = [
+{% for post in site.posts %}
+{
+"title" : "{{ post.title }}",
+"time" : "{{ post.date | date: "%Y/%m/%d" }}",
+"categories":"{% for cat in post.categories %}{{ cat }}{% if forloop.rindex != 1 %}@{% endif %}{% endfor %}",
+"url" : "{{ post.url }}"
+}
+{% if forloop.rindex != 1  %}
+,
+{% endif %}
+{% endfor %}
+]
     var text_input = document.getElementById("text-input");
     var searchlist = document.getElementById("searchlist");
     var beforeinput = "";
