@@ -27,13 +27,14 @@ function text_bubble() {
                 document.body.removeChild(span);
             });
         }
-    }
-	//绑定事件
-	if (window.attachEvent) { 
-		window.attachEvent("onclick", bubble); 
-	} else if (window.addEventListener) { 
-		window.addEventListener("click", bubble, false);   
 	}
+	
+    //绑定事件
+    if (window.attachEvent) {
+        window.attachEvent("onclick", bubble);
+    } else if (window.addEventListener) {
+        window.addEventListener("click", bubble, false);
+    }
 }
 
 /**
@@ -43,14 +44,14 @@ function menutoggle() {
     var menu = document.getElementById("menu-tool");
     var nav = document.getElementById("nav");
 
-	//按钮点击
+    //按钮点击
     menu.onclick = function(ev) {
-		var right;
-		if(nav.currentStyle){
-			right=nav.currentStyle.right;
-		}else{
-			right=window.getComputedStyle(nav, null).right;
-		}
+        var right;
+        if (nav.currentStyle) {
+            right = nav.currentStyle.right;
+        } else {
+            right = window.getComputedStyle(nav, null).right;
+        }
         if (right == "-200px") {
             nav.style.right = "20px";
         } else {
@@ -63,67 +64,75 @@ function menutoggle() {
         }
     }
 
-	//点击空白处关闭菜单
-	function closeMenuAtOther(){
-		var right;
-		if(nav.currentStyle){
-			right=nav.currentStyle.right;
-		}else{
-			right=window.getComputedStyle(nav, null).right;
-		}
-		if (right != "-200px") {
+    //点击空白处关闭菜单
+    function closeMenuAtOther() {
+        var right;
+        if (nav.currentStyle) {
+            right = nav.currentStyle.right;
+        } else {
+            right = window.getComputedStyle(nav, null).right;
+        }
+        if (right != "-200px") {
             nav.style.right = "-200px";
         }
-	}
+    }
 
-	//滚动到一定高度自动关闭
-	function onscrollmenutoggle() {
-		var scrollTop = 0;
-		if (document.documentElement && document.documentElement.scrollTop) {
-			scrollTop = document.documentElement.scrollTop;
-		} else if (document.body) {
-			scrollTop = document.body.scrollTop;
-		}
-		if (scrollTop > 200) {
-			nav.style.right = "-200px";
-		}
-	}
+    //滚动到一定高度自动关闭
+    function onscrollmenutoggle() {
+        var scrollTop = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+            scrollTop = document.body.scrollTop;
+        }
+        if (scrollTop > 200) {
+            nav.style.right = "-200px";
+        }
+    }
 
-	//绑定事件
-	if (window.attachEvent) { 
-		window.attachEvent("onclick", closeMenuAtOther); 
-		window.attachEvent("onscroll", onscrollmenutoggle);
-	} else if (window.addEventListener) { 
-		window.addEventListener("click", closeMenuAtOther, false);
-		window.addEventListener("scroll", onscrollmenutoggle, false);
-	}
+    //绑定事件
+    if (window.attachEvent) {
+        window.attachEvent("onclick", closeMenuAtOther);
+        window.attachEvent("onscroll", onscrollmenutoggle);
+    } else if (window.addEventListener) {
+        window.addEventListener("click", closeMenuAtOther, false);
+        window.addEventListener("scroll", onscrollmenutoggle, false);
+    }
 }
 
 /**
  * 回到顶部
  */
-function toTop(){
-	var totop = document.getElementById("totop");
-	var scrollTop = 0;
-	if (document.documentElement && document.documentElement.scrollTop) {
-		scrollTop = document.documentElement.scrollTop;
-	} else if (document.body) {
-		scrollTop = document.body.scrollTop;
-	}
-	if (scrollTop>200){
-		totop.style.display = "block";
-	}else{
-		totop.style.display = "none";
-	}	
+function toTop() {
+    function top() {
+        var totop = document.getElementById("totop");
+        var scrollTop = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+            scrollTop = document.body.scrollTop;
+        }
+        if (scrollTop > 200) {
+            totop.style.display = "block";
+        } else {
+            totop.style.display = "none";
+        }
+    }
+    /*绑定事件*/
+    if (window.attachEvent) {
+        window.attachEvent("onscroll", top);
+    } else if (window.addEventListener) {
+        window.addEventListener("scroll", top, false);
+    }
 }
 
 /*绑定事件*/
-if (window.attachEvent) { 
-	window.attachEvent("onload", text_bubble);
-	window.attachEvent("onload", menutoggle); 
-	window.attachEvent("onscroll",totopcroll);
-} else if (window.addEventListener) { 
-	window.addEventListener("load", text_bubble, false); 
-	window.addEventListener("load", menutoggle, false); 
-	window.addEventListener("scroll",totopcroll,false);
-}             
+if (window.attachEvent) {
+    window.attachEvent("onload", text_bubble);
+    window.attachEvent("onload", menutoggle);
+    window.attachEvent("onload", toTop);
+} else if (window.addEventListener) {
+    window.addEventListener("load", text_bubble, false);
+    window.addEventListener("load", menutoggle, false);
+    window.addEventListener("load", toTop, false);
+}
