@@ -4,9 +4,9 @@ function hidetip() {
 	tip.style.display = "none";
 }
 
-if (document.all){
-    window.attachEvent("onload",hidetip);
-}
-else{
-    window.addEventListener("load",hidetip,false);
+/*绑定事件*/
+if (window.attachEvent) { 
+	window.attachEvent("onload", hidetip);
+} else if (window.addEventListener) { 
+	window.addEventListener("load", hidetip, false);
 }
