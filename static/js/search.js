@@ -1,6 +1,6 @@
-// ---
-// layout: null
-// ---
+---
+layout: null
+---
 
 
 function search() {
@@ -32,7 +32,7 @@ function search() {
         li.innerHTML = node;
         searchlist.appendChild(li);
     }
-    
+
     function inputchange() {
         var currentinput = text_input.value;
 
