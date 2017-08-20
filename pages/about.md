@@ -52,6 +52,10 @@ Stay hungry, Stay foolish，努力去尝试新事物才能不被这社会淘汰.
 
 + Email : tmaize@qq.com
 
++ 知乎 : [https://www.zhihu.com/people/tmaize/](https://www.zhihu.com/people/tmaize/)
+
++ SegmentFault : [https://segmentfault.com/u/tmaize](https://segmentfault.com/u/tmaize)
+
 + GitHub : [https://github.com/tmaize](https://github.com/tmaize)
 
 + OSChina : 不怎么用了/[https://git.oschina.net/tmaize](https://git.oschina.net/tmaize)
