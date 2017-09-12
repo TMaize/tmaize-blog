@@ -139,9 +139,11 @@ Handler开发完毕之后别忘了在配置文件中加载Handler，或者采用
 
 + HttpSession
 
-+ Model/ModelMap
++ 基本数据类型
 
-    模型类，一系列setAttribute之类的方法，数据放进去后就不用管了，然后在页面可以取到这些数据
++ JavaBean/JavaBean的关联类
+
++ list/map/数组
 
 ## 简单类型
 
@@ -163,15 +165,33 @@ public void list(@RequestParam(value="id",required=true) int itemId){
 }
 ```
 
-## pojo绑定
+## JavaBean及关联对象
 
-和基本类型的绑定相似，不过绑定的是pojo的属性,他会自动在pojo属性名和请求参数属性名中找到一样的，然后赋值
+和基本类型的绑定相似，根据JAVABean的set方法和请求参数属性名中找到一样的，然后赋值
 
 比如请求url`listItem.action?name=hello&id=10`
 
 ```java
 public void listItem(Item item){
     item.toString()//Item [id=10, name=hello]
+}
+```
+
+如果JavaBean有关联对象，比如Item里面有Prouduct类
+
+```
+?id=10&product.id=1&product.name=haha
+
+public class Item {
+	private int id;
+	private Product product;
+	//get/set...
+}
+
+public class Product {
+	private int id;
+	private String name;
+	//get/set...
 }
 ```
 
