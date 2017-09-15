@@ -1,0 +1,78 @@
+---
+layout: mypost
+title: SpringMVC常见问题
+categories: [java]
+---
+
+# DispatcherServlet的影响
+
+serlvet的匹配规则：
+
+1. 路径精确匹配
+
+2. 最长路径匹配
+
+3. 扩展匹配
+
+4. 如果容器定义了一个default servelt（即匹配路径为"/"的servlet），则会将请求交给default servlet
+
+在web.xml为DispatcherServlet配置url-pattern时
+
+如果配置为`/`时候,表示未默认servelt，只有当请求没有对应的servlet处理时，才交给它处理，当我们请求jsp时，刚好有从`%TOMCAT_HOME%/conf/web.xml`中继承过来的JspServlet会处理对jsp请求的处理，所以会优先访问到jsp页面
+
+配置为`/*`，照servlet的匹配规则，则路径匹配会优先于扩展匹,会把所有的请求交给spring,导致对jsp的请求会被拦截掉
+
+当采用`/*`的规则时，所有的请求都给Spring，访问1.jsp不会到1.jsp文件而是到controller，由于getRequestDispatcher再forward也是一次匹配过程，由于是`/*`，这个匹配过程也是交给spring然后再来到controller，进而报错（使用传统的getRequestDispatcher会陷入死循环耗尽资源，使用spring返回视图名者则会提示错误）
+
+由此可见getRequestDispatcher并不是带上数据到文件，而是再次匹配，然后匹配到文件，中间有一个再次匹配的过程，匹配取决于你的url-pattern
+
+```
+//p:prefix="/" p:suffix=".jsp"
+@RequestMapping("/1.jsp")
+public String test1() {
+    return "1";//=>1.jsp
+}
+```
+
+# 解决@ResponseBody乱码
+
+```
+<mvc:annotation-driven>
+    <mvc:message-converters register-defaults="true">
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+            <constructor-arg value="UTF-8" />
+            <property name="writeAcceptCharset" value="false" />
+        </bean>
+    </mvc:message-converters>
+</mvc:annotation-driven>
+```
+
+# 解决静态资源404
+
+由于在web.xml中做了如下配置,表示对所有请求进行拦截
+
+```
+<servlet-mapping>
+    <servlet-name>DispatcherServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
+```
+
+可以使用静态资源过滤器来解决
+
+```
+<!-- 过滤静态资源文件 -->
+<mvc:resources location="/static/" mapping="/static/**" />
+```
+
+# 静态资源过滤导致Controller扫包失效
+
+有时候配置了静态资源过滤器后，所有的Controller都404了
+
+```
+把
+<context:annotation-config></context:annotation-config>
+换成
+<mvc:annotation-driven></mvc:annotation-driven>
+即可
+```
