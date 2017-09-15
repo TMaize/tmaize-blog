@@ -50,7 +50,7 @@ Stay hungry, Stay foolish，努力去尝试新事物才能不被这社会淘汰.
 
 + QQ : 1772314831
 
-+ Email : tmaize@qq.com <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YBQNAQkaBSAREU4DDw0" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_21.png"/></a>
++ Email : tmaize@qq.com   [![](http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_21.png)](http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=YBQNAQkaBSAREU4DDw0)
 
 + 知乎 : [https://www.zhihu.com/people/tmaize/](https://www.zhihu.com/people/tmaize/)
 
