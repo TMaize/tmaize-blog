@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: SpringMVC 注解配置 参数绑定 拦截器
+title: SpringMVC 注解 数据传递 拦截器
 categories: [java]
 ---
 
@@ -111,10 +111,18 @@ public class ItemController{
 
     类型为ModelAndView时，可以手动创建ModelAndView，在ModelAndView中定义视图和数据
 
-    类型为String时，表示返回逻辑视图名比如`return "/WEB-INF/jsp/itemList.jsp"`，重定向`redirect:queryItems`,转发`forword:queryItem.action`
+    类型为String时，表示返回逻辑视图名比如`return "/WEB-INF/jsp/itemList.jsp"`，重定向`redirect:queryItems`,转发`forward:queryItem.action`
 
     类型为Void时，则比较自由，通过形参传递过来的HttpServletRequest和HttpServletResponse可以做任何操作
 
+附加：除了ModelAndView方式外。还可以使用Map、Model和ModelMap来向前台页面传递数据,使用后面3种方式，都是在方法参数中，指定一个该类型的参数,重定向后数据会拼接在url后面
+
+```
+public String test(Map<String,Object> map,Model model,ModelMap modelMap)
+```
+
+
+　　使用后面3种方式，都是在方法参数中，指定一个该类型的参数
 
 Handler开发完毕之后别忘了在配置文件中加载Handler，或者采用组件扫描的方式，自动扫描要加载的组件（Handler）
 
@@ -139,7 +147,7 @@ Handler开发完毕之后别忘了在配置文件中加载Handler，或者采用
 
 + HttpSession
 
-+ 基本数据类型
++ 基本数据类型/包装类
 
 + JavaBean/JavaBean的关联类
 
