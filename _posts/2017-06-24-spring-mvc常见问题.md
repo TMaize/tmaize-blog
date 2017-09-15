@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: SpringMVC常见问题
+title: SpringMVC 常见问题
 categories: [java]
 ---
 
@@ -46,6 +46,28 @@ public String test1() {
     </mvc:message-converters>
 </mvc:annotation-driven>
 ```
+
+# POST请求乱码
+
+post提交表单乱码，在web.xml添加如下配置
+
+```
+<!-- 中文乱码过滤器 -->
+<filter>
+    <filter-name>characterEncoding</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+    </init-param>
+</filter>
+
+<filter-mapping>
+    <filter-name>characterEncoding</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+```
+
 
 # 解决静态资源404
 
