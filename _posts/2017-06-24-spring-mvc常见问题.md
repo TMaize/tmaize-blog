@@ -98,3 +98,87 @@ post提交表单乱码，在web.xml添加如下配置
 <mvc:annotation-driven></mvc:annotation-driven>
 即可
 ```
+
+# component-scan位置不当404
+
+一开始Spring和SpringMVC的配置都是一个文件，一点问题没有
+
+后来把一个文件拆分成两个文件，分别是applicationContext.xml和spring-mvc.xml，为的是结构清晰，结果导致所有的controller 404
+
+web.xml配置如下
+
+```
+<!-- 配置Spring容器 -->
+<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:config/applicationContext.xml</param-value>
+</context-param>
+<listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+
+<!-- 配置SpringMVC -->
+<servlet>
+    <servlet-name>springmvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:config/spring-mvc.xml</param-value>
+    </init-param>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>springmvc</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
+```
+
+ 原因就是Spring是父容器，Spring MVC是子容器，子容器可以访问父容器的bean，父容器不能访问子容器的bean，而MVC容器默认查找当前容器的Controller，所以界面出现404。
+
+有两种解决方式
+
+1. 还是使用以前的单文件配置，所有的spring配置在一个文件里,web.xml只需要如下配置即可
+
+    ```
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <!-- 里面有spring和springMVC的配置 -->
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+    </servlet>
+    ```
+
+2. 分开扫描，springmvc只负责扫描controller
+
+    applicationContext.xml文件
+
+    ```
+    <!-- 扫包，不用net.tmaize.crm.* -->
+    <context:component-scan base-package="net.tmaize.crm">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+    ```
+
+    spring-mvc.xml文件
+
+    ```
+    <!-- 自动扫包 ,Controller -->
+    <context:component-scan base-package="net.tmaize.crm.controller" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+    ```
+
+
+
+ # 拦截器失效
+
+ 为了测试拦截器是否生效，在拦截器里面写了一个输出语句
+ 
+ 访问/admin/xx老是不打印那条语句
+
+debug之后才知道拦截器是用来拦截Controller的，我的AdminController并没有一个方法匹配/admin/xx，所以是不会拦截的，即使你的拦截路径是`/admin/**`
+
+
