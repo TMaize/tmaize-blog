@@ -171,13 +171,11 @@ web.xml配置如下
     </context:component-scan>
     ```
 
+# 拦截器失效
 
+为了测试拦截器是否生效，在拦截器里面写了一个输出语句
 
- # 拦截器失效
-
- 为了测试拦截器是否生效，在拦截器里面写了一个输出语句
- 
- 访问/admin/xx老是不打印那条语句
+访问/admin/xx老是不打印那条语句
 
 debug之后才知道拦截器是用来拦截Controller的，我的AdminController并没有一个方法匹配/admin/xx，所以是不会拦截的，即使你的拦截路径是`/admin/**`
 
