@@ -266,7 +266,7 @@ var canvas = originImage.cropper('getCroppedCanvas', {
 });
 ```
 
-#使用Canvas缩放以及压缩图片
+# 使用Canvas缩放以及压缩图片
 
 ```
 image object
