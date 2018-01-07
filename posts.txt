@@ -1,7 +1,4 @@
 ---
 layout: null
 ---
-{% for post in site.posts  %}
-{{ site.scheme }}://{{ site.domain }}{{ post.url }}
-{% endfor %}
-</urlset>
+{% for post in site.posts  %}{{ site.scheme }}://{{ site.domain }}{{ post.url }}{% endfor %}
