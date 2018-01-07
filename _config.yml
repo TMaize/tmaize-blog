@@ -1,27 +1,23 @@
 encoding: utf-8
-title: TMaize'Blog
 
 # seo
+title: TMaize'Blog
 description: TMaize'Blog
 keywords: TMaize,Blog,TMaize'Blog
 author: TMaize
 
-baseurl: ""
-domainurl: "http://blog.tmaize.net"
+# "","/blog"
+context: ""
+scheme: "http"
+domain: "blog.tmaize.net"
 
-home: /
-categoriesurl: /pages/categories
-searchurl: /pages/search
-linksurl: /pages/links
-chaturl: /pages/chat
-abouturl: /pages/about
-
-cssurl: /static/css
-jsurl: /static/js
-
+## 文章url前缀 context/自定义，下面的context为''
 permalink: /posts/:year/:month/:day/:title.html
 
-beian: "皖ICP备16016174号"
+copyright: 2016
+beianhao: "皖ICP备16016174号"
+
+sitemap-prefix: "http://blog.tmaize.net"
 
 coderay:
   coderay_tab_width: 4

@@ -1,5 +1,7 @@
-<footer>Copyright ©2016 <a href="{{ site.beian }}">皖ICP备16016174号</a> Powered by <a href="http://jekyll.com.cn/">jekyll</a></footer>
+<a href="#" id="totop">Top</a>
+<footer>Copyright ©{{site.copyright}} {{ site.beianhao }} <a href="{{site.context}}/sitemap.xml">网站地图</a> Powered by <a href="http://jekyll.com.cn/">jekyll</a></footer>
 <script>
+//百度的自动推送
 (function(){
     var bp = document.createElement('script');
     var curProtocol = window.location.protocol.split(':')[0];
@@ -11,5 +13,10 @@
     }
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
+})();
+//360的自动推送
+(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?0b7f3f19682121293c3e4b62c9740281":"https://jspassport.ssl.qhimg.com/11.0.1.js?0b7f3f19682121293c3e4b62c9740281";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
 })();
 </script>

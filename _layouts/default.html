@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html baseurl="{{site.baseurl}}">
+<html context="{{site.context}}">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="baidu-site-verification" content="egrsnYuYcp" />
-		<meta name="google-site-verification" content="ckhUaoa05QCmWoE1FafzTBcqYI4yBOy-UJKopXDS18M" />
 		<meta name="description" content="{{ site.description }}"/>
 		<meta name="keywords" content="{{ site.keywords }}"/>
 		<meta name="author" content="{{ site.author }}" />
 		<meta name="robots" content="all">
 		{% for css in page.css %}
-			<link rel="stylesheet" href="{{site.cssurl}}/{{ css }}">
+			<link rel="stylesheet" href="{{site.context}}/static/css/{{ css }}">
 		{% endfor %}
 		{% for js in page.js %}
-			<script type="text/javascript" src="{{site.jsurl}}/{{ js }}"></script>
+			<script type="text/javascript" src="{{site.context}}/static/js/{{ js }}"></script>
 		{% endfor %}
 		<title>{% if page.title %}{{ page.title }} {% else %}{{ site.title }}{% endif %}</title>
 	</head>
@@ -21,6 +19,5 @@
 {% include header.html %}
     {{ content }}
 {% include footer.html %}
-{% include totop.html %}
 </body>
 </html>
