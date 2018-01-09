@@ -3,15 +3,13 @@ layout: null
 ---
 
 function search() {
-var baseurl = "{{ site.baseurl }}";
-var categoriesurl = "{{ site.categoriesurl }}";
 var data = [
 {% for post in site.posts %}
 {
 "title" : "{{ post.title }}",
 "time" : "{{ post.date | date: "%Y/%m/%d" }}",
 "categories":"{% for cat in post.categories %}{{ cat }}{% if forloop.rindex != 1 %}@{% endif %}{% endfor %}",
-"url" : "{{ post.url }}"
+"url" : "{{site.context}}{{ post.url }}"
 }
 {% if forloop.rindex != 1  %}
 ,
@@ -25,10 +23,10 @@ var data = [
     function addnode(json) {
         var li = document.createElement('li');
         var node = "<time>" + json.time + "&nbsp;</time>";
-        node += "<a href=\"" + baseurl + json.url + "\">" + json.title + "</a>";
+        node += "<a href='" + json.url + "'>" + json.title + "</a>";
         var arr = json.categories.split("@");
         for (var j = 0; j < arr.length; j++) {
-            node += "<span>&nbsp;<a href=\"" + categoriesurl + "#" + arr[j] + "\">" + arr[j] + "</a></span>";
+            node += "<span>&nbsp;<a href='{{site.context}}/pages/categories.html#" + arr[j] + "'>" + arr[j] + "</a></span>";
         }
         li.innerHTML = node;
         searchlist.appendChild(li);

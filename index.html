@@ -16,10 +16,10 @@ js: [common.js]
 		{% if this_year == next_year %}
 			<li>
 				<time>{{ post.date | date: "%Y/%m/%d" }}&nbsp;</time>
-				<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+				<a href="{{site.context}}{{ post.url }}">{{ post.title }}</a>
 				<span>&nbsp;
 					{% for cat in post.categories %}
-						<a href="{{ site.categoriesurl }}#{{ cat }}">{{ cat }}</a>
+						<a href="{{site.context}}/pages/categories.html#{{ cat }}">{{ cat }}</a>
 					{% endfor %}
 				</span>
 			</li>
@@ -27,10 +27,10 @@ js: [common.js]
 			{% if forloop.last %}
 					<li>
 						<time>{{ post.date | date: "%Y/%m/%d" }}&nbsp;</time>
-						<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+						<a href="{{site.context}}{{ post.url }}">{{ post.title }}</a>
 						<span>&nbsp;
 							{% for cat in post.categories %}
-								<a href="{{ site.categoriesurl }}#{{ cat }}">{{ cat }}</a>
+								<a href="{{site.context}}/pages/categories.html#{{ cat }}">{{ cat }}</a>
 							{% endfor %}
 						</span>
 					</li>
@@ -38,10 +38,10 @@ js: [common.js]
 			{% else %}
 					<li>
 						<time>{{ post.date | date: "%Y/%m/%d" }}&nbsp;</time>
-						<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+						<a href="{{site.context}}{{ post.url }}">{{ post.title }}</a>
 						<span>&nbsp;
 							{% for cat in post.categories %}
-								<a href="{{ site.categoriesurl }}#{{ cat }}">{{ cat }}</a>
+								<a href="{{site.context}}/pages/categories.html#{{ cat }}">{{ cat }}</a>
 							{% endfor %}
 						</span>
 					</li>

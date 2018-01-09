@@ -21,10 +21,10 @@ js: [common.js]
 			{% for post in category[1] %}
 				<li>
 					<time>{{ post.date | date: "%Y/%m/%d" }}&nbsp;</time>
-					<a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a>
+					<a href="{{ site.context }}{{ post.url}}">{{ post.title }}</a>
 					<span>&nbsp;
 					{% for cat in post.categories %}
-						<a href="{{ site.baseurl }}/pages/categories#{{ cat }}">{{ cat }}</a>
+						<a href="#{{ cat }}">{{ cat }}</a>
 					{% endfor %}
 				</li>
 			{% endfor %}
