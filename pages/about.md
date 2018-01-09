@@ -11,16 +11,13 @@ title: 关于我
 
 再后来看到了别人的GitHub Page，发现把博客托管到GitHub这里很省事，遂写了一套jekyll主题(就是现在这个，在一点点完善)，用于记录自己的学习笔记（没有一点技术含量的文章），便于自己查阅
 
-**就是这样o(≧v≦)o~~**
-
-Stay hungry, Stay foolish，努力去尝试新事物才能不被这社会淘汰......
-
 # 作品展示
 
-一些练习的小项目就不展示了
++ [tmaize-blog](https://github.com/TMaize/tmaize-blog)
 
-+ 酝酿中…
+    你现在看到的这个博客
 
++ 有待添加...
 
 # 相关技能
 
