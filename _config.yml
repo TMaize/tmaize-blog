@@ -17,7 +17,5 @@ permalink: /posts/:year/:month/:day/:title.html
 copyright: 2016
 beianhao: "皖ICP备16016174号"
 
-sitemap-prefix: "http://blog.tmaize.net"
-
 coderay:
   coderay_tab_width: 4

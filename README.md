@@ -41,9 +41,6 @@ permalink: /posts/:year/:month/:day/:title.html
 copyright: 2016
 beianhao: "皖ICP备16016174号"
 
-# 生成的站点地图前缀
-sitemap-prefix: "http://blog.tmaize.net"
-
 coderay:
   coderay_tab_width: 4
 ```
@@ -66,5 +63,9 @@ coderay:
 + pages/chat.html
 
     请把多说的评论替换或者删除
+
++ CNAME
+
+    如果支持cname请换成你自己的域名
 
 
