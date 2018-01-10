@@ -2,16 +2,15 @@
 <html context="{{site.context}}">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-language" content="zh-CN" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="description" content="{{ site.description }}"/>
-		<meta name="keywords" content="{{ site.keywords }},{{ page.title }}"/>
+		<meta name="keywords" content="{{ page.title }}"/>
 		<meta name="author" content="{{ site.author }}" />
-		<meta name="robots" content="all">
 		<link rel="stylesheet" href="{{site.context}}/static/css/common.css">
 		<link rel="stylesheet" href="{{site.context}}/static/css/syntax.css">
 		<link rel="stylesheet" href="{{site.context}}/static/css/mypost.css">
 		<script type="text/javascript" src="{{site.context}}/static/js/common.js"></script>
-		<title>{{ page.title }}</title>
+		<title>{{ page.title }}-{{ site.title }}</title>
 	</head>
 <body>
 {% include header.html %}

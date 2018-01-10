@@ -2,18 +2,18 @@
 <html context="{{site.context}}">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-language" content="zh-CN" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<meta name="description" content="{{ site.description }}"/>
 		<meta name="keywords" content="{{ site.keywords }}"/>
 		<meta name="author" content="{{ site.author }}" />
-		<meta name="robots" content="all">
 		{% for css in page.css %}
 			<link rel="stylesheet" href="{{site.context}}/static/css/{{ css }}">
 		{% endfor %}
 		{% for js in page.js %}
 			<script type="text/javascript" src="{{site.context}}/static/js/{{ js }}"></script>
 		{% endfor %}
-		<title>{% if page.title %}{{ page.title }} {% else %}{{ site.title }}{% endif %}</title>
+		<title>{% if page.title %}{{ page.title }}-{{ site.title }} {% else %}{{ site.title }}{% endif %}</title>
 	</head>
 <body>
 {% include header.html %}
