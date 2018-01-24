@@ -4,7 +4,7 @@ title: SpringMVC 常见问题
 categories: [java]
 ---
 
-# DispatcherServlet的影响
+## DispatcherServlet的影响
 
 serlvet的匹配规则：
 
@@ -34,7 +34,7 @@ public String test1() {
 }
 ```
 
-# 解决@ResponseBody乱码
+## 解决@ResponseBody乱码
 
 ```
 <mvc:annotation-driven>
@@ -47,7 +47,7 @@ public String test1() {
 </mvc:annotation-driven>
 ```
 
-# POST请求乱码
+## POST请求乱码
 
 post提交表单乱码，在web.xml添加如下配置
 
@@ -69,7 +69,7 @@ post提交表单乱码，在web.xml添加如下配置
 ```
 
 
-# 解决静态资源404
+## 解决静态资源404
 
 由于在web.xml中做了如下配置,表示对所有请求进行拦截
 
@@ -87,7 +87,7 @@ post提交表单乱码，在web.xml添加如下配置
 <mvc:resources location="/static/" mapping="/static/**" />
 ```
 
-# 静态资源过滤导致Controller扫包失效
+## 静态资源过滤导致Controller扫包失效
 
 有时候配置了静态资源过滤器后，所有的Controller都404了
 
@@ -99,7 +99,7 @@ post提交表单乱码，在web.xml添加如下配置
 即可
 ```
 
-# component-scan位置不当404
+## component-scan位置不当404
 
 一开始Spring和SpringMVC的配置都是一个文件，一点问题没有
 
@@ -171,7 +171,7 @@ web.xml配置如下
     </context:component-scan>
     ```
 
-# 拦截器失效
+## 拦截器失效
 
 为了测试拦截器是否生效，在拦截器里面写了一个输出语句
 

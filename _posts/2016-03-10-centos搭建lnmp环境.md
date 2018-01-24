@@ -7,14 +7,14 @@ CentOS6.3纯净系统
 
 安装的软件`nginx-1.10.1` `mysql-5.6.31` `php-5.6.23`
 
-# 准备
+## 准备
 
 ```shell
 yum update
 yum groupinstall -y "Development Tools"
 ```
 
-# 安装nginx
+## 安装nginx
 
 ```shell
 wget http://nginx.org/download/nginx-1.10.1.tar.gz
@@ -56,7 +56,7 @@ make install
 安装成功
 ```
 
-## nginx配置
+### nginx配置
 
 ```shell
 vi /usr/local/nginx/conf/nginx.conf
@@ -131,7 +131,7 @@ chgrp -R www-web /www.tmaize.net/
 至此mysql配置完成
 ```
 
-# 安装Mysql
+## 安装Mysql
 
 ```shell
 清除mysql相关
@@ -171,7 +171,7 @@ make  //大概需要20分钟
 make install
 ```
 
-## 配置mysql
+### 配置mysql
 
 ```shell
 配置用户及权限
@@ -221,7 +221,7 @@ FLUSH privileges; //更新权限
 至此mysql配置完成，更多配置请修改配置文件
 ```
 
-## mysql优化
+### mysql优化
 
 ```shell
 安装之后发现mysql的内存占用大概在400M左右，对1G内存的机器实在是吃力
@@ -276,7 +276,7 @@ service mysql start  //旧窗口
 ```
 
 
-# php安装前准备
+## php安装前准备
 
 ```shell
 把php相关的卸载干净
@@ -309,7 +309,7 @@ yum install -y zlib-devel libmcrypt-devel  mhash-devel  libcurl-devel bzip2-deve
 
 ```
 
-## php安装
+### php安装
 
 ```shell
 ./configure \
@@ -398,7 +398,7 @@ php -v  //显示PHP版本
 至此php基本配置完成
 ```
 
-# 总结
+## 总结
 
 
 以上只是一些简单的安装步骤，并没有做详细的配置

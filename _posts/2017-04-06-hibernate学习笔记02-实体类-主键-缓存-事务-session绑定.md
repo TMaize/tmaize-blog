@@ -4,7 +4,7 @@ title: Hibernate学习笔记02 实体类 主键生成 缓存 事务 session绑�
 categories: [java]
 ---
 
-# 实体类编写规则
+## 实体类编写规则
 
 1. 实体类的属性时时私有的
 
@@ -16,7 +16,7 @@ categories: [java]
 
     例如学生成绩 `int score = 0;Integer score = 0`只能表示成绩为0，而`Integer score = null`可以表示没有参加考试
 
-# 常用主键生成策略
+## 常用主键生成策略
 
 ```xml
 <id name="id" column="id">
@@ -57,7 +57,7 @@ categories: [java]
 
 7. .....
 
-# 实体对象的三种状态
+## 实体对象的三种状态
 
 1. 瞬时态/临时对象：
     
@@ -87,7 +87,7 @@ categories: [java]
     
     比瞬时对象多了一个数据库记录标识值
 
-# 缓存
+## 缓存
 
 数据存放到数据库中，数据库本身是文件系统，使用流的方式操作文件效率不高
 
@@ -105,7 +105,7 @@ categories: [java]
 
     + 使用范围是项目的范围，即sessionFactory的范围
 
-# 事务
+## 事务
 
 ```java
 try{
@@ -129,7 +129,7 @@ try{
 
     脏读，不可重复读，虚读
 
-# Session与本地线程绑定
+## Session与本地线程绑定
 
 为什么要把Session与本地线程绑定？官方对他的解释如下：
 

@@ -4,7 +4,7 @@ title: Struts2学习-02 配置 注解 Action
 categories: [java]
 ---
 
-# web.xml配置
+## web.xml配置
 
 ```xml
 <filter>
@@ -20,7 +20,7 @@ categories: [java]
 
 注意在2.3版本之前class为`org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter`
 
-# struts配置
+## struts配置
 
 ```xml
 <struts>
@@ -33,7 +33,7 @@ categories: [java]
 </struts>
 ```
 
-## package标签
+### package标签
 
 类似java的包，用于区分不同的action。必须先写package标签才能配置action
 
@@ -43,7 +43,7 @@ categories: [java]
 
 3. namespace属性。url访问路径的前缀，和action的name构成访问路径。可以不写，默认值是/
 
-## action标签
+### action标签
 
 主要是配置action的访问路径
 
@@ -53,7 +53,7 @@ categories: [java]
 
 3. method属性，配置默认执行的方法。一般action默认执行execute方法
 
-# result标签
+## result标签
 
 根据action的返回值跳到不同的页面/action。如果是页面，需要加上/，表示WebContent的根目录
 
@@ -74,7 +74,7 @@ categories: [java]
 |xslt|org.apache.struts2.views.xslt.XSLTResult|呈现XML到浏览器，该XML可以通过XSL模板进行转换|
 |plaintext |org.apache.struts2.dispatcher.PlainTextResult|返回普通文本|
 
-## 常量配置
+### 常量配置
 
 `<constant name="" value=""></constant>`
 
@@ -83,7 +83,7 @@ name的值来自/org/apache/struts2/default.properties
 还有两种配置方式两种方式(1)在src下面建立struts.properties文件(2)在webxml进行配置。
 不过这两种不常用
 
-# 分模块开发的配置
+## 分模块开发的配置
 
 为了防止多人对同一个配置文件的修改，可以在核心配置里面引入用户配置，然后每个人修改自己的配置即可。
 
@@ -94,11 +94,11 @@ name的值来自/org/apache/struts2/default.properties
 </struts>
 ```
 
-# Action
+## Action
 
 servlet和action的区别，servlet默认在第一次访问时创建，action每次访问都是一个新的对象
 
-## Action的编写方式
+### Action的编写方式
 
 1. 创建普通类，不继承任何类，不实现任何接口
 
@@ -109,7 +109,7 @@ servlet和action的区别，servlet默认在第一次访问时创建，action每
 第二种和第三种可以使用Action接口里面定义的接口
 另外ActionSupport里面有好多定义好的方法，重写就可以用了
 
-## 通过url访问Action的方法
+### 通过url访问Action的方法
 
 1. 使用action标签的method属性
 
@@ -143,7 +143,7 @@ servlet和action的区别，servlet默认在第一次访问时创建，action每
 
     <action>中不用配置method，通过url:actionName!methodName.action的方式访问
 
-# 注解配置Action
+## 注解配置Action
 
 依赖于struts2-convention这个jar包
 

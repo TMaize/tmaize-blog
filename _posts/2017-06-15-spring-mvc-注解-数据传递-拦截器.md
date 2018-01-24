@@ -4,17 +4,17 @@ title: SpringMVC 注解 数据传递 拦截器
 categories: [java]
 ---
 
-# 多样化的配置
+## 多样化的配置
 
 Spring MVC 的配置非常灵活，可以多种配置混用，多个映射器可以并存，多个处理器可以并存，也可以使用注解的方式配置来简化开发
 
-## 不做配置
+### 不做配置
 
 不配置也可运行，因为有默认的,在`/org/springframework/web/servlet/DispatcherServlet.properties`中给定
 
 不过还是建议做好配置
 
-## 常见的非注解的映射器和处理器
+### 常见的非注解的映射器和处理器
 
 这里列举几种常见的映射器和处理器的配置方式
 
@@ -46,7 +46,7 @@ Spring MVC 的配置非常灵活，可以多种配置混用，多个映射器可
 <bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"></bean>
 ```
 
-## 注解的映射器和处理器
+### 注解的映射器和处理器
 
 **注意**注解的映射器和处理器在spring3.1之前之后不同
 
@@ -74,7 +74,7 @@ Spring MVC 的配置非常灵活，可以多种配置混用，多个映射器可
 <mvc:annotation-driven></mvc:annotation-driven>
 ```
 
-# 注解方式开发
+## 注解方式开发
 
 注解开发主要集中到Controller的开发
 
@@ -133,13 +133,13 @@ Handler开发完毕之后别忘了在配置文件中加载Handler，或者采用
 </context:component-scan>
 ```
 
-# 参数绑定
+## 参数绑定
 
 注解的Controller没有实现任何接口，里面的方法都是我们自己定义的，如何在Controller里面获取数据呢，SpringMVC为我们提供了一个非常简便的方法，那就是参数绑定
 
 从客户端请求key/value数据，经过参数绑定将数据绑定到Controller方法的形参上面，然后再方法内部直接使用
 
-## 默认支持的类型
+### 默认支持的类型
 
 + HttpServletRequest
 
@@ -153,7 +153,7 @@ Handler开发完毕之后别忘了在配置文件中加载Handler，或者采用
 
 + list/map/数组
 
-## 简单类型
+### 简单类型
 
 支持基本类型的数据绑定，例如请求的url为`/xx/list?id=10`
 
@@ -173,7 +173,7 @@ public void list(@RequestParam(value="id",required=true) int itemId){
 }
 ```
 
-## JavaBean及关联对象
+### JavaBean及关联对象
 
 和基本类型的绑定相似，根据JAVABean的set方法和请求参数属性名中找到一样的，然后赋值
 
@@ -203,7 +203,7 @@ public class Product {
 }
 ```
 
-## 自定义参数绑定
+### 自定义参数绑定
 
 参数绑定都是SpringMVC自动为我们完成的，不过有时候并不一定是我们想要的数据类型，这是就要用到自定义参数绑定。比如将字符串格式的日期转换为日期类型
 
@@ -265,7 +265,7 @@ public class MyDateConversion implements Converter<String, Date>{
 </bean>
 ```
 
-## 数组绑定
+### 数组绑定
 
 checkBox之类的接收时会自动转换为数组类型，定义一个同名的数组参数就可以了
 
@@ -277,7 +277,7 @@ checkBox之类的接收时会自动转换为数组类型，定义一个同名的
 public void listItem(int[] check)
 ```
 
-## list/map绑定
+### list/map绑定
 
 需求：批量录入成绩
 
@@ -313,7 +313,7 @@ public class ItemVO {
 }
 ```
 
-# 拦截器
+## 拦截器
 
 在SpringMVC中实现拦截器只需要实现HandlerInterceptor接口，并在配置文件中配置拦截url即可
 

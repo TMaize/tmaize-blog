@@ -19,7 +19,7 @@ Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来�
 
 她提供了一套规范，按照这个规范开发能够让我们少些好多代码。项目仍然是Spring项目，只是它们正好用到了Spring Boot的起步依赖和自动配置而已。并不用学习新的技术，那些你早已熟悉的从头创建Spring项目的技术或工具，都能用于Spring Boot项目。
 
-# 起步配置
+## 起步配置
 
 Spring推荐使用Maven和Gradle构建项目，这里是以Maven为例
 
@@ -56,7 +56,7 @@ Spring Boot起步依赖基本都以spring-boot-starter打头，随后是直接�
 </parent>
 ```
 
-# 简单的Controller编写
+## 简单的Controller编写
 
 Spring Boot大量使用使用注解，因为使用注解能够极大的简化开发
 
@@ -153,7 +153,7 @@ public class UserApi {
 
 这这说明Controller并不是springboot的核心
 
-# 视图渲染
+## 视图渲染
 
 Spring钦定了Thymeleaf
 

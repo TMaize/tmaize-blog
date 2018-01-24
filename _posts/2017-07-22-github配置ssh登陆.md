@@ -4,7 +4,7 @@ title: GitHub配置SSH登陆
 categories: [小技巧]
 ---
 
-# https 和 SSH 的区别
+## https 和 SSH 的区别
 
 两者都可以克隆项目到本地，使用https比较方便，直接就clone到本地了，而使用SSH clone却需要先配置和添加好SSH key 
 
@@ -12,10 +12,10 @@ categories: [小技巧]
 
 2. https url 在push的时候是需要验证用户名和密码的；而 SSH 在push的时候，是不需要输入用户名的，如果配置SSH key的时候设置了密码，则需要输入密码的，否则直接是不需要输入密码的。
 
-# 基本步骤
+## 基本步骤
 
 
-## 生成公钥私钥
+### 生成公钥私钥
 
 1. windows下打开Git安装目录，找到git-bash.exe即可使用ssh-keygen命令
 
@@ -49,13 +49,13 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-## 将公钥内容复制并上传于github
+### 将公钥内容复制并上传于github
 
 1. 在个人信息设置SSH and GPG keys为所有项目设置一个统一的
 
 2. 在单个项目的设置里面设置Deploy keys，记得勾选Allow write access
 
-## 测试连接
+### 测试连接
 
 通过下面的命令如果成功说明可以了
 
@@ -69,13 +69,13 @@ Enter passphrase for key '/c/Users/宇明/.ssh/id_rsa':
 Hi TMaize! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-## 项目测试
+### 项目测试
 
 将你的项目通过ssh clone到本地，如果为密钥设置了密码，会提示输入密钥密码，在push的时候会再次提示输入密钥的密码。如果在建立公钥私钥的时候没有设置密码，那么在clone push的在整个过程中都无需密码。
 
-# 一些问题
+## 一些问题
 
-## 使用TortoiseGit失败
+### 使用TortoiseGit失败
 
 在使用TortoiseGit图形界面clone时老是失败，只需要修改TortoiseGit的设计即可
 
@@ -83,7 +83,7 @@ Hi TMaize! You've successfully authenticated, but GitHub does not provide shell 
 
 ![p01](01.jpg)
 
-## 将本地项目的远端https修改为ssh
+### 将本地项目的远端https修改为ssh
 
 方法有三种：
 

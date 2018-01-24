@@ -4,7 +4,7 @@ title: css的position定位
 categories: [html/css]
 ---
 
-# 文档流介绍
+## 文档流介绍
 
 > 将窗体自上而下分成一行行， 并在每行中按从左至右的顺序排放元素，即为文档流
 
@@ -14,17 +14,17 @@ categories: [html/css]
 
 有三种情况将使得元素脱离文档流而存在，分别是 浮动（float）、绝对定位（position:absolute）、固定定位（position:fixed）
 
-# Position的取值
+## Position的取值
 
 ![p1](01.jpg)
 
 图片取自W3School，时间比较老，在最新的CSS3标准中又加入了**sticky**属性
 
-## static
+### static
 
 无特殊定位，它是html元素默认的定位方式，即我们不设定元素的position属性时默认的position值就是static，它遵循正常的文档流对象，对象占用文档空间，该定位方式下top、right、bottom、left、z-index等属性是无效的。
 
-## fixed
+### fixed
 
 它是相对浏览器进行定位，元素的位置通过left、top、right、bottom属性进行规定
 
@@ -34,7 +34,7 @@ categories: [html/css]
 
 ![p2](02.jpg)
 
-## relative
+### relative
 
 相对定位：相对自己文档流中的原始位置定位
 
@@ -42,7 +42,7 @@ categories: [html/css]
 
 ![p3](03.jpg)
 
-## absolute
+### absolute
 
 顾名思义：绝对定位
 
@@ -62,7 +62,7 @@ categories: [html/css]
 
 ![p5](05.jpg)
 
-## inherit
+### inherit
 
 严格意义来讲inherit并不算布局的一种，应为它只是position属性的可能取值，inherit关键字代表“使用指定给父元素的所有值”。如果父元素中没有明确的值定义，浏览器搜寻DOM树直到找到相应的属性。最终无法找到的话，它会使用浏览器的默认值
 
@@ -70,7 +70,7 @@ categories: [html/css]
 
 position:static position:inherit的区别是inherit继承,其值在运行过程中,可以改变 ，static静态的,在运行中,值始终保持不变
 
-## sticky
+### sticky
 
 在一些很长的表格中，常常会使用表头悬浮的设计以方便阅读，即在表格离开窗口之前，表头会一直 fixed 悬浮在表格的最顶上。还有许多诸如评论框等元素，也采用了这种被称为 Sticky Pin 或者 粘性元素 的设计
 

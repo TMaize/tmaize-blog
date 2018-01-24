@@ -6,7 +6,7 @@ categories: [javascript]
 
 记录下工作中对于H5的FileAPI使用和一些常见的操作
 
-# 图片压缩
+## 图片压缩
 
 前端本地客户端压缩图片，兼容IOS，Android，PC、自动按需加载文件
 
@@ -59,7 +59,7 @@ lrz(file, {
 });
 ```
 
-# JS下载Blob
+## JS下载Blob
 
 ```
 var a = document.createElement('a');
@@ -70,7 +70,7 @@ a.download = filename;
 a.click();
 ```
 
-# 本地文本读取
+## 本地文本读取
 
 ```
 var file = this.files[0];
@@ -82,7 +82,7 @@ reader.onload = function (e) {
 }
 ```
 
-# MD5 计算
+## MD5 计算
 
 使用JS计算文件的MD5需要spark-md5.min.js
 
@@ -157,7 +157,7 @@ function calcMD5(file, callback) {
 };
 ```
 
-# 文件base64编码
+## 文件base64编码
 
 ```
 var file = this.files[0];
@@ -169,7 +169,7 @@ reader.onload = function () {
 reader.readAsDataURL(file);
 ```
 
-# canvas,img,blob,file转换
+## canvas,img,blob,file转换
 
 base64可以直接放到img的src上就可以显示了，input选择的文件变成base64见 ‘文件base64编码’
 
@@ -212,7 +212,7 @@ canvas.toBlob(function (blob) {
 var file = new File([file], new Date().getTime()+".mp4",{type:"video/mp4"});
 ```
 
-# 图片剪裁
+## 图片剪裁
 
 需要cropper.min.js
 
@@ -266,7 +266,7 @@ var canvas = originImage.cropper('getCroppedCanvas', {
 });
 ```
 
-# 使用Canvas缩放以及压缩图片
+## 使用Canvas缩放以及压缩图片
 
 ```
 image object

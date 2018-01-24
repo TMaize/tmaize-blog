@@ -4,7 +4,7 @@ title: SpringMVC 运行流程及基本配置代码
 categories: [java]
 ---
 
-# Spring Web MVC概述
+## Spring Web MVC概述
 
 Spring为Web层(struts之类的)提供了自己的解决方案，即Spring Web MVC
 
@@ -12,13 +12,13 @@ Spring为Web层(struts之类的)提供了自己的解决方案，即Spring Web M
 
 ![p01](01.jpg)
 
-## B/S系统中MVC架构
+### B/S系统中MVC架构
 
 在Web MVC模式下，模型无法主动推数据给视图，如果用户想要视图更新，需要再发送一次请求（即请求-响应模型）
 
 ![p02](02.jpg)
 
-## Spring Web MVC核心架构
+### Spring Web MVC核心架构
 
 ![p03](03.jpg)
 
@@ -28,7 +28,7 @@ facilitates the development of web applications. Spring’s DispatcherServlet ho
 than just that. It is completely integrated with the Spring IoC container and as such allows you to use
 every other feature that Spring has
 
-## Spring Web MVC的执行流程
+### Spring Web MVC的执行流程
 
 1. 首先用户发送请求——>DispatcherServlet，前端控制器收到请求后自己不进行处理，而是委托给其他的解析器进行处理，作为统一访问点，进行全局的流程控制
 
@@ -44,9 +44,9 @@ every other feature that Spring has
 
 7. 返回控制权给DispatcherServlet，由DispatcherServlet返回响应给用户，到此一个流程结束
 
-# 基本代码编写
+## 基本代码编写
 
-## 原理
+### 原理
 
 + 前端控制器DispatcherServlet，由于接受请求，响应结果，相当于转发器,减少了其他组件间的耦合性（不需要程序员开发）
 
@@ -62,11 +62,11 @@ every other feature that Spring has
 
 根据上面的介绍，及运行流程很容易就能够写出一个简单的Demo
 
-## 导入相关jar包
+### 导入相关jar包
 
 ![04](04.jpg)
 
-## 配置DispatcherServlet
+### 配置DispatcherServlet
 
 在web.xml中配置前端控制器DispatcherServlet
 
@@ -93,7 +93,7 @@ every other feature that Spring has
 </servlet-mapping>
 ```
 
-## 配置HandlerMapping
+### 配置HandlerMapping
 
 再web.xml文件中配置DispatcherServlet时给定了springmvc配置文件的路径
 
@@ -122,7 +122,7 @@ every other feature that Spring has
 </beans>
 ```
 
-## 配置HandlerAdapter
+### 配置HandlerAdapter
 
 ```xml		
 <!--处理器适配器 -->
@@ -130,7 +130,7 @@ every other feature that Spring has
 <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>
 ```
 
-## 配置ViewResolver
+### 配置ViewResolver
 
 ```xml
 <!--视图解析器 -->
@@ -138,7 +138,7 @@ every other feature that Spring has
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"></bean>
 ```
 
-## 开发Handler
+### 开发Handler
 
 由于采用了SimpleControllerHandlerAdapter
 
@@ -183,14 +183,14 @@ public class ItemController implements Controller{
 }
 ```
 
-## 配置Handler的访问路径
+### 配置Handler的访问路径
 
 ```xml
 <!-- handler BeanNameUrlHandlerMapping-->
 <bean name="/listItem" class="controller.ItemController"></bean>
 ```
 
-## 页面编写
+### 页面编写
 
 再Handler中指定了路径`modelAndView.setViewName("/WEB-INF/jsp/itemList.jsp")`，所以在这个路径下编写ViewResolver所支持的界面，这里的是jsp页面，并且使用了jstl标签库
 
@@ -214,7 +214,7 @@ public class ItemController implements Controller{
 </html>
 ```
 
-# 测试
+## 测试
 
 启动项目时报错，发现是缺少commons-logging包，导入即可
 
@@ -222,6 +222,6 @@ public class ItemController implements Controller{
 
 ![p05](05.jpg)
 
-# 参考
+## 参考
 
 [跟我学SpringMVC目录](http://jinnianshilongnian.iteye.com/blog/1752171)

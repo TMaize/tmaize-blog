@@ -4,7 +4,7 @@ title: Hibernate学习笔记01 环境配置 第一个Demo
 categories: [java]
 ---
 
-# 概述
+## 概述
 
 Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。
 
@@ -19,7 +19,7 @@ hibernate底层代码就是jdbc，hibernate对jdbc进行了封装，不需要再
 
 5. 版本 3.x,4.x(过渡版本),5.x(主要使用)
 
-## JavaEE的三层结构
+### JavaEE的三层结构
 
 1. web层：struts2 框架
 
@@ -27,7 +27,7 @@ hibernate底层代码就是jdbc，hibernate对jdbc进行了封装，不需要再
 
 3. dao层：hibernate框架
 
-## 使用的基本步骤
+### 使用的基本步骤
 
 1. 加载hibernate核心配置文件
 2. 创建SessionFactory对象
@@ -37,7 +37,7 @@ hibernate底层代码就是jdbc，hibernate对jdbc进行了封装，不需要再
 6. 提交事务
 7. 关闭资源
 
-## SessionFactory对象特点
+### SessionFactory对象特点
 
 1. 线程安全的，同一个实例可以供多个线程共享
 
@@ -74,11 +74,11 @@ hibernate底层代码就是jdbc，hibernate对jdbc进行了封装，不需要再
     }
     ```
 
-# 环境搭建
+## 环境搭建
 
 到[官网](http://hibernate.org/orm/)下载开发包，当前最新版本是 5.2.9.Final
 
-## 导入jar包
+### 导入jar包
 
 1. 开发包/lib/required里面所有的jar
 
@@ -86,7 +86,7 @@ hibernate底层代码就是jdbc，hibernate对jdbc进行了封装，不需要再
 
 3. 还有一一部分需要时再导入
 
-## 建立数据实体类 配置映射文件
+### 建立数据实体类 配置映射文件
 
 实体类其实就是一个javaBean，以User为例
 
@@ -136,7 +136,7 @@ public class User {
 </hibernate-mapping>
 ```
 
-## 创建核心配置文件
+### 创建核心配置文件
 
 核心配置的名字和位置一般是固定的，也可以在生成Configuration对象时加载指定路径
 一般默认是在src下，hibernate.cfg.xml，推荐使用默认的方式
@@ -192,7 +192,7 @@ public class User {
 
 **Mysql 版本 5.0以前的Hibernate 方言是`org.hibernate.dialect.MySQLDialect`,5.0以后的Hibernate 方言是：`org.hibernate.dialect.MySQL5InnoDBDialect`**
 
-## 创建测试类
+### 创建测试类
 
 ```java
 package test;
@@ -224,7 +224,7 @@ public class Test {
 }
 ```
 
-## 检查结果
+### 检查结果
 
 控制台输出
 ```
@@ -247,7 +247,7 @@ Hibernate:
 
 查看数据库会发现多了一个表，里面有一条刚刚插入的数据
 
-# 总结
+## 总结
 
 配置文件的细节比较多，注意不要写错了
 

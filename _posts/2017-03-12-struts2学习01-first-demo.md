@@ -4,7 +4,7 @@ title: Struts2学习-01 First Demo
 categories: [java]
 ---
 
-# 基本步骤
+## 基本步骤
 
 + 去[Struts官网](http://struts.apache.org/)下载最新的开发包
 
@@ -109,7 +109,7 @@ public class Test {
 
 如果访问地址`http://localhost:8080/项目名/test`或`http://localhost:8080/项目名/test.action`出现'Demo测试成功'则环境搭建成功
 
-# 运行过程
+## 运行过程
 
 + 浏览器发送请求
 

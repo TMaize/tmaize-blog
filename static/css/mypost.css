@@ -4,17 +4,18 @@
 
 #mypost h1{
     font-size: 20px;
-    margin-bottom: 40px;
     font-weight: bold;
 }
 
 #mypost h2{
     font-size: 18px;
+    font-weight: bold;
     border-bottom: 1px solid #AAA;
 }
 
 #mypost h3,#mypost h4,#mypost h5,#mypost h6{
     font-size: 15px;
+    font-weight: bold;
 }
 
 #mypost p{
@@ -137,14 +138,13 @@
     border-bottom: 1px solid #ddd;
 }
 
-/*添加动画*/
 #mypost .postinfo{
+    margin-bottom: 40px;
     animation-duration: 1s;
 	animation-fill-mode: both;
 	animation-name: fadeInLeft;
 }
 
-/*添加动画*/
 #mypost .main{
 	animation-duration: 1s;
 	animation-fill-mode: both;
