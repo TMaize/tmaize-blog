@@ -4,7 +4,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="content-language" content="zh-CN" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="keywords" content="{{ site.author }},{% for category in page.categories %},{{ category }}{% endfor %}"/>
+		<meta name="keywords" content="{{ site.author }}{% for category in page.categories %},{{ category }}{% endfor %}"/>
 		<meta name="author" content="{{ site.author }}" />
 		<meta name="description" content="{{ page.title }}"/>
 		<link rel="stylesheet" href="{{site.context}}/static/css/common.css">
@@ -14,17 +14,13 @@
 		<title>{{ page.title }}-{{ site.title }}</title>
 	</head>
 <body>
-{% include header.html %}
+	{% include header.html %}
     <div id="mypost">
 		{% if page.title %}
-		<div class="postinfo">
-			{{ page.title }}
-		</div>
+		<h1 class="postinfo">{{ page.title }}</h1>
 		{% endif %}
-		<div class="main">
-			{{ content }}
-		</div>
+		<div class="main">{{ content }}</div>
 	</div>
-{% include footer.html %}
+	{% include footer.html %}
 </body>
 </html>

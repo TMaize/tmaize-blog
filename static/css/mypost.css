@@ -1,56 +1,57 @@
-#mypost .postinfo{
+#mypost{
+	font-size: 13px;
+}
+
+#mypost h1{
     font-size: 20px;
     margin-bottom: 40px;
     font-weight: bold;
 }
 
-#mypost .main{
-	font-size: 13px;
+#mypost h2{
+    font-size: 18px;
+    border-bottom: 1px solid #AAA;
 }
 
-#mypost .main p{
+#mypost h3,#mypost h4,#mypost h5,#mypost h6{
+    font-size: 15px;
+}
+
+#mypost p{
     margin: 13px 0;
 	word-break: break-all;
 }
 
-#mypost .main img{
+#mypost img{
     display: block;
     max-width: 100%;
     margin: 0 auto;
     height: auto;
 }
 
-#mypost .main a{
+#mypost a{
     color: #111;
     cursor: auto;
     text-decoration: underline;
 }
 
-#mypost .main blockquote{
+#mypost blockquote{
     margin: 13px 0;
     border-left: 3px solid #000;
     /*text-indent: 20px;*/
 	padding-left: 13px;
 }
 
-#mypost .main blockquote p{
+#mypost blockquote p{
     font-weight: bold;
 }
-#mypost .main hr{
+#mypost hr{
 	margin: 13px 0;
     border: 1px solid #f5f5f5;
     padding: 0;
 }
 
-#mypost .main h1{
-    font-size: 18px;
-    border-bottom: 1px solid #AAA;
-}
-#mypost .main h2,#mypost .main h3,#mypost .main h4,#mypost .main h5,#mypost .main h6{
-    font-size: 15px;
-}
-
-#mypost .main ul,#mypost .main ol {
+#mypost ul,#mypost ol {
     padding-left: 18px;
 	margin-top: 13px;
     margin-bottom: 13px;
@@ -63,7 +64,7 @@
     
 }
 /*代码样式*/
-#mypost .main code{
+#mypost code{
 	font-size: 12px;
 	font-family: Consolas,"Microsoft YaHei",微软雅黑;
 	background-color: #f5f5f5;
@@ -72,7 +73,7 @@
 	word-break: break-all;
 }
 
-#mypost .main pre{
+#mypost pre{
     word-wrap: normal;
 	overflow: auto;
 	border-radius: 3px;
@@ -82,7 +83,7 @@
 	background-color: #f5f5f5;
 }
 
-#mypost .main pre code{
+#mypost pre code{
 	display: inline;
     max-width: initial;
     padding: 0;
@@ -96,14 +97,14 @@
     white-space: pre;
 }
 
-#mypost .main pre.highlight {
+#mypost pre.highlight {
 	width: 100%;
     overflow: auto;
     max-height: 700px;
 }
 
 /*表格样式*/
-#mypost .main table{
+#mypost table{
 	display: block;
 	min-width: 100%;
 	overflow: auto;
@@ -113,25 +114,25 @@
     font-family: Verdana;
 }
 
-#mypost .main td,#mypost .main th {
+#mypost td,#mypost th {
     padding: 5px 10px;
     font-size: 13px;
     color: #333;
 }
 
-#mypost .main th{
+#mypost th{
     font-weight: bold;
 }
 
-#mypost .main table tr:nth-child(even) {
+#mypost table tr:nth-child(even) {
     background: #f9f9f9;
 }
 
-#mypost .main table thead th{
+#mypost table thead th{
     border-bottom:2px solid #DDD;
 }
 
-#mypost .main table tbody td{
+#mypost table tbody td{
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
