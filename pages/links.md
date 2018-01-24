@@ -3,6 +3,11 @@ layout: mypost
 title:  友情链接
 ---
 
-+ [文科中的技术宅](https://www.townwang.com/)
-
-    TownWang,文科中的技术宅,Android开发者
+<ul>
+    {% for link in site.data.links %}
+    <li>
+        <p><a href="{{ link.url }}" title="{{ link.title }}" target="_blank">{{ link.content }}</a></p>
+        <p>{{ link.desc }}</p>
+    </li>
+    {% endfor %}
+</ul>

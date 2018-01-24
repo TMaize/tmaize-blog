@@ -52,3 +52,11 @@ js: [common.js]
 		{% endif %}
 	{% endfor %}
 </div>
+<!-- 首页的友情链接 -->
+<ul style="display: none;">
+	{% for link in site.data.links %}
+	<li>
+		<a href="{{ link.url }}" title="{{ link.title }}" target="_blank">{{ link.content }}</a>
+	</li>
+	{% endfor %}
+</ul>
