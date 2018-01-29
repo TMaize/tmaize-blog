@@ -54,9 +54,9 @@ function initComment() {
                     var li = document.createElement('li');
                     var website = results[i].get('website');
                     if (website !== '') {
-                        website = "href='" +website+"'";
+                        website = " href='" + website + "'";
                     }
-                    li.innerHTML = "<div class='commint-list-title'><a" +website + " target='_blank'>" +
+                    li.innerHTML = "<div class='commint-list-title'><a " + website + " target='_blank'>" +
                         results[i].get('nickName') + "</a><span>" + results[i].get('time') +
                         "</span></div><div class='commint-list-content'></div>";
                     li.getElementsByClassName('commint-list-content')[0].innerText = results[i].get(
@@ -94,7 +94,7 @@ function initComment() {
             return;
         }
 
-        if (nickName.toLowerCase().indexOf("tmaize")!=-1) {
+        if (nickName.toLowerCase().indexOf("tmaize") != -1) {
             alert('姓名不准包含TMaize');
             return;
         }
