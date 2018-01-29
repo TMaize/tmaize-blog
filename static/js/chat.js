@@ -95,6 +95,11 @@ function initComment() {
             return;
         }
 
+        if (nickName.toLowerCase().indexOf("tmaize")!=-1) {
+            alert('姓名不准包含TMaize');
+            return;
+        }
+
         if (email != '' && !reg.test(email)) {
             alert('邮箱不合法!')
             return;
