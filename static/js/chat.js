@@ -53,11 +53,10 @@ function initComment() {
                 for (var i = 0; i < results.length; i++) {
                     var li = document.createElement('li');
                     var website = results[i].get('website');
-                    if (website == '') {
-                        website = 'javascript:void(0);'
+                    if (website !== '') {
+                        website = "href='" +website+"'";
                     }
-                    li.innerHTML = "<div class='commint-list-title'><a href='" +
-                        website + "' target='_blank'>" +
+                    li.innerHTML = "<div class='commint-list-title'><a" +website + " target='_blank'>" +
                         results[i].get('nickName') + "</a><span>" + results[i].get('time') +
                         "</span></div><div class='commint-list-content'></div>";
                     li.getElementsByClassName('commint-list-content')[0].innerText = results[i].get(
