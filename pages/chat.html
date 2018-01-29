@@ -1,9 +1,4 @@
----
-layout: default
-title: 留言板
-css: [common.css]
-js: [common.js,bmob-min.js,chat.js]
----
+--- layout: default title: 留言板 css: [common.css] js: [common.js,bmob-min.js,chat.js] ---
 <div class="comment">
     <div class="comment-title">
         <h1>留言板</h1>
@@ -28,11 +23,11 @@ js: [common.js,bmob-min.js,chat.js]
     <div class="comment-submit">
         <input type="button" class="comment-input" value="提交">
     </div>
-    <div class="commint-list">
+    <div class="comment-list">
         <h2>所有评论</h2>
         <ul>
         </ul>
-        <div class="commint-list-loadmore">
+        <div class="comment-list-loadmore">
             <input type="button" class="comment-input" value="加载更多">
         </div>
     </div>
@@ -112,42 +107,53 @@ js: [common.js,bmob-min.js,chat.js]
         cursor: pointer;
     }
 
-    .commint-list h2 {
+    .comment-list h2 {
         padding: 20px 0px 10px 0px;
         border-bottom: 1px solid #666;
     }
 
-    .commint-list ul {
-	    margin-top: 12px;
-        padding-left: 18px;
+    .comment-list ul {
+        margin-top: 12px;
+        padding: 0;
+        list-style: none;
     }
 
-    .commint-list li {
+    .comment-list li {
         margin-bottom: 20px;
     }
 
-    .commint-list-title a {
+    .comment-list-title {
+        position: relative;
+    }
+
+    .comment-list-title a {
         display: inline-block;
-        width: 170px;
+        max-width: 170px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        padding-left: 8px;
+        border-left: 3px solid #000;
     }
 
-    .commint-list-title span {
-        float: right;
+    .comment-list-title span {
+        position: absolute;
+        top: 0;
+        right: 0;
     }
-    .commint-list-content{
+
+    .comment-list-content {
         max-height: 100px;
         overflow: auto;
-	}
-    .commint-list-loadmore {
+    }
+
+    .comment-list-loadmore {
         margin-top: 25px;
         text-align: center;
         display: none;
     }
 
-    .commint-list-loadmore input {
+    .comment-list-loadmore input {
         width: 80px;
         padding: 0;
         margin: 0;

@@ -56,10 +56,10 @@ function initComment() {
                     if (website !== '') {
                         website = " href='" + website + "'";
                     }
-                    li.innerHTML = "<div class='commint-list-title'><a " + website + " target='_blank'>" +
+                    li.innerHTML = "<div class='comment-list-title'><a " + website + " target='_blank'>" +
                         results[i].get('nickName') + "</a><span>" + results[i].get('time') +
-                        "</span></div><div class='commint-list-content'></div>";
-                    li.getElementsByClassName('commint-list-content')[0].innerText = results[i].get(
+                        "</span></div><div class='comment-list-content'></div>";
+                    li.getElementsByClassName('comment-list-content')[0].innerText = results[i].get(
                         'content');
                     list.appendChild(li);
                 }
