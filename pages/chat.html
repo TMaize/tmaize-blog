@@ -2,15 +2,171 @@
 layout: default
 title: 留言板
 css: [common.css]
-js: [common.js]
+js: [common.js,bmob-min.js,chat.js]
 ---
+<div class="comment">
+    <div class="comment-title">
+        <h1>留言板</h1>
+        <p>添加友链，内容交流，都可以在这里留下你的足迹....</p>
+    </div>
+    <div class="comment-content">
+        <p>评论内容(300字以内)*</p>
+        <textarea class="comment-input"></textarea>
+    </div>
+    <span class="comment-name">
+        <p>姓名(昵称)*</p>
+        <input type="text" class="comment-input">
+    </span>
+    <span class="comment-email">
+        <p>电子邮件(不会公开)*</p>
+        <input type="text" class="comment-input">
+    </span>
+    <span class="comment-website">
+        <p>你的站点(http(s)://开头)</p>
+        <input type="text" class="comment-input">
+    </span>
+    <div class="comment-submit">
+        <input type="button" class="comment-input" value="提交">
+    </div>
+    <div class="commint-list">
+        <h2>所有评论</h2>
+        <ul>
+        </ul>
+        <div class="commint-list-loadmore">
+            <input type="button" class="comment-input" value="加载更多">
+        </div>
+    </div>
+</div>
+<style>
+    .comment {
+        /*50% 50% 不换行*/
+        font-size: 0;
+    }
 
-<!--畅言-->
-<div id="SOHUCS" sid="chat" >评论框加载中......</div>
-<script type="text/javascript">
-(function(){
-var appid = 'cysUnaz1L';
-var conf = 'prod_734ecc17ae5199b3b74480c5414ab584';
-var width = window.innerWidth || document.documentElement.clientWidth;
-if (width < 960) {
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    .comment p {
+        padding: 0;
+        margin: 5px 0px;
+    }
+
+    .comment * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: "Open Sans", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, Verdana, Tahoma, sans-serif;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .comment-input {
+        margin: 0;
+        padding: 0;
+        text-indent: 0;
+        outline: 0;
+        border: none;
+        border: 1px solid #AAA;
+        width: 100%;
+        padding: 6px;
+    }
+
+    .comment-title {
+        margin-bottom: 20px;
+    }
+
+    .comment-title h1 {
+        font-size: 18px;
+    }
+
+    .comment-content textarea {
+        height: 80px;
+        resize: none;
+    }
+
+    .comment-name {
+        display: inline-block;
+        width: 33%;
+    }
+
+    .comment-email {
+        display: inline-block;
+        width: 33%;
+        padding: 0 10px;
+    }
+
+    .comment-website {
+        display: inline-block;
+        width: 33%;
+    }
+
+    .comment-submit {
+        margin-top: 10px;
+    }
+
+    .comment-submit input {
+        border: 0;
+        width: 100px;
+        background-color: #222222;
+        color: #f9f9f9;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .commint-list h2 {
+        padding: 20px 0px 10px 0px;
+        border-bottom: 1px solid #666;
+    }
+
+    .commint-list ul {
+        padding-left: 18px;
+    }
+
+    .commint-list li {
+        margin-bottom: 20px;
+    }
+
+    .commint-list-title {
+        margin-bottom: 10px;
+    }
+
+    .commint-list-title a {
+        display: inline-block;
+        width: 170px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .commint-list-title span {
+        float: right;
+    }
+
+    .commint-list-loadmore {
+        margin-top: 25px;
+        text-align: center;
+        display: none;
+    }
+
+    .commint-list-loadmore input {
+        width: 80px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 470px) {
+        .comment-name {
+            width: 100%;
+        }
+        .comment-email {
+            width: 100%;
+            padding: 0;
+        }
+
+        .comment-website {
+            width: 100%;
+        }
+    }
+</style>
