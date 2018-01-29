@@ -14,8 +14,8 @@ function initComment() {
     var pageSize = 10;
 
     var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
-    var more = document.getElementsByClassName('commint-list-loadmore')[0];
-    var list = document.getElementsByClassName('commint-list')[0].getElementsByTagName('ul')[0];
+    var more = document.getElementsByClassName('comment-list-loadmore')[0];
+    var list = document.getElementsByClassName('comment-list')[0].getElementsByTagName('ul')[0];
     var inputs = document.getElementsByClassName('comment-input');
 
     //加载评论条目
