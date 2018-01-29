@@ -95,10 +95,11 @@ function initComment() {
             return;
         }
 
-        if (!reg.test(email)) {
+        if (email != '' && !reg.test(email)) {
             alert('邮箱不合法!')
             return;
         }
+
         if (website != '' && website.substring(0, 4) != 'http') {
             alert('你的站点不合法!')
             return;
