@@ -51,17 +51,7 @@ function initComment() {
                     more.style.display = 'block';
                 }
                 for (var i = 0; i < results.length; i++) {
-                    var li = document.createElement('li');
-                    var website = results[i].get('website');
-                    if (website !== '') {
-                        website = " href='" + website + "'";
-                    }
-                    li.innerHTML = "<div class='comment-list-title'><a " + website + " target='_blank'>" +
-                        results[i].get('nickName') + "</a><span>" + results[i].get('time') +
-                        "</span></div><div class='comment-list-content'></div>";
-                    li.getElementsByClassName('comment-list-content')[0].innerText = results[i].get(
-                        'content');
-                    list.appendChild(li);
+                    render(i, results);
                 }
             },
             error: function (error) {
@@ -69,6 +59,23 @@ function initComment() {
             }
         });
     }
+
+    function render(i, results) {
+        setTimeout(function () {
+            var li = document.createElement('li');
+            var website = results[i].get('website');
+            if (website !== '') {
+                website = " href='" + website + "'";
+            }
+            li.innerHTML = "<div class='comment-list-title'><a " + website + " target='_blank'>" +
+                results[i].get('nickName') + "</a><span>" + results[i].get('time') +
+                "</span></div><div class='comment-list-content'></div>";
+            li.getElementsByClassName('comment-list-content')[0].innerText = results[i].get(
+                'content');
+            list.appendChild(li);
+        }, 300 * i);
+    }
+
 
     //加载后面15条数据
     inputs[5].onclick = function () {
