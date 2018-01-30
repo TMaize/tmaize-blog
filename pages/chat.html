@@ -126,6 +126,11 @@ js: [common.js,bmob-min.js,chat.js]
 
     .comment-list li {
         margin-bottom: 20px;
+        border-left: 3px solid #ccc;
+        padding-left: 10px;
+        animation-duration: 1s;
+	    animation-fill-mode: both;
+	    animation-name: fadeInLeft;
     }
 
     .comment-list-title {
@@ -138,8 +143,6 @@ js: [common.js,bmob-min.js,chat.js]
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        padding-left: 8px;
-        border-left: 3px solid #000;
     }
 
     .comment-list-title span {
