@@ -1,14 +1,14 @@
 # 地址
 
- [我的Blog预览](http://blog.tmaize.net/)
+ [我的Blog预览](http://blog.tmaize.net/) 欢迎添加友链
 
- [github 地址](https://github.com/TMaize/tmaize-blog)
+ [github 地址](https://github.com/TMaize/tmaize-blog) 欢迎star
 
 # 说明
 
 一款jekyll主题，简洁纯净，支持自适应
 
-由于一直在这个项目里面修改主题代码，和以前的项目simple-jekyll-theme差异太大，现在把simple-jekyll-theme删除了，只留这一个项目，以后会开一个theme分支
+由于一直在这个项目里面修改主题代码，和以前的项目simple-jekyll-theme差异太大，现在把simple-jekyll-theme删除了，只留这一个项目,只有一个master分支
 
  
 # 截图
@@ -48,7 +48,7 @@ coderay:
 
 ## 写文章
 
-符合 jekyll 的使用规范
+符合 jekyll 的使用规范，请参考我的文件放置规则
 
 文章放在_posts目录
 
@@ -58,11 +58,19 @@ coderay:
 
 + _includes/footer.html
 
-    请把百度和360的seo推送代码替换或者删除
+    请删除本页所有的script标签内的东西
+
+    或者把百度和360的seo推送,mta统计代码替换成你自己的
 
 + pages/chat.html
 
-    请把多说的评论替换或者删除
+    请换成别的评论插件
+    
+    比如:
+
+    [https://github.com/imsun/gitment](https://github.com/imsun/gitment)
+
+    [https://github.com/gitalk/gitalk](https://github.com/gitalk/gitalk)
 
 + CNAME
 
