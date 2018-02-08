@@ -13,6 +13,8 @@
 		{% for js in page.js %}
 			<script type="text/javascript" src="{{site.context}}/static/js/{{ js }}"></script>
 		{% endfor %}
+		<link rel="icon" href="{{site.context}}/static/img/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="{{site.context}}/static/img/favicon.ico" type="image/x-icon"/>
 		<title>{% if page.title %}{{ page.title }}-{{ site.title }} {% else %}{{ site.title }}{% endif %}</title>
 	</head>
 <body>

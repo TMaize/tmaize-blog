@@ -6,7 +6,13 @@ if (window.attachEvent) {
 
 function initComment() {
     Bmob.initialize("34f0386ac5bd50fd77fe82190af00faf", "6f1419c800083315432f2df7dcb503d4");
-    var url = window.location.host + window.location.pathname + window.location.search;
+    var url;
+    if(window.location.host=="cdn.blog.tmaize.net"){
+        url = "blog.tmaize.net" + window.location.pathname + window.location.search;
+    }else{
+        url = window.location.host + window.location.pathname + window.location.search;
+    }
+
     var Comment = Bmob.Object.extend("Comment");
 
     var count = 0;
