@@ -8,13 +8,13 @@ categories: [linux,nodejs]
 
 ## 编译安装
 
-官方下载地址[https://nodejs.org/en/download/]
+官方下载地址[https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
 推荐下载LTS版本，不需要下载最新的
 
-选择Source Code的那个个链接
+选择Source Code的那个链接
 
-开始编译....
+下载，开始编译，....
 
 ```
 https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.gz
