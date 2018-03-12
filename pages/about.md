@@ -3,29 +3,37 @@ layout: mypost
 title: 关于我
 ---
 
-> Hello World，欢迎访问TMaize’Blog……
+> Hello 陌生人！欢迎访问TMaize’Blog......
 
-以前学Linux的时候接触了Wordpress，热衷于下载各种炫酷的主题
+初衷
 
-后来又了解到了简洁的Typecho，并用它搭建了我的第一个博客，写了第一个主题
+学Linux的时候玩过Wordpress，Typecho，热衷于下载各种炫酷的主题
 
-再后来看到了别人的GitHub Page，发现把博客托管到GitHub这里很省事，遂写了一套jekyll主题(就是现在这个，在一点点完善)，用于记录自己的学习笔记（没有一点技术含量的文章），便于自己查阅
+后来看到了别人的GitHub Page，发现把博客托管到GitHub这里很省事
 
-# 作品展示
+遂写了一套jekyll主题(就是现在这个，在一点点完善)，用于记录自己的学习笔记（没有一点技术含量的文章），便于自己查阅
+
+> 作品展示
 
 + [tmaize-blog](https://github.com/TMaize/tmaize-blog)
 
-    你现在看到的这个博客
+    你现在看到的这个博客,简单的jekyll主题，前端没啥框架，力求轻快
 
-+ 有待添加...
++ (t-blog)[#]
 
-# 相关技能
+    Java开发的一套单用户博客系统，支持高度自由的自定义主题（类似于Wordpress），支持Markdown编辑写作
+
+    主要框架为：后端Jfinal，前端Vue+iView
+
++ 有待添加......
+
+> 相关技能
 
 + 熟练掌握HTML/CSS，能熟练手写符合W3C标准的代码
 
-+ 熟练使用Java，C，Python语言
++ 熟练使用Java，NodeJs后端语言，C，Python 快忘完了
 
-+ JavaScript掌握基本语法和DOM操作和Ajax操作，会用Vue,jQuery
++ JavaScript掌握基本语法和DOM操作和Ajax操作，会用Vue,jQuery，BootStrap
 
 + 能够写一些Android小程序
 
@@ -55,4 +63,4 @@ title: 关于我
 
 + GitHub : [https://github.com/tmaize](https://github.com/tmaize)
 
-+ OSChina : 不怎么用了/[https://git.oschina.net/tmaize](https://git.oschina.net/tmaize)
++ OSChina : 不怎么用了[https://git.oschina.net/tmaize](https://git.oschina.net/tmaize)
