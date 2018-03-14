@@ -4,7 +4,7 @@
 function text_bubble() {
     var ele = document.createElement("style");
     ele.innerText = "@keyframes fadeOutUp {from{opacity: 1;}to {opacity: 0;transform: translate3d(0, -350%, 0);}}";
-
+    ele.innerText+=".bubble{z-index:999;position:absolute;animation-duration:1s;animation-fill-mode:both;animation-name:fadeOutUp;}" 
     document.body.insertBefore(ele, document.body.firstChild);
 
     var clickTips = ["富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善"];
@@ -14,8 +14,8 @@ function text_bubble() {
         var span = document.createElement('span');
         span.innerText = clickTips[parseInt(Math.random() * clickTips.length)];
 
-        span.setAttribute("style", "z-index:999;position:absolute;left:" + ev.pageX + "px;top:" + (ev.pageY - 20) + "px;animation-duration:1s;" +
-            "animation-fill-mode:both;animation-name:fadeOutUp;");
+        span.setAttribute("style", "left:" + ev.pageX + "px;top:" + (ev.pageY - 20) + "px;");
+        span.className = "bubble no-select";
         document.body.appendChild(span);
         //WebKit
         if (typeof document.body.style.WebkitAnimation != "undefined") {
