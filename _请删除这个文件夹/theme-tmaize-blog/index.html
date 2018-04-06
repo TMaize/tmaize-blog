@@ -1,0 +1,43 @@
+<#assign css_list = ["common.css","articlelist.css"]>
+<#assign js_list = ["common.js"]>
+
+<#include "_includes/header.html">
+
+<div id="articlelist">
+    <#list page.articles as article>
+        <#assign this_post_year = article.date?string("yyyy")?number>
+        <#if article_index == page.articles?size-1>
+            <#assign next_post_year = this_post_year>
+        <#else>
+            <#assign next_post_year = page.articles[article_index+1].date?string("yyyy")?number>
+        </#if>
+        <#if article_index == 0>
+            <div class="type-head">${this_post_year?c}</div>
+                <ul>
+        </#if>
+        <#if this_post_year == next_post_year>
+            <#if article_index==page.articles?size-1>
+                    <#include "_includes/article-li.html">
+                </ul>
+            <#else>
+                <#include "_includes/article-li.html">
+            </#if>
+        <#else>
+                <#include "_includes/article-li.html">
+            </ul>
+            <div class="type-head">${next_post_year?c}</div>
+            <ul>
+        </#if>
+    </#list>
+</div>
+
+<!-- 首页的友情链接 -->
+<ul style="display: none;">
+	<#list global.data['links.json'] as link>
+	<li>
+		<a href="${link.url}" title="${link.title}">${link.content}</a>
+	</li>
+	</#list>
+</ul>
+
+<#include "_includes/footer.html">

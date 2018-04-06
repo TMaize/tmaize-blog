@@ -1,0 +1,27 @@
+<#assign page_title = "文章分类">
+<#assign css_list = ["common.css","categories.css","articlelist.css"]>
+<#assign js_list = ["common.js"]>
+
+<#include "../_includes/header.html">
+
+<div id="listcategories">
+    <blockquote>标签云</blockquote>
+    <ul>
+    	<#list global.categories as cat>
+			<li><a href="#${cat.name}">${cat.name}</a></li>
+		</#list>
+    </ul>
+</div>
+
+<div id="articlelist">
+	<#list global.categories as cat>
+		<div class="type-head" name="${cat.name}" id="${cat.name}">${cat.name}</div>
+		<ul>
+			<#list cat.articles as article>
+				<#include "../_includes/article-li.html">
+			</#list>
+		</ul>
+	</#list>
+</div>
+
+<#include "../_includes/footer.html">

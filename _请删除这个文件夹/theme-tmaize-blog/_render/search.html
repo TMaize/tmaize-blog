@@ -1,0 +1,16 @@
+<#assign page_title = "搜索">
+<#assign css_list = ["common.css","search.css","mypost.css"]>
+<#assign js_list = ["common.js","search.js"]>
+
+<#include "../_includes/header.html">
+
+<div id="mysearch">
+	<div id="searchbox">
+		<input type="text" id="text-input" placeholder="请输入日期,标题,分类的关键字 ">
+	</div>
+	<article>
+		<ul id="searchlist"></ul>
+	</article>
+</div>
+
+<#include "../_includes/footer.html">

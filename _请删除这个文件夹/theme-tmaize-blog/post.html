@@ -1,0 +1,11 @@
+<#assign page_title = page.article.title>
+<#assign page_keywords = page.article.categories>
+<#assign css_list = ["common.css","syntax.css","mypost.css"]>
+<#assign js_list = ["common.js"]>
+
+<#include "_includes/header.html">
+<div id="mypost">
+	<h1 class="postinfo">${page.article.title}</h1>
+	<div class="main">${page.article.html}</div>
+</div>
+<#include "_includes/footer.html">

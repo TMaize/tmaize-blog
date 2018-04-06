@@ -1,0 +1,21 @@
+<#assign page_title = "友情链接">
+<#assign css_list = ["common.css","syntax.css","mypost.css"]>
+<#assign js_list = ["common.js"]>
+
+<#include "../_includes/header.html">
+
+<div id="mypost">
+	<h1 class="postinfo">友情链接</h1>
+	<div class="main">
+		<ul>
+			<#list global.data['links.json'] as link>
+				<li>
+					<p><a href="${link.url}" title="${link.title}" target="_blank">${link.content}</a></p>
+					<p>${link.desc}</p>
+				</li>
+			</#list>
+		</ul>
+	</div>
+</div>
+
+<#include "../_includes/footer.html">

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html context="${global.config.context}">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-language" content="zh-CN" />
+		<meta name="google-site-verification" content="ckhUaoa05QCmWoE1FafzTBcqYI4yBOy-UJKopXDS18M" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="author" content="${global.config.author}" />
+		<link rel="icon" href="${global.config.context}/static/img/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="${global.config.context}/static/img/favicon.ico" type="image/x-icon"/>
+		<#if css_list??>
+			<#list css_list as css>
+				<link rel="stylesheet" href="${global.config.context}/static/css/${css}">
+			</#list>
+		</#if>
+		<#if js_list??>
+			<#list js_list as js>
+				<script type="text/javascript" src="${global.config.context}/static/js/${js}"></script>
+			</#list>
+		</#if>
+		<#if page_keywords??>
+			<meta name="keywords" content="${global.config.author},${page_keywords?join(",")}"/>
+		<#else>
+			<meta name="keywords" content="${global.config.keywords}"/>
+		</#if>
+		<#if page_title??>
+			<meta name="description" content="${page_title}"/>
+			<title>${page_title}-${global.config.siteName}</title>
+		<#else>
+			<meta name="description" content="${global.config.siteName}"/>
+			<title>${global.config.siteName}</title>
+		</#if>
+	</head>
+<body>
+	<header id="header">
+		<a class="logo" href="${global.config.context}/" title="Blog"></a>
+		<div class="title"><a href="${global.config.context}/" class="nav-a">${global.config.siteName}</a></div>
+		<nav class="nav" id="nav">
+			<ul>
+				<li><a href="${global.config.context}/" class="nav-a">Blog</a><span>·</span></li>
+				<li><a href="${global.config.context}/pages/categories.html" class="nav-a">Categories</a><span>·</span></li>
+				<li><a href="${global.config.context}/pages/search.html" class="nav-a">Search</a><span>·</span></li>
+				<li><a href="${global.config.context}/pages/links.html" class="nav-a">Links</a><span>·</span></li>
+				<li><a href="${global.config.context}/pages/chat.html" class="nav-a">Chat</a><span>·</span></li>
+				<li><a href="${global.config.context}/pages/about.html" class="nav-a">About</a></li>
+			</ul>
+		</nav>
+		<span class="menu-tool" id="menu-tool"><em></em><em></em><em></em><em></em></span>
+	</header>

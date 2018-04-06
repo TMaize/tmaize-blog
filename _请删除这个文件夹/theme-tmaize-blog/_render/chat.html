@@ -1,0 +1,188 @@
+<#assign page_title = "留言板">
+<#assign css_list = ["common.css"]>
+<#assign js_list = ["common.js","bmob-min.js","chat.js"]>
+
+<#include "../_includes/header.html">
+
+<div class="comment">
+    <div class="comment-title">
+        <h1>留言板</h1>
+        <p>添加友链，内容交流，都可以在这里留下你的足迹....</p>
+    </div>
+    <div class="comment-content">
+        <p>评论内容(300字以内)*</p>
+        <textarea class="comment-input"></textarea>
+    </div>
+    <span class="comment-name">
+        <p>姓名(昵称)*</p>
+        <input type="text" class="comment-input">
+    </span>
+    <span class="comment-email">
+        <p>电子邮件(不会公开)</p>
+        <input type="text" class="comment-input">
+    </span>
+    <span class="comment-website">
+        <p>你的站点(http(s)://开头)</p>
+        <input type="text" class="comment-input">
+    </span>
+    <div class="comment-submit">
+        <input type="button" class="comment-input" value="提交">
+    </div>
+    <div class="comment-list">
+        <h2>所有评论</h2>
+        <ul>
+        </ul>
+        <div class="comment-list-loadmore">
+            <input type="button" class="comment-input" value="加载更多">
+        </div>
+    </div>
+</div>
+<style>
+    .comment {
+        /*50% 50% 不换行*/
+        font-size: 0;
+    }
+
+    .comment p {
+        padding: 0;
+        margin: 5px 0px;
+    }
+
+    .comment * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: "Open Sans", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, Verdana, Tahoma, sans-serif;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .comment-input {
+        margin: 0;
+        padding: 0;
+        text-indent: 0;
+        outline: 0;
+        border: none;
+        border: 1px solid #AAA;
+        width: 100%;
+        padding: 6px;
+    }
+
+    .comment-title {
+        margin-bottom: 20px;
+    }
+
+    .comment-title h1 {
+        font-size: 18px;
+    }
+
+    .comment-content textarea {
+        height: 80px;
+        resize: none;
+    }
+
+    .comment-name {
+        display: inline-block;
+        width: 33%;
+    }
+
+    .comment-email {
+        display: inline-block;
+        width: 33%;
+        padding: 0 10px;
+    }
+
+    .comment-website {
+        display: inline-block;
+        width: 33%;
+    }
+
+    .comment-submit {
+        margin-top: 10px;
+    }
+
+    .comment-submit input {
+        border: 0;
+        width: 100px;
+        background-color: #222222;
+        color: #f9f9f9;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .comment-list h2 {
+        padding: 20px 0px 10px 0px;
+        border-bottom: 1px solid #666;
+    }
+
+    .comment-list ul {
+        margin-top: 12px;
+        padding: 0;
+        list-style: none;
+    }
+
+    .comment-list li {
+        margin-bottom: 20px;
+        border-left: 3px solid #ccc;
+        padding-left: 10px;
+        animation-duration: 1s;
+	    animation-fill-mode: both;
+	    animation-name: fadeInLeft;
+    }
+
+    .comment-list-title {
+        position: relative;
+    }
+
+    .comment-list-title a {
+        display: inline-block;
+        max-width: 170px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .comment-list-title span {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .comment-list-content {
+        max-height: 100px;
+        overflow: auto;
+    }
+
+    .comment-list-loadmore {
+        margin-top: 25px;
+        text-align: center;
+        display: none;
+    }
+
+    .comment-list-loadmore input {
+        width: 80px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 470px) {
+        .comment-name {
+            width: 100%;
+        }
+        .comment-email {
+            width: 100%;
+            padding: 0;
+        }
+
+        .comment-website {
+            width: 100%;
+        }
+    }
+</style>
+
+<#include "../_includes/footer.html">

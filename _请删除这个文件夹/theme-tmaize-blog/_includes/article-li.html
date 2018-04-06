@@ -1,0 +1,9 @@
+<li>
+	<time>${article.date?string("yyyy/MM/dd")}&nbsp;</time>
+	<a href="${global.config.context}/posts${article.url}">${article.title}</a>
+	<span>&nbsp;
+		<#list article.categories as cat>
+			<a href="${global.config.context}/pages/categories.html#${cat}">${cat}</a>
+		</#list>
+	</span>
+</li>

@@ -1,0 +1,152 @@
+#mypost{
+	font-size: 13px;
+}
+
+#mypost h1{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#mypost h2{
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #AAA;
+}
+
+#mypost h3,#mypost h4,#mypost h5,#mypost h6{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#mypost p{
+    margin: 13px 0;
+	word-break: break-all;
+}
+
+#mypost img{
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+}
+
+#mypost a{
+    color: #111;
+    cursor: auto;
+    text-decoration: underline;
+}
+
+#mypost blockquote{
+    margin: 13px 0;
+    border-left: 3px solid #000;
+    /*text-indent: 20px;*/
+	padding-left: 13px;
+}
+
+#mypost blockquote p{
+    font-weight: bold;
+}
+#mypost hr{
+	margin: 13px 0;
+    border: 1px solid #f5f5f5;
+    padding: 0;
+}
+
+#mypost ul,#mypost ol {
+    padding-left: 18px;
+	margin-top: 13px;
+    margin-bottom: 13px;
+	margin-left: 0;
+    -webkit-margin-before: 13px;
+    -webkit-margin-after: 13px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 18px;
+    
+}
+/*代码样式*/
+#mypost code{
+	font-size: 12px;
+	font-family: Consolas,"Microsoft YaHei",微软雅黑;
+	background-color: #f5f5f5;
+    padding: .1em 1em;
+    border-radius: 3px;
+	word-break: break-all;
+}
+
+#mypost pre{
+    word-wrap: normal;
+	overflow: auto;
+	border-radius: 3px;
+	display: block;
+    margin: 13px 0;
+	padding: 1em;
+	background-color: #f5f5f5;
+}
+
+#mypost pre code{
+	display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+	overflow: initial;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+	word-break: normal;
+    white-space: pre;
+}
+
+#mypost pre.highlight {
+	width: 100%;
+    overflow: auto;
+    max-height: 700px;
+}
+
+/*表格样式*/
+#mypost table{
+	display: block;
+	min-width: 100%;
+	overflow: auto;
+    margin: 13px 0;
+    border-collapse:collapse;
+    background-color: transparent;
+    font-family: Verdana;
+}
+
+#mypost td,#mypost th {
+    padding: 5px 10px;
+    font-size: 13px;
+    color: #333;
+}
+
+#mypost th{
+    font-weight: bold;
+}
+
+#mypost table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+#mypost table thead th{
+    border-bottom:2px solid #DDD;
+}
+
+#mypost table tbody td{
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+#mypost .postinfo{
+    margin-bottom: 40px;
+    animation-duration: 1s;
+	animation-fill-mode: both;
+	animation-name: fadeInLeft;
+}
+
+#mypost .main{
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	animation-name: fadeInUp;
+}
