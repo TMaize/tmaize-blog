@@ -13,17 +13,21 @@ title: 关于我
 
 遂写了一套jekyll主题(就是现在这个，在一点点完善)，用于记录自己的学习笔记（没有一点技术含量的文章），便于自己查阅
 
+现在已经修改为使用[site-generator](https://github.com/TMaize/site-generator)生成,迁移到BAE
+
 ## 作品展示
 
 + [tmaize-blog](https://github.com/TMaize/tmaize-blog)
 
     你现在看到的这个博客,简单的jekyll主题，前端没啥框架，力求轻快
 
-+ [t-blog](#)
++ [site-generator](https://github.com/TMaize/site-generator)
 
-    Java开发的一套单用户博客系统，支持高度自由的自定义主题（类似于Wordpress），支持Markdown编辑写作
+    Java开发的的静态站点生成器，自己用比较顺手，类似jekyll和hexo
 
-    主要框架为：后端Jfinal，前端Vue+iView
+    当前站点已经修改为使用site-generator生成
+
+    主要使用了：flexmark,commons-io,jsoup,gson,nanohttpd
 
 + 有待添加......
 
@@ -59,4 +63,4 @@ title: 关于我
 
 + GitHub : [https://github.com/tmaize](https://github.com/tmaize)
 
-+ OSChina : 不怎么用了[https://git.oschina.net/tmaize](https://git.oschina.net/tmaize)
++ OSChina : [https://git.oschina.net/tmaize](https://git.oschina.net/tmaize)
