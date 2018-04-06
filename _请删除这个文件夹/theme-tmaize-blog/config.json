@@ -10,7 +10,7 @@
   "build": {
     "postPath": "../../_posts",
     "postFilePath": "../../posts",
-    "outPath": "../out",
+    "outPath": "../app",
     "copy": [
       {
         "from": "/index/1.html",
@@ -50,7 +50,7 @@
       },
       {
         "from": "/_render/posts.txt",
-        "to": "/posts.xml"
+        "to": "/posts.txt"
       }
     ],
     "delete": [
