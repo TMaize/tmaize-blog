@@ -16,13 +16,11 @@
 		<title>{{ page.title }}-{{ site.title }}</title>
 	</head>
 <body>
-	{% include header.html %}
+{% include header.html %}
     <div id="mypost">
 		{% if page.title %}
 		<h1 class="postinfo">{{ page.title }}</h1>
 		{% endif %}
 		<div class="main">{{ content }}</div>
 	</div>
-	{% include footer.html %}
-</body>
-</html>
+{% include footer.html %}

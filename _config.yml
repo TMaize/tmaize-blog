@@ -8,14 +8,13 @@ author: TMaize
 
 # "","/blog"
 context: ""
-scheme: "http"
-domain: "blog.tmaize.net"
+"siteMapPrefix": "http://blog.tmaize.net"
 
 ## 文章url前缀 context/自定义，下面的context为''
 permalink: /posts/:year/:month/:day/:title.html
 
 copyright: 2016
-beianhao: "皖ICP备16016174号"
+record: "皖ICP备16016174号"
 
 coderay:
   coderay_tab_width: 4

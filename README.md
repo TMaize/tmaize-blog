@@ -32,19 +32,17 @@ author: TMaize
 
 # 上下文环境，"","/blog"
 context: ""
-scheme: "http"
-domain: "blog.tmaize.net"
+"siteMapPrefix": "http://blog.tmaize.net"
 
 ## 文章url前缀
 permalink: /posts/:year/:month/:day/:title.html
 
 copyright: 2016
-beianhao: "皖ICP备16016174号"
+record: "皖ICP备16016174号"
 
 coderay:
   coderay_tab_width: 4
 ```
-
 
 ## 写文章
 
@@ -62,18 +60,6 @@ coderay:
 
     或者把百度和360的seo推送,mta统计代码替换成你自己的
 
-+ pages/chat.html
-
-    请换成别的评论插件
-    
-    比如:
-
-    [https://github.com/imsun/gitment](https://github.com/imsun/gitment)
-
-    [https://github.com/gitalk/gitalk](https://github.com/gitalk/gitalk)
-
 + CNAME
 
     如果支持cname请换成你自己的域名
-
-
