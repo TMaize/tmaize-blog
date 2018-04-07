@@ -14,7 +14,7 @@ categories: [java]
 
 Jetty大小适中，而且也够成熟,相比之下NanoHTTPD是非常轻量的，考虑到速度和体积还是使用了NanoHTTPD
 
-注意github上的NanoHTTPD文件比较多，其实只需要一个NanoHTTPD.java即可
+注意github上的NanoHTTPD文件比较多，其实只需要一个NanoHTTPD.java（放到项目里面时不要修改包结构，可能会无法运行）即可
 
 ## 代码
 
