@@ -136,3 +136,7 @@ if (window.attachEvent) {
     window.addEventListener("load", menutoggle, false);
     window.addEventListener("load", toTop, false);
 }
+
+console.info('%c欢迎使用这套主题', 'text-shadow: 3px 1px 1px grey');
+console.info("Author Blog %chttp://blog.tmaize.net", "color: #0000FF;");
+console.info("Github Site %chttps://github.com/TMaize/tmaize-blog", "color: #FF0000;");
