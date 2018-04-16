@@ -4,19 +4,19 @@
 <#include "_includes/header.html">
 
 <div id="articlelist">
-    <#list page.articles as article>
+    <#list global.articles as article>
         <#assign this_post_year = article.date?string("yyyy")?number>
-        <#if article_index == page.articles?size-1>
+        <#if article_index == global.articles?size-1>
             <#assign next_post_year = this_post_year>
         <#else>
-            <#assign next_post_year = page.articles[article_index+1].date?string("yyyy")?number>
+            <#assign next_post_year = global.articles[article_index+1].date?string("yyyy")?number>
         </#if>
         <#if article_index == 0>
             <div class="type-head">${this_post_year?c}</div>
                 <ul>
         </#if>
         <#if this_post_year == next_post_year>
-            <#if article_index==page.articles?size-1>
+            <#if article_index==global.articles?size-1>
                     <#include "_includes/article-li.html">
                 </ul>
             <#else>
