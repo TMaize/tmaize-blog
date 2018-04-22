@@ -98,10 +98,10 @@
     white-space: pre;
 }
 
-#mypost pre.highlight {
+#mypost pre {
 	width: 100%;
     overflow: auto;
-    max-height: 700px;
+    max-height: 600px;
 }
 
 /*表格样式*/
