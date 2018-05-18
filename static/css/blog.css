@@ -114,6 +114,10 @@ body>* {
     margin-bottom: 50px;
 }
 
+.header .logo{
+    text-decoration: none;
+}
+
 .header .title {
     display: none;
 }
