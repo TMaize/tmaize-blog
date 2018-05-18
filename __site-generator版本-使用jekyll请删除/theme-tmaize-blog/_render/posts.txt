@@ -1,0 +1,2 @@
+<#list global.articles as article>${global.config.siteMapPrefix}${global.config.context}/posts${article.url}
+</#list>

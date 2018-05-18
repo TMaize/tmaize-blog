@@ -1,0 +1,13 @@
+<#assign page_title = page.article.title>
+<#assign page_keywords = page.article.categories>
+<#assign css_list = ["blog.css","blog-post.css"]>
+<#assign js_list = ["blog.js"]>
+
+<#include "_includes/header.html">
+
+<div class="main animation-fadeUp post">
+	<h1 class="title">${page.article.title}</h1>
+	<div class="content">${page.article.html}</div>
+</div>
+
+<#include "_includes/footer.html">

@@ -1,0 +1,48 @@
+<#assign page_title = "搜索">
+<#assign css_list = ["blog.css","blog-post.css"]>
+<#assign js_list = ["blog.js","search.js"]>
+
+<#include "../_includes/header.html">
+
+<div class="main animation-fadeUp post">
+	<h1 class="title">搜索</h1>
+</div>
+<div class="main animation-fadeUp">
+	<input id="search-input" type="text" placeholder="小技巧：空格分隔多个关键字^_^"></input>
+	<div>
+		<div class="list-group">
+			<ul id="search-list"></ul>
+		</div>
+	</div>
+	<div id="search-templete" class="hide">
+		<li class="info animation-fadeUp">
+			<span class="time">日期</span>
+			<a class="title">标题</a>
+			<span class="categories">
+				<a baseUrl="${global.config.context}/pages/categories.html#">分类名</a>
+			</span>
+		</li>
+	</div>
+	<style>
+		#search-input{
+			font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+			color: #313131;
+			display: block;
+			outline: 0;
+			width: 100%;
+			text-align: center;
+			margin: 0 0 30px 0;
+			padding: 0 0 10px 0;
+			border: 0;			
+			border-bottom: 2px solid #eee;
+		}
+		@media screen and (max-width: 600px){
+			#search-list {
+				padding-left: 10px;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+		}
+	</style>
+</div>
+<#include "../_includes/footer.html">
