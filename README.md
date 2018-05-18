@@ -1,25 +1,27 @@
-# 地址
-
- [我的Blog预览](http://blog.tmaize.net/) 欢迎添加友链
-
- [github 地址](https://github.com/TMaize/tmaize-blog) 欢迎star
-
-# 说明
+# 介绍
 
 一款jekyll主题，简洁纯净，支持自适应
 
-由于一直在这个项目里面修改主题代码，和以前的项目simple-jekyll-theme差异太大，现在把simple-jekyll-theme删除了，只留这一个项目,只有一个master分支
+2.0版本，主题重构，留言板美化，过渡动画更柔顺，css布局兼容性更强，未引入任何框架，秒开页面
 
- 
-# 截图
+如果你喜欢用Java，该主题同时提供[site-generator](https://github.com/TMaize/site-generator)版本，
 
-![s1](readme/01.jpg)
 
-![s2](readme/02.jpg)
+下面有具体的样式截图，或者你可以到我的博客查看
+
+[我的Blog预览](http://blog.tmaize.net/) 欢迎添加友链
+
+[github 地址](https://github.com/TMaize/tmaize-blog) 欢迎star
 
 # 使用
 
-## 配置说明
+使用的话请参考我的文件放置规则，文章放在_posts目录，文章资源放在posts目录
+
+请删除_includes/footer.html里面的统计代码
+
+CNAME文件里的内容请换成你自己的域名
+
+配置文件
 
 ```
 encoding: utf-8
@@ -32,6 +34,7 @@ author: TMaize
 
 # 上下文环境，"","/blog"
 context: ""
+# 用于生成sitemap
 "siteMapPrefix": "http://blog.tmaize.net"
 
 ## 文章url前缀
@@ -44,22 +47,11 @@ coderay:
   coderay_tab_width: 4
 ```
 
-## 写文章
 
-符合 jekyll 的使用规范，请参考我的文件放置规则
+# PC端截图
 
-文章放在_posts目录
+![pc](readme/pc.jpg)
 
-文章资源放在posts目录
+# 移动端截图
 
-## 要修改的文件
-
-+ _includes/footer.html
-
-    请删除本页所有的script标签内的东西
-
-    或者把百度和360的seo推送,mta统计代码替换成你自己的
-
-+ CNAME
-
-    如果支持cname请换成你自己的域名
+![mobile](readme/mobile.jpg)
