@@ -1,26 +1,29 @@
 <#assign page_title = "文章分类">
-<#assign css_list = ["common.css","categories.css","articlelist.css"]>
-<#assign js_list = ["common.js"]>
+<#assign css_list = ["blog.css","blog-post.css"]>
+<#assign js_list = ["blog.js"]>
 
 <#include "../_includes/header.html">
 
-<div id="listcategories">
-    <blockquote>标签云</blockquote>
-    <ul>
-    	<#list global.categories as cat>
-			<li><a href="#${cat.name}">${cat.name}</a></li>
+<div class="main animation-fadeUp post">
+	<h1 class="title">文章分类</h1>
+	<div class="content">
+		<#list global.categories as cat>
+			<a href="#${cat.name}">${cat.name}</a>
+			<span>&nbsp;</span>
 		</#list>
-    </ul>
+		<hr>
+	</div>
 </div>
-
-<div id="articlelist">
+<div class="main animation-fadeUp">
 	<#list global.categories as cat>
-		<div class="type-head" name="${cat.name}" id="${cat.name}">${cat.name}</div>
-		<ul>
-			<#list cat.articles as article>
-				<#include "../_includes/article-li.html">
-			</#list>
-		</ul>
+		<div class="list-group">
+			<span id="${cat.name}">${cat.name}</span>
+			<ul>
+				<#list cat.articles as article>
+					<#include "../_includes/article-li.html">
+				</#list>
+			</ul>
+		</div>
 	</#list>
 </div>
 

@@ -1,140 +1,132 @@
-if (window.attachEvent) {
-    window.attachEvent("onload", initComment);
-} else if (window.addEventListener) {
-    window.addEventListener("load", initComment, false);
-}
-
-function initComment() {
+blog.tmaize = false;
+blog.addLoadEvent(function () {
     Bmob.initialize("34f0386ac5bd50fd77fe82190af00faf", "6f1419c800083315432f2df7dcb503d4");
-    var url;
-    if(window.location.host=="cdn.blog.tmaize.net"){
-        url = "blog.tmaize.net" + window.location.pathname + window.location.search;
-    }else{
-        url = window.location.host + window.location.pathname + window.location.search;
-    }
-
+    var url = window.location.host + window.location.pathname + window.location.search;
     var Comment = Bmob.Object.extend("Comment");
-
     var count = 0;
     var now = 0;
-    var pageSize = 10;
-
-    var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
-    var more = document.getElementsByClassName('comment-list-loadmore')[0];
-    var list = document.getElementsByClassName('comment-list')[0].getElementsByTagName('ul')[0];
-    var inputs = document.getElementsByClassName('comment-input');
+    var pageSize = 7;
 
     //加载评论条目
-    var c_count = new Bmob.Query(Comment);
-    c_count.equalTo("url", url);
-    c_count.count({
+    var queryObject = new Bmob.Query(Comment);
+    queryObject.equalTo("url", url);
+    //异步的
+    queryObject.count({
         success: function (c) {
             count = c;
             if (c > 0) {
-                count = c;
                 loadMore(0, pageSize);
             }
-
         },
         error: function (error) {
-            alert('查询总条数失败')
+            console.error('查询总条数失败');
         }
     });
 
-    //根据时间降序列出前15条
+    //查询留言
     function loadMore(skip, size) {
-        var c_find = new Bmob.Query(Comment);
-        c_find.equalTo("url", url);
-        c_find.descending("time"); //时间降序排列
-        c_find.skip(skip);
-        c_find.limit(size);
-        c_find.find({
+        var queryObject = new Bmob.Query(Comment);
+        queryObject.equalTo("url", url);
+        queryObject.descending("time"); //时间降序排列
+        queryObject.skip(skip);
+        queryObject.limit(size);
+        queryObject.find({
             success: function (results) {
                 now += results.length;
                 if (now == count) {
-                    more.style.display = 'none';
+                    blog.addClass(document.getElementsByClassName('comment-more')[0], 'hide');
                 } else {
-                    more.style.display = 'block';
+                    blog.removeClass(document.getElementsByClassName('comment-more')[0], 'hide');
                 }
                 for (var i = 0; i < results.length; i++) {
-                    render(i, results);
+                    render(results[i], i);
                 }
             },
             error: function (error) {
-                alert("拉取评论信息失败");
+                console.error('查询评论列表失败')
             }
         });
     }
 
-    function render(i, results) {
-        setTimeout(function () {
-            var li = document.createElement('li');
-            var website = results[i].get('website');
-            if (website !== '') {
-                website = " href='" + website + "'";
-            }
-            li.innerHTML = "<div class='comment-list-title'><a " + website + " target='_blank'>" +
-                results[i].get('nickName') + "</a><span>" + results[i].get('time') +
-                "</span></div><div class='comment-list-content'></div>";
-            li.getElementsByClassName('comment-list-content')[0].innerText = results[i].get(
-                'content');
-            list.appendChild(li);
-        }, 300 * i);
+    //把一个评论放入到页面中
+    function render(comment, i) {
+        var node = document.getElementsByClassName('comment-list-templete')[0].children[0].cloneNode(true);
+        var ul = document.getElementsByClassName('comment-list')[0];
+        var head = node.getElementsByClassName('head')[0];
+        var headUrl = head.getAttribute('baseUrl');
+        if (comment.get('email') == '') {
+            head.setAttribute('src', headUrl);
+        } else {
+            head.setAttribute('src', headUrl + blog.md5(comment.get('email')));
+        }
+        var name = node.getElementsByClassName('name')[0];
+        name.innerHTML = comment.get('nickName');
+        if (comment.get('website') == '') {
+            blog.addClass(name, 'comment-no-url');
+        } else {
+            name.setAttribute('href', comment.get('website'));
+        }
+        node.getElementsByClassName('time')[0].innerText = comment.get('time').substr(0, 10);
+        node.getElementsByClassName('content')[0].innerText = comment.get('content');
+        ul.appendChild(node);
     }
 
-
-    //加载后面15条数据
-    inputs[5].onclick = function () {
+    //加载更多
+    blog.addEvent(document.getElementsByClassName('comment-more')[0], "click", function () {
         loadMore(now, pageSize);
-    }
+    });
 
     //提交评论
-    inputs[4].onclick = function () {
-        var content = inputs[0].value.trim();
-        var nickName = inputs[1].value.trim();
-        var email = inputs[2].value.trim();
-        var website = inputs[3].value.trim();
-        if (content == '') {
-            alert('评论内容不允许为空!')
+    blog.addEvent(document.getElementsByClassName('comment-form')[0].getElementsByTagName('span')[0], "click", function () {
+        var emailCheck = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+        var urlCheck = new RegExp("^https?:\/\/.+\..+");
+
+        var dom_form = document.getElementsByClassName('comment-form')[0];
+        var dom_name = dom_form.getElementsByTagName('input')[0];
+        var dom_email = dom_form.getElementsByTagName('input')[1];
+        var dom_site = dom_form.getElementsByTagName('input')[2];
+        var dom_content = dom_form.getElementsByTagName('textarea')[0];
+
+        var name = blog.trim(dom_name.value);
+        var email = blog.trim(dom_email.value);
+        var site = blog.trim(dom_site.value);
+        var content = blog.trim(dom_content.value);
+
+        if (name == '' || name.length > 20) {
+            alert('昵称为空或长度大于20！')
             return;
         }
-        if (content.length > 300) {
-            alert('评论内容超过了300字')
+        if (!blog.tmaize && name.toLowerCase().indexOf('tmaize') != -1) {
+            alert('昵称禁止包含TMaize')
             return;
         }
-        if (nickName == '') {
-            alert('姓名不允许为空!')
+        if (email != '' && (email.length > 50 || !emailCheck.test(email))) {
+            alert('邮箱长度大于50或格式错误！')
+            return;
+        }
+        if (site != '' && (site.length > 80 || !urlCheck.test(site))) {
+            alert('站点长度大于80或格式错误！')
+            return;
+        }
+        if (content == '' || content.length > 200) {
+            alert('内容为空或长度大于200！')
             return;
         }
 
-        if (nickName.toLowerCase().indexOf("tmaize") != -1) {
-            alert('姓名不准包含TMaize');
-            return;
-        }
-
-        if (email != '' && !reg.test(email)) {
-            alert('邮箱不合法!')
-            return;
-        }
-
-        if (website != '' && website.substring(0, 4) != 'http') {
-            alert('你的站点不合法!')
-            return;
-        }
-        var c_insert = new Comment();
-        c_insert.set("url", url);
-        c_insert.set("nickName", nickName);
-        c_insert.set("email", email);
-        c_insert.set("website", website);
-        c_insert.set("time", new Date());
-        c_insert.set("content", content);
-        c_insert.save(null, {
+        var updateObject = new Comment();
+        updateObject.set("url", url);
+        updateObject.set("nickName", name);
+        updateObject.set("email", email);
+        updateObject.set("website", site);
+        updateObject.set("time", new Date());
+        updateObject.set("content", content);
+        updateObject.save(null, {
             success: function (object) {
                 window.location.href = window.location.href;
             },
             error: function (model, error) {
-                alert("数据存储失败");
+                alert("提交评论失败");
             }
         });
-    }
-}
+    })
+});

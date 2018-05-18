@@ -1,7 +1,7 @@
-<li>
-	<time>${article.date?string("yyyy/MM/dd")}&nbsp;</time>
-	<a href="${global.config.context}/posts${article.url}">${article.title}</a>
-	<span>&nbsp;
+<li class="info">
+	<span class="time md">${article.date?string("yyyy/MM/dd")}</span>
+	<a href="${global.config.context}/posts${article.url}" class="title">${article.title}</a>
+	<span class="categories md">
 		<#list article.categories as cat>
 			<a href="${global.config.context}/pages/categories.html#${cat}">${cat}</a>
 		</#list>
