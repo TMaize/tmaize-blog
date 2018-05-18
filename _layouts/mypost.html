@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html context="{{site.context}}">
+<html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="content-language" content="zh-CN" />
@@ -7,20 +7,20 @@
 		<meta name="keywords" content="{{ site.author }}{% for category in page.categories %},{{ category }}{% endfor %}"/>
 		<meta name="author" content="{{ site.author }}" />
 		<meta name="description" content="{{ page.title }}"/>
-		<link rel="stylesheet" href="{{site.context}}/static/css/common.css">
-		<link rel="stylesheet" href="{{site.context}}/static/css/syntax.css">
-		<link rel="stylesheet" href="{{site.context}}/static/css/mypost.css">
-		<script type="text/javascript" src="{{site.context}}/static/js/common.js"></script>
 		<link rel="icon" href="{{site.context}}/static/img/favicon.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="{{site.context}}/static/img/favicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" href="{{site.context}}/static/css/blog.css">
+		<link rel="stylesheet" href="{{site.context}}/static/css/blog-post.css">
+		<script>window.blog={contextPath:""}</script>
+		<script type="text/javascript" src="{{site.context}}/static/js/blog.js"></script>
 		<title>{{ page.title }}-{{ site.title }}</title>
 	</head>
 <body>
 {% include header.html %}
-    <div id="mypost">
+	<div class="main animation-fadeUp post">
 		{% if page.title %}
-		<h1 class="postinfo">{{ page.title }}</h1>
+		<h1 class="title">{{ page.title }}</h1>
 		{% endif %}
-		<div class="main">{{ content }}</div>
+		<div class="content">{{ content }}</div>
 	</div>
 {% include footer.html %}

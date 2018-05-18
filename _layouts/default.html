@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html context="{{site.context}}">
+<html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="content-language" content="zh-CN" />
@@ -14,6 +14,7 @@
 		{% for css in page.css %}
 			<link rel="stylesheet" href="{{site.context}}/static/css/{{ css }}">
 		{% endfor %}
+		<script>window.blog={contextPath:""}</script>
 		{% for js in page.js %}
 			<script type="text/javascript" src="{{site.context}}/static/js/{{ js }}"></script>
 		{% endfor %}

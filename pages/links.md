@@ -2,7 +2,6 @@
 layout: mypost
 title:  友情链接
 ---
-
 <ul>
     {% for link in site.data.links %}
     <li>

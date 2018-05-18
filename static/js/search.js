@@ -2,8 +2,7 @@
 layout: null
 ---
 
-function search() {
-var data = [
+blog.posts = [
 {% for post in site.posts %}
 {
 "title" : "{{ post.title }}",
@@ -16,65 +15,56 @@ var data = [
 {% endif %}
 {% endfor %}
 ]
-    var text_input = document.getElementById("text-input");
-    var searchlist = document.getElementById("searchlist");
-    var beforeinput = "";
-    
-    function addnode(json) {
-        var li = document.createElement('li');
-        var node = "<time>" + json.time + "&nbsp;</time>";
-        node += "<a href='" + json.url + "'>" + json.title + "</a>";
-        var arr = json.categories.split("@");
-        for (var j = 0; j < arr.length; j++) {
-            node += "<span>&nbsp;<a href='{{site.context}}/pages/categories.html#" + arr[j] + "'>" + arr[j] + "</a></span>";
+
+
+// 搜索功能
+blog.addLoadEvent(function () {
+    var text_input = document.getElementById("search-input");
+    text_input.value='';
+    var search_list = document.getElementById("search-list");
+    var oldInput = "";
+    blog.addEvent(text_input, 'input', function () {
+        var newInput = blog.trim(text_input.value);
+        if (oldInput != blog.trim(newInput)) {
+            text_input.value = newInput;
+            oldInput = newInput;
+            search_list.innerHTML = '';
+            if (newInput != '') {
+                search(newInput);
+            }
         }
-        li.innerHTML = node;
-        searchlist.appendChild(li);
-    }
+    });
 
-    function inputchange() {
-        var currentinput = text_input.value;
-
-        //输入有变化，重新检索
-        if (beforeinput != currentinput.trim()) {
-            beforeinput = currentinput.trim();
-            if (beforeinput != "") {
-                searchlist.innerHTML = "";
-                var dataarray = data;
-                for (i = 0; i < dataarray.length; i++) {
-                    var keywords = beforeinput.split(" ");
-                    for (var j = 0; j < keywords.length; j++) {
-                        if (dataarray[i].time.match(keywords[j])) {
-                            addnode(dataarray[i]);
-                            break;
-                        }
-                        if (dataarray[i].title.toLocaleUpperCase().match(keywords[j].toLocaleUpperCase())) {
-                            addnode(dataarray[i]);
-                            break;
-                        }
-                        if (dataarray[i].categories.toLocaleUpperCase().match(keywords[j].toLocaleUpperCase())) {
-                            addnode(dataarray[i]);
-                            break;
-                        }
-                    }
+    function search(keywords) {
+        keywords = keywords.split(/\s+/);
+        for (var i = 0; i < blog.posts.length; i++) {
+            var flag = true;
+            for (var j = 0; j < keywords.length; j++) {
+                // 多个关键词取交集
+                if (!(blog.posts[i].time.match(keywords[j]) || blog.posts[i].title.toLowerCase().match(keywords[j].toLowerCase()) || blog.posts[i].categories.toLowerCase().match(keywords[j].toLowerCase()))) {
+                    flag = false;
+                    break;
                 }
-            } else {
-                searchlist.innerHTML = "";
+            }
+            if (flag) {
+                addResult(blog.posts[i]);
             }
         }
     }
 
-    /*绑定事件*/
-    if (window.attachEvent) {
-        text_input.attachEvent("oninput", inputchange);
-    } else if (window.addEventListener) {
-        text_input.addEventListener("input", inputchange, false);
+    function addResult(post) {
+        var node = document.getElementById('search-templete').children[0].cloneNode(true);
+        node.getElementsByClassName('categories')[0].innerHTML = '';
+        node.getElementsByClassName('time')[0].innerText = post.time;
+        node.getElementsByClassName('title')[0].innerText = post.title;
+        node.getElementsByClassName('title')[0].setAttribute('href', blog.contextPath + post.url);
+        var categories = post.categories.split('@');
+        for (var i = 0; i < categories.length; i++) {
+            var cat = document.getElementById('search-templete').getElementsByTagName('a')[1].cloneNode(true);
+            cat.innerText = categories[i];
+            cat.setAttribute('href', cat.getAttribute('baseUrl')+ categories[i]);
+            node.getElementsByClassName('categories')[0].appendChild(cat);
+        }
+        search_list.appendChild(node);
     }
-}
-
-/*绑定事件*/
-if (window.attachEvent) {
-    window.attachEvent("onload", search);
-} else if (window.addEventListener) {
-    window.addEventListener("load", search, false);
-}
+});
