@@ -47,11 +47,10 @@ coderay:
   coderay_tab_width: 4
 ```
 
+# 移动端截图
+
+![mobile](readme/mobile.jpg)
 
 # PC端截图
 
 ![pc](readme/pc.jpg)
-
-# 移动端截图
-
-![mobile](readme/mobile.jpg)
