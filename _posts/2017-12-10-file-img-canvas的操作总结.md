@@ -4,7 +4,7 @@ title: File Img Canvas的操作总结
 categories: [javascript]
 ---
 
-记录下工作中对于H5的FileAPI使用和一些常见的操作
+记录下H5的FileAPI和Canvas一些操作
 
 ## 图片压缩
 
@@ -281,4 +281,41 @@ image object
 ctx.drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh)
 ```
 
+## Canvas 操作像素点
 
+一个颜色反转的例子
+
+```
+var fileInput = document.getElementById('fileInput');
+var cvs = document.getElementById('canvas');
+ctx = cvs.getContext('2d');
+var buttonInput = document.getElementById('buttonInput');
+var w;
+var h;
+
+fileInput.onchange = function () {
+    var file = this.files[0];
+    var reader = new FileReader();
+    reader.onload = function () {
+        var img = new Image();
+        img.src = reader.result;
+        img.onload = function () {
+            cvs.width = w = img.width;
+            cvs.height = h = img.height;
+            ctx.drawImage(img, 0, 0);
+        }
+    };
+    reader.readAsDataURL(file);
+}
+
+buttonInput.onclick = function () {
+    var data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    for (n = 0; n < data.width * data.height; n++) {
+        var index = n * 4;
+        data.data[index] = 255 - data.data[index];
+        data.data[index + 1] = 255 - data.data[index + 1];
+        data.data[index + 2] = 255 - data.data[index + 2];
+    }
+    ctx.putImageData(data, 0, 0);
+}
+```
