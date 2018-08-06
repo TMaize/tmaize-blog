@@ -92,6 +92,9 @@
     margin: 0;
     border: 0;
     top: 0;
+    tab-size:4;
+    -moz-tab-size:4;
+    -o-tab-size:4;
 }
 
 .post hr {
