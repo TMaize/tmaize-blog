@@ -21,7 +21,7 @@
         <div style="clear: both;"></div>
     </div>
     <ul class="comment-list"></ul>
-    <div class="comment-more hide">加载更多</div>
+    <div class="comment-more select-none"><span>评论加载中</span></div>
     <div class="comment-list-templete hide">
         <li class="animation-fadeUp">
             <img class="head" baseUrl="http://www.gravatar.com/avatar/">
@@ -123,15 +123,14 @@
     }
     .comment-more{
         text-align: center;
-        padding: 0;
-        margin: 0 auto;
-        width: 70px;
-        line-height: 28px;
-        border-radius: 14px;
+        margin-top: 15px;
+    }
+    .comment-more>span {
+        border-radius: 12px;
         background-color: #ededed;
         cursor: pointer;
         font-size: 12px;
-        margin-top: 15px;
+        padding: 6px 10px;
     }
 </style>
 

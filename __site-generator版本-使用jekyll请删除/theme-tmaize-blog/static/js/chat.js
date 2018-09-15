@@ -7,6 +7,8 @@ blog.addLoadEvent(function () {
     var now = 0;
     var pageSize = 7;
 
+    var loadButton = document.getElementsByClassName('comment-more')[0].getElementsByTagName('span')[0];
+
     //加载评论条目
     var queryObject = new Bmob.Query(Comment);
     queryObject.equalTo("url", url);
@@ -16,10 +18,13 @@ blog.addLoadEvent(function () {
             count = c;
             if (c > 0) {
                 loadMore(0, pageSize);
+            }else{
+                loadButton.innerText = '未发现评论';
             }
         },
-        error: function (error) {
-            console.error('查询总条数失败');
+        error: function (e) {
+            loadButton.innerText = '查询总条数失败';
+            log.error(e)
         }
     });
 
@@ -34,16 +39,17 @@ blog.addLoadEvent(function () {
             success: function (results) {
                 now += results.length;
                 if (now == count) {
-                    blog.addClass(document.getElementsByClassName('comment-more')[0], 'hide');
-                } else {
-                    blog.removeClass(document.getElementsByClassName('comment-more')[0], 'hide');
+                    loadButton.innerText = '暂无更多评论';
+                }else{
+                    loadButton.innerText = '加载更多';
                 }
                 for (var i = 0; i < results.length; i++) {
                     render(results[i], i);
                 }
             },
-            error: function (error) {
-                console.error('查询评论列表失败')
+            error: function (e) {
+                loadButton.innerText = '查询评论列表失败';
+                log.error(e)
             }
         });
     }
@@ -72,8 +78,11 @@ blog.addLoadEvent(function () {
     }
 
     //加载更多
-    blog.addEvent(document.getElementsByClassName('comment-more')[0], "click", function () {
-        loadMore(now, pageSize);
+    blog.addEvent(loadButton, "click", function () {
+        if(loadButton.innerText == '加载更多'){
+            loadButton.innerText = '评论拉取中';
+            loadMore(now, pageSize);
+        }
     });
 
     //提交评论
