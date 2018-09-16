@@ -1,3 +1,6 @@
 <view class="container">
-    <text>{{userInfo.openid}}</text>
+    <view wx:for="{{articles}}" wx:key="{{index}}" data-index="{{index}}" class='list' bindtap="jumpDetail">
+        <text class='title'>{{item.title}}</text>
+        <text class='time'>{{item.time}}</text>
+    </view>
 </view>

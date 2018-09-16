@@ -1,13 +1,13 @@
 {
     "cloud": true,
     "pages": [
-        "pages/index/index"
+        "pages/index/index",
+        "pages/detail/index"
     ],
     "window": {
-        "backgroundColor": "#FFFFFF",
+        "backgroundColor": "#F8F8F8",
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#FFFFFF",
-        "navigationBarTitleText": "TMaize Blog",
         "navigationBarTextStyle": "black"
     }
 }
