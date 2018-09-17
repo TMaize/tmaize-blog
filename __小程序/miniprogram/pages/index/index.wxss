@@ -9,10 +9,14 @@
 
 .list {
     background-color: #fff;
-    margin: 5px 0;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     padding: 10px;
+}
+
+.list:last-child {
+    margin-bottom: 10px;
 }
 
 .list .title {

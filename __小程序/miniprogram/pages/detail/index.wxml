@@ -1,1 +1,1 @@
-<text>{{content}}</text>
+<rich-text nodes="{{article}}"></rich-text>

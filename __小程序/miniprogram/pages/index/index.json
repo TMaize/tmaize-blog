@@ -1,3 +1,5 @@
 {
-    "navigationBarTitleText": "TMaize Blog"
+    "navigationBarTitleText": "TMaize Blog",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
 }

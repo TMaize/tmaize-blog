@@ -1,35 +1,42 @@
 Page({
     data: {
-        title: '',
-        content: '',
-        url: ''
+        article: ''
     },
     onLoad: function(options) {
         let _this = this
-        wx.showLoading({
-            title: '加载中...'
+        wx.setNavigationBarTitle({
+            title: options.title
         })
-        let article = wx.getStorageSync('article')
-        wx.setNavigationBarTitle(article.title)
-        this.setData({
-            title: article.title,
-            url: article.url
-        })
-        wx.cloud.callFunction({
-            name: 'loadArticle',
-            data: {
-                url: article.url
+        // 显示顶部刷新图标
+        wx.showNavigationBarLoading();
+        loadArticle(options.url).then(status => {
+            if (status) {
+                _this.setData({
+                    article: wx.getStorageSync(options.url)
+                })
             }
-        }).then(res => {
-            _this.setData({
-                content: res.result
-            })
-            wx.hideLoading()
-        }).catch(err => {
-            wx.showToast({
-                title: '加载文章失败',
-                icon: 'none'
-            })
+            // 隐藏顶部刷新图标
+            wx.hideNavigationBarLoading()
         })
     }
 })
+
+async function loadArticle(url) {
+    // 缓存
+    if (wx.getStorageSync(url)) {
+        wx.getStorageSync(url)
+        return true
+    }
+    return wx.cloud.callFunction({
+        name: 'loadArticle',
+        data: {
+            url: url
+        }
+    }).then(res => {
+        wx.setStorageSync(url, res.result)
+        return true
+    }).catch(err => {
+        console.error(err)
+        return false
+    })
+}

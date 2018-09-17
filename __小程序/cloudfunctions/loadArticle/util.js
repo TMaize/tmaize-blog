@@ -45,8 +45,7 @@ const parseDetail = async id => {
                 let $ = cheerio.load(body, {
                     decodeEntities: false //html() 方法不转换中文字符
                 });
-                // resolve($('.content').html())
-                resolve(id)
+                resolve($.html('.content'))
             } else {
                 reject('爬取' + id + '失败')
             }
