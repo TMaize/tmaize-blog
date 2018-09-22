@@ -1,0 +1,13 @@
+{
+    "cloud": true,
+    "pages": [
+        "pages/index/index",
+        "pages/detail/index"
+    ],
+    "window": {
+        "backgroundColor": "#F8F8F8",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+    }
+}

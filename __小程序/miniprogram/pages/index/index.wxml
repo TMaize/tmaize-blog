@@ -1,0 +1,6 @@
+<view class="container">
+    <view wx:for="{{articleList}}" wx:key="{{index}}" data-index="{{index}}" class='list' bindtap="jumpArticle">
+        <text class='title'>{{item.title}}</text>
+        <text class='time'>{{item.time}}</text>
+    </view>
+</view>
