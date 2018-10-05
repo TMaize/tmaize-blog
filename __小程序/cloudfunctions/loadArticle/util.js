@@ -1,7 +1,6 @@
 const cheerio = require('cheerio');
 const request = require('request');
 
-const site = 'http://blog.tmaize.net'
 
 const parseList = async() => {
     return new Promise((resolve, reject) => {
@@ -53,15 +52,16 @@ const parseDetail = async id => {
     })
 }
 
-const test = async() => {
-    let articles = await parseList()
-    for (let item of articles) {
-        let cotent = await parseDetail(item.url)
-        item.content = cotent
-        console.log(item.url)
-    }
-    return articles
+const test = function (){
+    var $ = cheerio.load(`
+    <div>123 <span>456</span> </div>
+    <img src="1.jpg" alt="">
+    <div>789<span>1011</span></div>
+    `);
+    console.log($('body').toArray()[0].children)
 }
+
+test()
 
 // test().then(data => {
 //     console.log(data[1].content)
