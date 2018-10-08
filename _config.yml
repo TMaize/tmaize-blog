@@ -1,18 +1,23 @@
 encoding: utf-8
 
-# seo
+# SEO相关信息
 title: TMaize Blog
 description: TMaize Blog
 keywords: TMaize,Blog,Java,Android,Html,Css,Js,算法
 author: TMaize
 
-# "","/blog"
+# 项目环境
+# 静态资源找不到，链接点进去不对时请检查下这里的配置
+# demo.com访问设置为""，demo.com/blog/访问设置为"/blog"
 context: ""
-"siteMapPrefix": "http://blog.tmaize.net"
 
-## 文章url前缀 context/自定义，下面的context为''
+# 用来生成sitemap
+siteMapPrefix: "http://blog.tmaize.net"
+
+## 文章url前缀，固定格式，不要动
 permalink: /posts/:year/:month/:day/:title.html
 
+# 页面底部信息
 copyright: 2016
 record: "皖ICP备16016174号"
 
