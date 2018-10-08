@@ -18,35 +18,10 @@
 
 3. 修改_data/links.json友情链接里的内容，如果可以，欢迎加上http://blog.tmaize.net
 
-5. 适当修改_config.yml文件，见下方配置文件说明
+4. 适当修改_config.yml文件，具体作用请参考注释
 
 5. 请参考我的文件放置规则，文章放在_posts目录，文章资源放在posts目录
 
-# 配置文件说明
-
-```
-encoding: utf-8
-
-# seo
-title: TMaize'Blog
-description: TMaize'Blog
-keywords: TMaize,Blog,TMaize'Blog
-author: TMaize
-
-# 上下文环境，"","/blog"
-context: ""
-# 用于生成sitemap
-"siteMapPrefix": "http://blog.tmaize.net"
-
-## 文章url前缀
-permalink: /posts/:year/:month/:day/:title.html
-
-copyright: 2016
-record: "皖ICP备16016174号"
-
-coderay:
-  coderay_tab_width: 4
-```
 
 # 移动端截图
 
