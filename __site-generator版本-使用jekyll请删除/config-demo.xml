@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>
+    <AppPath>要上传的本地目录</AppPath>
+    <UploadPath>上传的服务器位置</UploadPath>
+    <DeployPath>服务器解压目录</DeployPath>
+    <Server>
+        <Name>root</Name>
+        <Pwd>*********</Pwd>
+        <Address>demo.com</Address>
+        <Port>22</Port>
+    </Server>
+</Config>
