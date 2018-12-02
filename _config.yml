@@ -1,10 +1,10 @@
 encoding: utf-8
 
 # SEO相关信息
-title: TMaize Blog
-description: TMaize Blog
-keywords: TMaize,Blog,Java,Android,Html,Css,Js,算法
-author: TMaize
+title: zhangchang的Blog
+description: zhangchang的Blog
+keywords: Java, 数据结构, 算法, 多线程, 设计模式, spring
+author: zhangchang
 
 # 项目环境
 # 静态资源找不到，链接点进去不对时请检查下这里的配置
@@ -18,8 +18,8 @@ siteMapPrefix: "http://blog.tmaize.net"
 permalink: /posts/:year/:month/:day/:title.html
 
 # 页面底部信息
-copyright: 2016
-record: "皖ICP备16016174号"
+copyright: 2018
+record: "京A00001号"
 
 coderay:
   coderay_tab_width: 4
