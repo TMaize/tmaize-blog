@@ -12,7 +12,7 @@ author: zhangchang
 context: ""
 
 # 用来生成sitemap
-siteMapPrefix: "http://blog.tmaize.net"
+siteMapPrefix: "https://www.zhangchangbao.com"
 
 ## 文章url前缀，固定格式，不要动
 permalink: /posts/:year/:month/:day/:title.html
