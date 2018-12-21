@@ -25,7 +25,8 @@ coderay:
   coderay_tab_width: 4
 
 # Gitalk settings
-comment_gitalk_clientId: cd9e988dce5113b6026b
-comment_gitalk_clientSecret: f90642dc6b14c8236e0058744a18759c739f0a6e
-comment_gitalk_repo: changboa66.github.io
-github_username: changboa66
+gitalk:
+  comment_gitalk_clientId: cd9e988dce5113b6026b
+  comment_gitalk_clientSecret: f90642dc6b14c8236e0058744a18759c739f0a6e
+  blog_repo: changboa66.github.io
+  github_username: changboa66
