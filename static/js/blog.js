@@ -164,7 +164,7 @@ blog.addLoadEvent(function () {
 // });
 
 //主题标识
-blog.addLoadEvent(function () {
-    console.info("Author Blog %chttp://blog.tmaize.net", "color: #FF0000;");
-    console.info("Github Site %chttps://github.com/TMaize/tmaize-blog", "color: #FF0000;");
-});
+// blog.addLoadEvent(function () {
+    // console.info("Author Blog %chttp://blog.tmaize.net", "color: #FF0000;");
+    // console.info("Github Site %chttps://github.com/TMaize/tmaize-blog", "color: #FF0000;");
+// });
