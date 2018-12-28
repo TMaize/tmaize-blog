@@ -14,7 +14,7 @@
 
 1. CNAME文件里的内容请换成你自己的域名(使用github的二级域名可以删除该文件)
 
-2. 请删除_includes/footer.html里面的统计代码，删除（__site-generator版本-使用jekyll请删除，__小程序）目录
+2. 请删除_includes/footer.html里面的统计代码
 
 3. 修改_data/links.json友情链接里的内容，如果可以，欢迎加上http://blog.tmaize.net
 
@@ -22,11 +22,10 @@
 
 5. 请参考我的文件放置规则，文章放在_posts目录，文章资源放在posts目录
 
-
 # 移动端截图
 
-![mobile](readme/mobile.jpg)
+![mobile](static/readme/mobile.jpg)
 
 # PC端截图
 
-![pc](readme/pc.jpg)
+![pc](static/readme/pc.jpg)
