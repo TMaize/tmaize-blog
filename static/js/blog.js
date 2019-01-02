@@ -101,51 +101,51 @@ blog.trim = function (str) {
 
 /***********************************************************************/
 
-// 菜单展开/关闭
-blog.addLoadEvent(function () {
-    var menu = document.getElementsByClassName('header')[0].getElementsByClassName('menu')[0];
-    blog.addEvent(document.getElementsByClassName('header')[0].getElementsByClassName('icon')[0], 'click', function (event) {
-        blog.toggleClass(menu, 'show');
-        event.stopPropagation();
-    });
-    blog.addEvent(window, 'click', function (event) {
-        blog.removeClass(menu, 'show');
-    });
-    blog.addEvent(window, 'scroll', function () {
-        blog.removeClass(menu, 'show');
-    });
-});
+// // 菜单展开/关闭
+// blog.addLoadEvent(function () {
+//     var menu = document.getElementsByClassName('header')[0].getElementsByClassName('menu')[0];
+//     blog.addEvent(document.getElementsByClassName('header')[0].getElementsByClassName('icon')[0], 'click', function (event) {
+//         blog.toggleClass(menu, 'show');
+//         event.stopPropagation();
+//     });
+//     blog.addEvent(window, 'click', function (event) {
+//         blog.removeClass(menu, 'show');
+//     });
+//     blog.addEvent(window, 'scroll', function () {
+//         blog.removeClass(menu, 'show');
+//     });
+// });
 
 
 // 回到顶部
-blog.addLoadEvent(function () {
-    var upDom = document.getElementsByClassName('footer')[0].getElementsByClassName('up')[0];
-    function getScrollTop() {
-        if (document.documentElement && document.documentElement.scrollTop) {
-            return document.documentElement.scrollTop;
-        } else if (document.body) {
-            return document.body.scrollTop;
-        }
-    }
+// blog.addLoadEvent(function () {
+//     var upDom = document.getElementsByClassName('footer')[0].getElementsByClassName('up')[0];
+//     function getScrollTop() {
+//         if (document.documentElement && document.documentElement.scrollTop) {
+//             return document.documentElement.scrollTop;
+//         } else if (document.body) {
+//             return document.body.scrollTop;
+//         }
+//     }
 
-    blog.addEvent(window, 'scroll', function () {
-        if (getScrollTop() > 200) {
-            blog.addClass(upDom, 'show');
-        } else {
-            blog.removeClass(upDom, 'show');
-        }
-    });
+//     blog.addEvent(window, 'scroll', function () {
+//         if (getScrollTop() > 200) {
+//             blog.addClass(upDom, 'show');
+//         } else {
+//             blog.removeClass(upDom, 'show');
+//         }
+//     });
 
-    blog.addEvent(upDom, 'click', function () {
-        if (document.documentElement && document.documentElement.scrollTop) {
-            document.documentElement.scrollTop = 0;
-        } else if (document.body) {
-            document.body.scrollTop = 0;
-        }
-    });
-});
+//     blog.addEvent(upDom, 'click', function () {
+//         if (document.documentElement && document.documentElement.scrollTop) {
+//             document.documentElement.scrollTop = 0;
+//         } else if (document.body) {
+//             document.body.scrollTop = 0;
+//         }
+//     });
+// });
 
-
+/*
 // 文字冒泡-社会主义核心价值观
 blog.addLoadEvent(function () {
     var texts = ["富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善"];
@@ -162,9 +162,8 @@ blog.addLoadEvent(function () {
         }, 1000);
     });
 });
-
+*/
 //主题标识
 blog.addLoadEvent(function () {
-    console.info("Author Blog %chttp://blog.tmaize.net", "color: #FF0000;");
-    console.info("Github Site %chttps://github.com/TMaize/tmaize-blog", "color: #FF0000;");
+    console.info("Theme By %chttps://github.com/TMaize/tmaize-blog", "color: #FF0000;");
 });

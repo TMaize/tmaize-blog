@@ -1,49 +1,29 @@
 ---
-layout: default
+layout: page
+title: 首页
 css: [blog.css]
 js: [blog.js]
 ---
-<div class="main animation-fadeUp">
+<div class="container page-index">
 	{% for post in site.posts  %}
-		{% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-		{% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+		{% capture post_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+		{% capture post_previous_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+		{% capture post_next_year %}{{ post.next.date | date: "%Y" }}{% endcapture %}
 
-		{% if forloop.first %}
-		<div class="list-group"><span>{{ this_year }}</span><ul>
+		{% if forloop.first or post_next_year != post_year %}
+		<div class="list-group"><h2 id="{{post_year}}">{{post_year}}</h2><ul>
 		{% endif %}
 
-		{% if this_year == next_year %}
-			<li class="info">
-				<span class="time md">{{ post.date | date: "%Y/%m/%d" }}</span>
-				<a href="{{site.context}}{{ post.url }}" class="title">{{ post.title }}</a>
-				<span class="categories md">&nbsp;
-					{% for cat in post.categories %}
-						<a href="{{site.context}}/pages/categories.html#{{ cat }}">{{ cat }}</a>
-					{% endfor %}
-				</span>
-			</li>
-		{% else %}
-			{% if forloop.last %}
-			<li class="info">
-				<span class="time md">{{ post.date | date: "%Y/%m/%d" }}</span>
-				<a href="{{site.context}}{{ post.url }}" class="title">{{ post.title }}</a>
-				<span class="categories md">&nbsp;
-					{% for cat in post.categories %}
-						<a href="{{site.context}}/pages/categories.html#{{ cat }}">{{ cat }}</a>
-					{% endfor %}
-				</span>
-			</li></ul></div>
-			{% else %}
-			<li class="info">
-				<span class="time md">{{ post.date | date: "%Y/%m/%d" }}</span>
-				<a href="{{site.context}}{{ post.url }}" class="title">{{ post.title }}</a>
-				<span class="categories md">&nbsp;
-					{% for cat in post.categories %}
-						<a href="{{site.context}}/pages/categories.html#{{ cat }}">{{ cat }}</a>
-					{% endfor %}
-				</span>
-			</li></ul></div><div class="list-group"><span>{{next_year}}</span><ul></ul>
-			{% endif %}
+		<li>
+			<span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
+			<a href="{{site.baseUrl}}{{ post.url }}" class="title hover-underline">{{ post.title }}</a>
+			{% for categorie in post.categories %}
+			<a href="{{site.baseUrl}}/pages/categories.html#{{ categorie }}" class="categorie hover-underline">{{ categorie }}</a>
+			{% endfor %}
+		</li>
+		
+		{% if forloop.last or post_previous_year != post_year %}
+		</ul></div>
 		{% endif %}
 	{% endfor %}
 </div>

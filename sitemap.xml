@@ -6,44 +6,44 @@ layout: null
 {% for post in site.posts  %}
     {% if forloop.first %}
     <url>
-        <loc>{{ site.siteMapPrefix }}{{ site.context }}</loc>
+        <loc>{{ site.siteMapPrefix }}{{ site.baseUrl }}</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>{{ site.siteMapPrefix }}{{ site.context }}/pages/categories.html</loc>
+        <loc>{{ site.siteMapPrefix }}{{ site.baseUrl }}/pages/categories.html</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>{{ site.siteMapPrefix }}{{ site.context }}/pages/search.html</loc>
+        <loc>{{ site.siteMapPrefix }}{{ site.baseUrl }}/pages/search.html</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>{{ site.siteMapPrefix }}{{ site.context }}/pages/links.html</loc>
+        <loc>{{ site.siteMapPrefix }}{{ site.baseUrl }}/pages/links.html</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>{{ site.siteMapPrefix }}{{ site.context }}/pages/chat.html</loc>
+        <loc>{{ site.siteMapPrefix }}{{ site.baseUrl }}/pages/chat.html</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>{{ site.siteMapPrefix }}{{ site.context }}/pages/about.html</loc>
+        <loc>{{ site.siteMapPrefix }}{{ site.baseUrl }}/pages/about.html</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     {% endif %}
     <url>
-        <loc>{{ site.siteMapPrefix }}{{ site.context }}{{ post.url }}</loc>
+        <loc>{{ site.siteMapPrefix }}{{ site.baseUrl }}{{ post.url }}</loc>
         <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>

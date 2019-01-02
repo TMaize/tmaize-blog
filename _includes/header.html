@@ -1,15 +1,15 @@
-<header class="header select-none">
-    <a class="logo" title="{{site.title}}" href="{{site.context}}/">
-        <img src="{{site.context}}/static/img/logo.jpg">
-    </a>
-    <a class="title" href="{{site.context}}/">{{site.title}}</a>
-    <nav class="menu">
-        <a href="{{site.context}}/">Blog</a>
-        <a href="{{site.context}}/pages/categories.html">Categories</a>
-        <a href="{{site.context}}/pages/search.html">Search</a>
-        <a href="{{site.context}}/pages/links.html">Links</a>
-        <a href="{{site.context}}/pages/chat.html">Chat</a>
-        <a href="{{site.context}}/pages/about.html">About</a>
-    </nav>
-    <span class="icon"></span>
+<header class="container header select-none">
+  <a class="logo" title="{{ site.title }}" href="{{ site.baseUrl }}/">
+    <img src="{{ site.baseUrl }}/static/img/logo.jpg" />
+  </a>
+  <a class="title" href="{{ site.baseUrl }}/">{{ site.title }}</a>
+  <nav class="menu">
+    <a href="{{ site.baseUrl }}/" class="hover-underline">Blog</a>
+    <a href="{{ site.baseUrl }}/pages/categories.html" class="hover-underline">Categories</a>
+    <a href="{{ site.baseUrl }}/pages/search.html" class="hover-underline">Search</a>
+    <a href="{{ site.baseUrl }}/pages/links.html" class="hover-underline">Links</a>
+    <a href="{{ site.baseUrl }}/pages/chat.html" class="hover-underline">Chat</a>
+    <a href="{{ site.baseUrl }}/pages/about.html" class="hover-underline">About</a>
+  </nav>
+  <span class="menu-togger"></span>
 </header>

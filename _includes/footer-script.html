@@ -1,0 +1,4 @@
+<script>window.blog={baseUrl:""}</script>
+{% for js in page.js %}
+<script type="text/javascript" src="{{site.baseUrl}}/static/js/{{ js }}"></script>
+{% endfor %}

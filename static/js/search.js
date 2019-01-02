@@ -8,7 +8,7 @@ blog.posts = [
 "title" : "{{ post.title }}",
 "time" : "{{ post.date | date: "%Y/%m/%d" }}",
 "categories":"{% for cat in post.categories %}{{ cat }}{% if forloop.rindex != 1 %}@{% endif %}{% endfor %}",
-"url" : "{{site.context}}{{ post.url }}"
+"url" : "{{site.baseUrl}}{{ post.url }}"
 }
 {% if forloop.rindex != 1  %}
 ,

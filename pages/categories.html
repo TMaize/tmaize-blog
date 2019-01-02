@@ -1,33 +1,29 @@
 ---
-layout: default
+layout: page
 title: 文章分类
-css: [blog.css,blog-post.css]
+css: [blog.css]
 js: [blog.js]
 ---
-<div class="main animation-fadeUp post">
-	<h1 class="title">文章分类</h1>
-	<div class="content">
+<div class="container page-categories">
+	<h1 class="page-title" id="{{ page.title }}">{{ page.title }}</h1>
+	<ul>
 		{% for category in site.categories %}
-		<a href="#{{ category[0] }}">{{ category[0] }}</a>
-		<span>&nbsp;</span>
+		<li>
+			<a href="#{{ category[0] }}">{{ category[0] }}</a>
+		</li>
 		{% endfor %}
-		<hr>
-	</div>	
-</div>
-<div class="main animation-fadeUp">
+	</ul>
 	{% for category in site.categories %}
 	<div class="list-group">
-		<span id="{{ category[0] }}">{{ category[0] }}</span>
+		<h2 id="{{ category[0] }}">{{ category[0] }}</h2>
 		<ul>
 			{% for post in category[1] %}
-			<li class="info">
-				<span class="time md">{{ post.date | date: "%Y/%m/%d" }}</span>
-				<a href="{{site.context}}{{ post.url }}" class="title">{{ post.title }}</a>
-				<span class="categories md">&nbsp;
-					{% for cat in post.categories %}
-					<a href="#{{ cat }}">{{ cat }}</a>
-					{% endfor %}
-				</span>
+			<li>
+				<span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
+				<a href="{{site.baseUrl}}{{ post.url }}" class="title hover-underline">{{ post.title }}</a>
+				{% for categorie in post.categories %}
+				<a href="#{{ categorie }}" class="categorie hover-underline">{{ categorie }}</a>
+				{% endfor %}
 			</li>
 			{% endfor %}
 		</ul>
