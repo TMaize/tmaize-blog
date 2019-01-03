@@ -17,6 +17,8 @@ textarea {
   border-radius: 0;
   appearance: none;
   -webkit-appearance: none;
+  outline: 0;
+  border: 0;
 }
 a {
   text-decoration: none;
@@ -110,7 +112,7 @@ body::-webkit-scrollbar {
 .header .menu a {
   font-size: 16px;
   display: inline-block;
-  margin: 0 12px;
+  margin: 0 13px;
   position: relative;
 }
 .header .menu a:before {
@@ -124,7 +126,7 @@ body::-webkit-scrollbar {
   top: 6.5px;
 }
 .header .menu a:first-child {
-  margin-left: 24px;
+  margin-left: 20px;
 }
 .header .menu a:last-child {
   margin-right: 0;
@@ -218,4 +220,63 @@ body::-webkit-scrollbar {
   bottom: 0;
   left: 0;
   background-color: #313131;
+}
+.page-search #search-input {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0 30px 0;
+  padding: 0 0 10px 0;
+  border-bottom: 2px solid #eeeeee;
+}
+.page-chat form {
+  display: block;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  position: relative;
+}
+.page-chat form input {
+  font-size: 13px;
+  display: block;
+  border-bottom: 1px dashed #cccccc;
+  width: 100%;
+  line-height: 30px;
+  margin-bottom: 10px;
+  transition: border 300ms linear;
+}
+.page-chat form input:focus {
+  border-bottom: 1px dashed #444;
+}
+.page-chat form textarea {
+  display: block;
+  width: 100%;
+  line-height: 1.8;
+  resize: none;
+}
+.page-chat form span {
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  background-color: #ededed;
+  font-size: 13px;
+  padding: 5px 16px;
+  border-radius: 16px;
+  transition: all 200ms ease-in-out;
+}
+.page-chat form span:hover {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.page-chat .page-chat-load-container {
+  padding-top: 18px;
+  padding-bottom: 13px;
+  text-align: center;
+}
+.page-chat .page-chat-load {
+  display: inline-block;
+  cursor: pointer;
+  background-color: #ededed;
+  font-size: 13px;
+  padding: 5px 16px;
+  border-radius: 16px;
 }
