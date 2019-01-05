@@ -21,7 +21,7 @@
   font-weight: normal;
   font-size: 17px;
   position: relative;
-  margin: 18px 0;
+  margin: 14px 0;
 }
 .post h1::before,
 .post h2::before {
@@ -94,6 +94,7 @@
   padding: 0 4px;
   margin: 0 2px;
   border-radius: 2px;
+  font-size: 13px;
 }
 .post pre {
   font-size: 0;
@@ -109,7 +110,7 @@
   background-color: transparent;
   padding: 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
 }
 .post table {

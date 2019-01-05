@@ -22,62 +22,93 @@ blog.addLoadEvent(function() {
   }
 })
 
-// // 菜单展开/关闭
-// blog.addLoadEvent(function () {
-//     var menu = document.getElementsByClassName('header')[0].getElementsByClassName('menu')[0];
-//     blog.addEvent(document.getElementsByClassName('header')[0].getElementsByClassName('icon')[0], 'click', function (event) {
-//         blog.toggleClass(menu, 'show');
-//         event.stopPropagation();
-//     });
-//     blog.addEvent(window, 'click', function (event) {
-//         blog.removeClass(menu, 'show');
-//     });
-//     blog.addEvent(window, 'scroll', function () {
-//         blog.removeClass(menu, 'show');
-//     });
-// });
-
 // 回到顶部
-// blog.addLoadEvent(function () {
-//     var upDom = document.getElementsByClassName('footer')[0].getElementsByClassName('up')[0];
-//     function getScrollTop() {
-//         if (document.documentElement && document.documentElement.scrollTop) {
-//             return document.documentElement.scrollTop;
-//         } else if (document.body) {
-//             return document.body.scrollTop;
-//         }
-//     }
+blog.addLoadEvent(function() {
+  var upDom = document.getElementById('moveUp')
+  var bottom = parseInt(window.getComputedStyle(upDom).bottom)
+  // 隐藏
+  upDom.style.bottom = -2 * bottom + 'px'
 
-//     blog.addEvent(window, 'scroll', function () {
-//         if (getScrollTop() > 200) {
-//             blog.addClass(upDom, 'show');
-//         } else {
-//             blog.removeClass(upDom, 'show');
-//         }
-//     });
+  function getScrollTop() {
+    if (document.documentElement && document.documentElement.scrollTop) {
+      return document.documentElement.scrollTop
+    } else if (document.body) {
+      return document.body.scrollTop
+    }
+  }
 
-//     blog.addEvent(upDom, 'click', function () {
-//         if (document.documentElement && document.documentElement.scrollTop) {
-//             document.documentElement.scrollTop = 0;
-//         } else if (document.body) {
-//             document.body.scrollTop = 0;
-//         }
-//     });
-// });
+  blog.addEvent(window, 'scroll', function() {
+    if (getScrollTop() > 200) {
+      upDom.style.bottom = bottom + 'px'
+    } else {
+      upDom.style.bottom = -2 * bottom + 'px'
+    }
+  })
+
+  blog.addEvent(upDom, 'click', function() {
+    if (document.documentElement && document.documentElement.scrollTop) {
+      document.documentElement.scrollTop = 0
+    } else if (document.body) {
+      document.body.scrollTop = 0
+    }
+  })
+})
 
 // 文字冒泡-社会主义核心价值观
-// blog.addLoadEvent(function () {
-//     var texts = ["富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善"];
-//     blog.addEvent(window, 'click', function (ev) {
-//         var span = document.createElement('span');
-//         span.innerText = texts[parseInt(Math.random() * texts.length)];
-//         span.setAttribute("style", "left:" + ev.pageX + "px;top:" + (ev.pageY - 20) + "px;");
-//         span.className = "bubble select-none";
-//         document.body.appendChild(span);
-//         //动画结束后移除，事件和动画的时间要一致
-//         //考虑到兼容性，不使用webkitAnimationEnd
-//         setTimeout(function () {
-//             document.body.removeChild(span);
-//         }, 1000);
-//     });
-// });
+blog.addLoadEvent(function() {
+  var texts = [
+    '富强',
+    '民主',
+    '文明',
+    '和谐',
+    '自由',
+    '平等',
+    '公正',
+    '法治',
+    '爱国',
+    '敬业',
+    '诚信',
+    '友善'
+  ]
+  var temp = '<span style="top:{top}px;'
+  temp += 'left:{left}px;'
+  temp += 'font-size: 12px;'
+  temp += 'width: 30px;'
+  temp += 'z-index: 999;'
+  temp += 'position: absolute;'
+  temp += 'opacity: 1;'
+  temp += 'transition: all 500ms ease-out;'
+  temp += '-webkit-transition: all 500ms ease-out;"'
+  temp += 'class="select-none"'
+  temp += '>{text}</span>'
+
+  blog.addEvent(window, 'click', function(ev) {
+    var tagName = ev.target.tagName.toLocaleLowerCase()
+    var className = ev.target.className
+    if (tagName == 'a' || className.indexOf('logo') != -1) {
+      return
+    }
+    var html = temp.replace(
+      '{text}',
+      texts[parseInt(Math.random() * texts.length)]
+    )
+    html = html.replace('{top}', ev.pageY - 10)
+    html = html.replace('{left}', ev.pageX - 10)
+
+    var o = document.createElement('div')
+    o.innerHTML = html
+    var node = o.children[0]
+
+    document.body.appendChild(node)
+    o = null
+    setTimeout(function() {
+      node.style.top = ev.pageY - 50 + 'px'
+      node.style.opacity = 0
+    }, 20)
+
+    setTimeout(function() {
+      document.body.removeChild(node)
+      node = null
+    }, 500)
+  })
+})

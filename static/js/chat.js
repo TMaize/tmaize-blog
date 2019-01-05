@@ -45,7 +45,8 @@ blog.addLoadEvent(function() {
       success: function(results) {
         now += results.length
         if (now == count) {
-          loadButton.innerText = '暂无更多评论'
+          // loadButton.innerText = '暂无更多评论'
+          loadButton.parentNode.parentNode.removeChild(loadButton.parentNode)
         } else {
           loadButton.innerText = '加载更多'
         }
