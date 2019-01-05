@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: File Img Canvas的操作总结
-categories: [javascript]
+categories: [前端]
 ---
 
 记录下H5的FileAPI和Canvas一些操作

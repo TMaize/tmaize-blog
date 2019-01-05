@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: SpringMVC 注解 数据传递 拦截器
-categories: [java]
+categories: [Java]
 ---
 
 ## 多样化的配置

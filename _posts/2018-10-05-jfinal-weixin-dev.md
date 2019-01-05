@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: jfinal-weixin 极速开发
-categories: [java]
+categories: [Java]
 ---
 
 使用最原始的方式做公众号开发是效率很低的。http 请求，报文解析转换，access_token 的维护等都要自已写一遍

@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title:  Java注解(Annotation)学习
-categories: [java]
+categories: [Java]
 ---
 ## 概念
 
