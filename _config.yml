@@ -14,5 +14,9 @@ baseUrl: ''
 # sitemapPrefix + baseUrl + post.url
 sitemapPrefix: 'http://blog.tmaize.net'
 
-## 文章url前缀，固定格式，不要动
+# 文章url前缀，固定格式，不要动
 permalink: /posts/:year/:month/:day/:title.html
+
+kramdown:
+  auto_ids: true
+  input: GFM

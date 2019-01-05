@@ -1,8 +1,9 @@
 ---
 layout: page
+isPage: true
 title: 留言板
 css: [blog.css]
-js: [blog.js, md5.js, bmob.js, chat.js]
+js: [blog.js, md5.js, bmob.js, chat.js,plugin.js]
 ---
 
 <div class="container page-chat">
@@ -20,9 +21,11 @@ js: [blog.js, md5.js, bmob.js, chat.js]
   </div>
   <div class="page-chat-list-templet" style="display:none;">
     <li>
-      <img class="head" {blank}src="http://www.gravatar.com/avatar/{emailMD5}" />
-      <a class="name name-{hasSite}" target="_blank" href="{site}">{name}</a>
-      <span class="date">{date}</span>
+      <div class="info">
+        <img class="head" {blank}src="http://www.gravatar.com/avatar/{emailMD5}" />
+        <a class="name name-{hasSite}" target="_blank" href="{site}">{name}</a>
+        <div class="date"><span>{date}</span></div>
+      </div>
       <div class="content">{content}</div>
     </li>
   </div>

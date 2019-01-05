@@ -1,0 +1,4 @@
+<script>window.blog={baseUrl:""}</script>
+{% for js in pageJS %}
+<script type="text/javascript" src="{{site.baseUrl}}/static/js/{{ js }}?t={{ site.time | date: "%Y%m%d%H%M%S" }}"></script>
+{% endfor %}

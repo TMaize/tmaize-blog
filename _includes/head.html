@@ -1,0 +1,20 @@
+<head>
+  <title>{{ page.title }}-{{ site.title }}</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-language" content="zh-CN" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="author" content="{{ site.author }}" />
+  {% if page.isPage %}
+  <meta name="description" content="{{ site.description }}"/>
+  <meta name="keywords" content="{{ site.keywords }}"/>
+  {% else %}
+  <meta name="description" content="{{ page.title }}"/>
+  <meta name="keywords" content="{{ site.author }}{% for category in page.categories %},{{ category }}{% endfor %}"/>
+  {% endif %}
+  <link rel="icon" href="{{site.baseUrl}}/static/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="{{site.baseUrl}}/static/img/favicon.ico" type="image/x-icon"/>
+  {% for css in pageCSS %}
+  <link rel="stylesheet" href="{{site.baseUrl}}/static/css/{{ css }}?t={{ site.time | date: "%Y%m%d%H%M%S" }}">
+  {% endfor %}
+</head>

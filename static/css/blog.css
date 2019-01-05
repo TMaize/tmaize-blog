@@ -40,7 +40,8 @@ a {
   background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #999;
+  border-radius: 2px;
+  background-color: #999999;
 }
 ::selection {
   background-color: #4a4a4a;
@@ -279,4 +280,55 @@ body::-webkit-scrollbar {
   font-size: 13px;
   padding: 5px 16px;
   border-radius: 16px;
+}
+.page-chat-list li {
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid #dddddd;
+}
+.page-chat-list li .info {
+  height: 35px;
+  position: relative;
+}
+.page-chat-list li .head {
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
+  vertical-align: middle;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+.page-chat-list li .name {
+  cursor: default;
+  display: inline-block;
+  color: #5f5f5f;
+  font-size: 13px;
+  margin-left: 8px;
+  max-width: 110px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+.page-chat-list li .name-true {
+  cursor: pointer;
+  border-bottom: 1px solid #313131;
+}
+.page-chat-list li .date {
+  height: 100%;
+  float: right;
+}
+.page-chat-list li .date::before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+.page-chat-list li .date span {
+  color: #b3b3b3;
+  vertical-align: middle;
+}
+.page-chat-list li .content {
+  word-break: break-all;
+  font-size: 13px;
+  margin-top: 10px;
 }

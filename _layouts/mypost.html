@@ -1,27 +1,18 @@
+{%- assign pageCSS = "blog.css,blog-post.css,highlight.css" -%}
+{%- assign pageCSS = pageCSS | split: "," -%}
+{%- assign pageJS = "blog.js,plugin.js" | split: "," -%}
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta http-equiv="content-language" content="zh-CN" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="keywords" content="{{ site.author }}{% for category in page.categories %},{{ category }}{% endfor %}"/>
-		<meta name="author" content="{{ site.author }}" />
-		<meta name="description" content="{{ page.title }}"/>
-		<link rel="icon" href="{{site.baseUrl}}/static/img/favicon.ico" type="image/x-icon" />
-		<link rel="shortcut icon" href="{{site.baseUrl}}/static/img/favicon.ico" type="image/x-icon"/>
-		<link rel="stylesheet" href="{{site.baseUrl}}/static/css/blog.css">
-		<link rel="stylesheet" href="{{site.baseUrl}}/static/css/blog-post.css">
-		<title>{{ page.title }}-{{ site.title }}</title>
-	</head>
-<body>
+{% include head.html %}
+<body ondragstart="return false;">
 {% include header.html %}
-<div class="main animation-fadeUp post">
-{% if page.title %}
-<h1 class="title">{{ page.title }}</h1>
-{% endif %}
-<div class="content">{{ content }}</div>
+<div class="container page-post">
+  <h1 class="page-title" id="{{ page.title }}">{{ page.title }}</h1>
+  <div class="post">
+    {{ content }}
+  </div>
 </div>
 {% include footer.html %}
-{% include footer-script.html %}
+{% include script.html %}
 </body>
 </html>

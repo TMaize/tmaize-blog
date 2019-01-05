@@ -1,142 +1,148 @@
 .post {
-    font-size: 14px;
-    color: #313131;
-    font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
-    line-height: 1.8;
+  font-size: 14px;
+  color: #313131;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei',
+    'Hiragino Sans GB', 'PingFang SC', 'WenQuanYi Micro Hei', sans-serif;
+  line-height: 1.8;
 }
-
-.post h3, .post h4, .post h5, .post h6 {
-    font-size: 15px;
-    margin: 18px 0;
+.post * {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
 }
-
-.post h1 {
-    font-weight: normal;
-    font-size: 20px;
-    margin: 18px 0;
-}
-
-.post h2 {
-    font-weight: normal;
-    font-size: 17px;
-    position: relative;
-    margin: 18px 0;
-}
-
-.post h2::before {
-    content: '#';
-    position: absolute;
-    top: 0;
-    left: -15px;
-    font-weight: bold;
-}
-
-.post a {
-    color: #313131;
-    text-decoration: underline;
-}
-
 .post p {
-    margin: 18px 0;
-    word-break: break-all;
+  margin: 14px 0;
+  word-break: break-all;
 }
-
-.post img {
-    display: block;
-    max-width: 100%;
-    margin: 0 auto;
-    height: auto;
+.post h1,
+.post h2 {
+  font-weight: normal;
+  font-size: 17px;
+  position: relative;
+  margin: 18px 0;
 }
-
-.post li {
-    margin: 10px 0;
-    padding: 0;
+.post h1::before,
+.post h2::before {
+  content: '#';
+  position: absolute;
+  top: 0;
+  left: -15px;
+  font-weight: bold;
 }
-
-.post ol, .post ul {
-    padding: 0;
-    margin-left: 15px;
+.post h3,
+.post h4,
+.post h5,
+.post h6 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 14px 0;
 }
-
-.post ol>li {
-    list-style: decimal;
+.post a {
+  text-decoration: underline;
 }
-
-.post ul>li {
-    list-style: disc;
-}
-
-.post code {
-    font-size: 13px;
-    font-family: Menlo, Mono, Monaco, Consolas, "Microsoft YaHei";
-    border-radius: 3px;
-    background: #f7f7f7;
-    padding: 3px 2px;
-    margin: 0 4px;
-    position: relative;
-    top: -1px;
-}
-
-.post pre {
-    overflow: auto;
-    margin: 13px 0;
-    padding: 8px 14px;
-    border-radius: 4px;
-    background: #f7f7f7;
-    text-shadow: none;
-    max-height: 550px;
-}
-
-.post pre code {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    top: 0;
-    tab-size:4;
-    -moz-tab-size:4;
-    -o-tab-size:4;
-}
-
-.post hr {
-    margin: 13px 0;
-    border: 1px solid #f5f5f5;
-    padding: 0;
-}
-
 .post blockquote {
-    margin: 0;
-    border-left: 3px solid #666;
-    padding-left: 13px;
-    color: #666;
+  border-left: 2px solid #444444;
+  padding-left: 10px;
+  line-height: 1.5;
 }
-
+.post em,
+.post i {
+  font-style: italic;
+}
+.post strong,
+.post b {
+  font-weight: bold;
+}
+.post del {
+  text-decoration: line-through;
+}
+.post ol,
+.post ul {
+  margin: 14px 0 14px 14px;
+}
+.post ol ol,
+.post ol ul,
+.post ul ul,
+.post ul ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.post ol > li {
+  list-style: decimal;
+}
+.post ul > li {
+  list-style: disc;
+}
+.post hr {
+  margin: 14px 0;
+  border: 1px solid #f5f5f5;
+  padding: 0;
+}
+.post img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+}
+.post code {
+  background-color: #f8f8f8;
+  font-family: Consolas, Menlo, Mono, Monaco, 'Microsoft YaHei' !important;
+  word-break: break-all;
+  line-height: 1;
+  padding: 0 4px;
+  margin: 0 2px;
+  border-radius: 2px;
+}
+.post pre {
+  font-size: 0;
+  padding: 7px 10px;
+  overflow: auto;
+  margin: 14px 0;
+  border-radius: 2px;
+  background-color: #f8f8f8;
+  max-height: 550px;
+  box-shadow: 0 0px 14px 0px rgb(247, 247, 247, 0.5);
+}
+.post pre code {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
 .post table {
-    display: block;
-    min-width: 100%;
-    overflow: auto;
-    margin: 13px 0;
-    border-collapse: collapse;
+  min-width: 100%;
+  margin: 14px 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #dddddd;
 }
-
-.post th {
-    padding: 5px 10px;
-    font-weight: bold;
-    border-bottom: 2px solid #DDD;
+.post tr {
+  border-bottom: 1px solid #dddddd;
 }
-
+.post th,
 .post td {
-    border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: left;
 }
-
 .post table tr:nth-child(even) {
-    background: #fafafa;
+  background-color: #f9f9f9;
 }
-
-@media screen and (max-width: 600px) {
-    .post {
-        font-size: 13px;
-    }
-    .post code {
-        font-size: 12px;
-    }
+.post table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+.post .table-container {
+  overflow: auto;
+  margin: 14px 0;
+  border: 1px solid #dddddd;
+}
+.post .table-container table {
+  margin: 0;
+  border: 0;
+}
+.post .table-container table tbody tr:last-child {
+  border-bottom: 0;
 }
