@@ -56,6 +56,9 @@ blog.addLoadEvent(function() {
 
 // 文字冒泡-社会主义核心价值观
 blog.addLoadEvent(function() {
+  if (document.body.offsetWidth <= 560) {
+    return false
+  }
   var texts = [
     '富强',
     '民主',
@@ -84,14 +87,11 @@ blog.addLoadEvent(function() {
 
   blog.addEvent(window, 'click', function(ev) {
     var tagName = ev.target.tagName.toLocaleLowerCase()
-    var className = ev.target.className
-    if (tagName == 'a' || className.indexOf('logo') != -1) {
+    if (tagName == 'a') {
       return
     }
-    var html = temp.replace(
-      '{text}',
-      texts[parseInt(Math.random() * texts.length)]
-    )
+    var text = texts[parseInt(Math.random() * texts.length)]
+    var html = temp.replace('{text}', text)
     html = html.replace('{top}', ev.pageY - 10)
     html = html.replace('{left}', ev.pageX - 10)
 

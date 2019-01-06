@@ -85,9 +85,12 @@
   max-width: 100%;
   margin: 0 auto;
   height: auto;
+  box-shadow: 0 0 5px #e0e0e0;
+  margin-top: 14x;
+  margin-bottom: 14px;
 }
 .post code {
-  background-color: #f8f8f8;
+  background-color: #f6f8fa;
   font-family: Consolas, Menlo, Mono, Monaco, 'Microsoft YaHei' !important;
   word-break: break-all;
   line-height: 1;
@@ -102,9 +105,8 @@
   overflow: auto;
   margin: 14px 0;
   border-radius: 2px;
-  background-color: #f8f8f8;
+  background-color: #f6f8fa;
   max-height: 550px;
-  box-shadow: 0 0px 14px 0px rgb(247, 247, 247, 0.5);
 }
 .post pre code {
   background-color: transparent;
@@ -123,10 +125,12 @@
 .post tr {
   border-bottom: 1px solid #dddddd;
 }
+.post th {
+  font-weight: bold;
+}
 .post th,
 .post td {
   padding: 5px 10px;
-  font-weight: bold;
   text-align: left;
 }
 .post table tr:nth-child(even) {
@@ -146,4 +150,33 @@
 }
 .post .table-container table tbody tr:last-child {
   border-bottom: 0;
+}
+@media screen and (max-width: 560px) {
+  .post * {
+    font-size: 12px;
+  }
+  .post h1,
+  .post h2 {
+    font-weight: bold;
+    font-size: 17px;
+  }
+  .post h1::before,
+  .post h2::before {
+    content: '#';
+    position: unset;
+    padding-right: 5px;
+    font-weight: bold;
+  }
+  .post h3,
+  .post h4,
+  .post h5,
+  .post h6 {
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .post code,
+  .post pre code,
+  .post pre code span {
+    font-size: 11px;
+  }
 }

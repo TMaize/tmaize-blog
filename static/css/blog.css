@@ -100,6 +100,9 @@ body::-webkit-scrollbar {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
 }
+.header input {
+  display: none;
+}
 .header .title {
   display: inline-block;
   vertical-align: middle;
@@ -185,6 +188,7 @@ body::-webkit-scrollbar {
 .page-title {
   font-size: 20px;
   margin: 14px 0;
+  font-weight: bold;
 }
 .list-group {
   margin-bottom: 14px;
@@ -270,6 +274,7 @@ body::-webkit-scrollbar {
   width: 100%;
   line-height: 1.8;
   resize: none;
+  font-size: 13px;
 }
 .page-chat form span {
   cursor: pointer;
@@ -348,4 +353,163 @@ body::-webkit-scrollbar {
   word-break: break-all;
   font-size: 13px;
   margin-top: 10px;
+}
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 520px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .container {
+    max-width: 560px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  body {
+    padding-top: 54px;
+    font-size: 12px;
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  .header .logo {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 15px;
+  }
+  .header .title:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    visibility: hidden;
+  }
+  .header .title {
+    font-size: 13px;
+    vertical-align: middle;
+    display: inline-block;
+    height: 32px;
+  }
+  .header .menu-togger {
+    position: absolute;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    text-align: right;
+  }
+  .header .menu-togger:before {
+    content: ' ';
+    height: 100%;
+    width: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    visibility: hidden;
+  }
+  .header .menu-togger:after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    border-top: 2px solid #cccccc;
+    border-bottom: 2px solid #cccccc;
+    background-color: #cccccc;
+    padding: 5px 0;
+    background-clip: content-box;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .header .menu {
+    position: fixed;
+    right: 15px;
+    top: 65px;
+    display: inline-block;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 500ms linear;
+    -webkit-transition: all 500ms linear;
+  }
+  .header .menu a {
+    background-color: #ffffff;
+    text-align: center;
+    display: block;
+    margin: 0 !important;
+    padding: 8px 20px;
+    font-size: 12px;
+    transition: background-color 400ms linear;
+    -webkit-transition: background-color 400ms linear;
+  }
+  .header .menu a:hover {
+    background-color: #f8f8f8;
+  }
+  .header .menu a:before {
+    display: none;
+  }
+  .header .menu a:after {
+    display: none;
+  }
+  .header input:checked ~ .menu {
+    max-height: 200px;
+  }
+  .footer > * {
+    font-size: 12px;
+  }
+  .page-title {
+    font-size: 18px;
+  }
+  .list-group > h2 {
+    font-size: 14px;
+  }
+  .list-group li .date,
+  .list-group li .title {
+    font-size: 12px;
+  }
+  .list-group li .categorie {
+    font-size: 10px;
+  }
+  .list-group li {
+    padding: 8px 0;
+  }
+  .page-categories > ul li a {
+    font-size: 12px;
+  }
+  .page-search #search-input {
+    font-size: 12px;
+    padding: 0 0 8px 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eaeaea;
+  }
+  .page-chat form input,
+  .page-chat form textarea,
+  .page-chat-list li .name {
+    font-size: 12px;
+  }
+  .page-chat form span,
+  .page-chat-list li .date span,
+  .page-chat .page-chat-load {
+    font-size: 11px;
+  }
+  .page-chat-list li .content {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .page-chat-list li {
+    padding: 10px;
+  }
+  .page-chat-list li .info {
+    height: 32px;
+  }
 }

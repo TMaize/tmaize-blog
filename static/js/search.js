@@ -10,11 +10,15 @@ blog.addLoadEvent(function() {
   var oldInput = ''
   blog.addEvent(text_input, 'input', function() {
     var newInput = blog.trim(text_input.value)
+    if (blog.trim(newInput) == '') {
+      // 隐藏所有
+      for (var i = 0; i < texts.length; i++) {
+        setItemStatus(i, false)
+      }
+      return
+    }
     if (oldInput != blog.trim(newInput)) {
       oldInput = newInput
-      if (newInput == '') {
-        return
-      }
       // 隐藏所有
       for (var i = 0; i < texts.length; i++) {
         setItemStatus(i, false)
