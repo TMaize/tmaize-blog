@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Start With Spring Boot
-categories: [java]
+categories: [Java]
 ---
 
 ```

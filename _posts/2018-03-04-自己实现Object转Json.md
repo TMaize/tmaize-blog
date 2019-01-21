@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 自己实现Object转Json
-categories: [java]
+categories: [Java]
 ---
 
 之前公司里写项目，前台需要用到ajax请求json数据

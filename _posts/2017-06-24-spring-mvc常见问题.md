@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: SpringMVC 常见问题
-categories: [java]
+categories: [Java]
 ---
 
 ## DispatcherServlet的影响

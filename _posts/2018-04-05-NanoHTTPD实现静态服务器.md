@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: NanoHttpd实现静态服务器
-categories: [java]
+categories: [Java]
 ---
 
 最近在写Site Generator的时候需要内嵌一个静态服务器，自己再写个Socket Server又太麻烦了

@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Hibernate学习笔记02 实体类 主键生成 缓存 事务 session绑定
-categories: [java]
+categories: [Java]
 ---
 
 ## 实体类编写规则

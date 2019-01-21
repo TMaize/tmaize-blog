@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: SpringMVC 运行流程及基本配置代码
-categories: [java]
+categories: [Java]
 ---
 
 ## Spring Web MVC概述

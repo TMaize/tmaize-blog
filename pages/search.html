@@ -1,48 +1,26 @@
 ---
-layout: default
+layout: page
+isPage: true
 title: 搜索
-css: [blog.css,blog-post.css]
-js: [blog.js,search.js]
+css: [blog.css]
+js: [blog.js,search.js,plugin.js]
 ---
-<div class="main animation-fadeUp post">
-	<h1 class="title">搜索</h1>
-</div>
-<div class="main animation-fadeUp">
+<div class="container page-search animation-fade-up">
+	<h1 class="page-title" id="{{ page.title }}">{{ page.title }}</h1>
 	<input id="search-input" type="text" placeholder="小技巧：空格分隔多个关键字^_^"></input>
-	<div>
-		<div class="list-group">
-			<ul id="search-list"></ul>
-		</div>
+	<div class="list-group">
+		<h2 id="搜索结果">搜索结果</h2>
+		<ul>
+			{% for post in site.posts  %}
+			<li class="search-item" style="display:none;">
+				<span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
+				<a href="{{site.baseUrl}}{{ post.url }}" class="title hover-underline">{{ post.title }}</a>
+				{% for categorie in post.categories %}
+				<a href="{{site.baseUrl}}/pages/categories.html#{{ categorie }}" class="categorie hover-underline">{{ categorie }}</a>
+				{% endfor %}
+			</li>
+			{% endfor %}
+		</ul>
 	</div>
-	<div id="search-templete" class="hide">
-		<li class="info animation-fadeUp">
-			<span class="time">日期</span>
-			<a class="title">标题</a>
-			<span class="categories">
-				<a baseUrl="${global.config.context}/pages/categories.html#">分类名</a>
-			</span>
-		</li>
-	</div>
-	<style>
-		#search-input{
-			font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
-			color: #313131;
-			display: block;
-			outline: 0;
-			width: 100%;
-			text-align: center;
-			margin: 0 0 30px 0;
-			padding: 0 0 10px 0;
-			border: 0;			
-			border-bottom: 2px solid #eee;
-		}
-		@media screen and (max-width: 600px){
-			#search-list {
-				padding-left: 10px;
-				margin-top: 10px;
-				margin-bottom: 10px;
-			}
-		}
-	</style>
 </div>
 

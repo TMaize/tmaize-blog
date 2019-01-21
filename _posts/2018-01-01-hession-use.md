@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Hession使用
-categories: [java]
+categories: [Java]
 ---
 
 Hessian是一个轻量级的RPC框架

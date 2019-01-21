@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Hibernate学习笔记01 环境配置 第一个Demo
-categories: [java]
+categories: [Java]
 ---
 
 ## 概述

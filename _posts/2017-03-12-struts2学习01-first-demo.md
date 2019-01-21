@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Struts2学习-01 First Demo
-categories: [java]
+categories: [Java]
 ---
 
 ## 基本步骤

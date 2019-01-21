@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Servlet3.0的AsyncContext
-categories: [java]
+categories: [Java]
 ---
 
 从Servlet3.0开始，Tomcat的Servlet支持异步请求，或者说是Tomcat提供了异步Servlet，从而可以将一些耗时的操作放到独立的线程中，在 操作完成后再返回数据，不阻塞请求的执行和返回 ，甚至可以基于此实现服务器推 的功能。

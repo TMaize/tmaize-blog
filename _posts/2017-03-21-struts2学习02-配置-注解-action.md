@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Struts2学习-02 配置 注解 Action
-categories: [java]
+categories: [Java]
 ---
 
 ## web.xml配置

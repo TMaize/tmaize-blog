@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Centos 安装NodeJs
-categories: [linux,Nodejs]
+categories: [Linux,Node.js]
 ---
 
 系统版本CentOS 6.3 32bit

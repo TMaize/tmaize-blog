@@ -1,5 +1,0 @@
----
-layout: null
----
-{% for post in site.posts  %}{{ site.siteMapPrefix }}{{ site.context }}{{ post.url }}
-{% endfor %}

@@ -1,15 +1,12 @@
-<header class="header select-none">
-    <a class="logo" title="{{site.title}}" href="{{site.context}}/">
-        <img src="{{site.context}}/static/img/logo.jpg">
-    </a>
-    <a class="title" href="{{site.context}}/">{{site.title}}</a>
-    <nav class="menu">
-        <a href="{{site.context}}/">Blog</a>
-        <a href="{{site.context}}/pages/categories.html">Categories</a>
-        <a href="{{site.context}}/pages/search.html">Search</a>
-        <a href="{{site.context}}/pages/links.html">Links</a>
-        <a href="{{site.context}}/pages/chat.html">Chat</a>
-        <a href="{{site.context}}/pages/about.html">About</a>
-    </nav>
-    <span class="icon"></span>
+<header class="container header select-none">
+  <img class="logo" src="{{ site.baseUrl }}/static/img/logo.jpg" />
+  <span class="title">{{ site.title }}</span>
+  <input type="checkbox" id="menu-checkbox">
+  <nav class="menu">
+    <a href="{{ site.baseUrl }}/" class="hover-underline">Home</a>
+    {% for menu in site.menu %}
+    <a href="{{ site.baseUrl }}{{ menu.url }}" class="hover-underline">{{ menu.title }}</a>
+    {% endfor %}
+  </nav>
+  <label class="menu-togger" for="menu-checkbox"></label>
 </header>
