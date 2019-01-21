@@ -12,15 +12,13 @@ title: 关于我
 
 ## 相关技能
 
-- 熟练掌握 HTML/CSS，能熟练手写符合 W3C 标准的代码
+- 熟悉 JavaScript 语言， 熟练使用 Vue 全家桶,jQuery 等前端框架
 
-- 熟练使用 Java，NodeJs,Go 后端语言
-
-- 熟悉 JavaScript 相关框架 Vue 全家桶,jQuery
+- 熟悉 Java，NodeJs,Go 等后端语言
 
 - 后端框架 Spring，Hibernate，JFinal，Mybatis 略有了解
 
-- 数据库方面能熟练使用 MySQL
+- 数据库方面能熟练使用 MySQL,Oracle，MongoDB
 
 - Linux 的简单使用，各种服务的搭建
 

@@ -1,6 +1,6 @@
 <script>window.blog={baseUrl:""}</script>
-{% for js in pageJS %}
 <!-- 防止缓存，编译后链接更新 -->
+{% for js in pageJS %}
 <script type="text/javascript" src="{{site.baseUrl}}/static/js/{{ js }}?t={{ site.time | date: "%Y%m%d%H%M%S" }}"></script>
 {% endfor %}
 <!-- MTA腾讯移动分析 -->
