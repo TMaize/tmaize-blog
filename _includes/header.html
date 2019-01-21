@@ -3,12 +3,10 @@
   <a class="title" href="{{ site.baseUrl }}/">{{ site.title }}</a>
   <input type="checkbox" id="menu-checkbox">
   <nav class="menu">
-    <a href="{{ site.baseUrl }}/" class="hover-underline">Blog</a>
-    <a href="{{ site.baseUrl }}/pages/categories.html" class="hover-underline">Categories</a>
-    <a href="{{ site.baseUrl }}/pages/search.html" class="hover-underline">Search</a>
-    <a href="{{ site.baseUrl }}/pages/links.html" class="hover-underline">Links</a>
-    <a href="{{ site.baseUrl }}/pages/chat.html" class="hover-underline">Chat</a>
-    <a href="{{ site.baseUrl }}/pages/about.html" class="hover-underline">About</a>
+    <a href="{{ site.baseUrl }}/" class="hover-underline">Home</a>
+    {% for menu in site.menu %}
+    <a href="{{ site.baseUrl }}{{ menu.url }}" class="hover-underline">{{ menu.title }}</a>
+    {% endfor %}
   </nav>
   <label class="menu-togger" for="menu-checkbox"></label>
 </header>

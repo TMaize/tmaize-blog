@@ -40,6 +40,7 @@
   margin: 14px 0;
 }
 .post a {
+  margin: 0 2px;
   text-decoration: underline;
 }
 .post blockquote {
@@ -94,10 +95,11 @@
   font-family: Consolas, Menlo, Mono, Monaco, 'Microsoft YaHei' !important;
   word-break: break-all;
   line-height: 1;
+  /*行内代码*/
+  font-size: 13px;
   padding: 0 4px;
   margin: 0 2px;
   border-radius: 2px;
-  font-size: 13px;
 }
 .post pre {
   font-size: 0;
@@ -113,7 +115,10 @@
   padding: 0;
   margin: 0;
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 22px;
+}
+.post pre code span{
+  font-size: inherit;
 }
 .post table {
   min-width: 100%;

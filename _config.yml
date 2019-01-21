@@ -7,12 +7,22 @@ keywords: TMaize,Blog,Java,Html,JavaScript
 author: TMaize
 footerText: 'Copyright © 2016 皖ICP备16016174号'
 
-# 基础路径
+# 路径配置
+domainUrl: 'http://blog.tmaize.net'
 baseUrl: ''
 
-# 用来生成sitemap
-# sitemapPrefix + baseUrl + post.url
-sitemapPrefix: 'http://blog.tmaize.net'
+# 菜单
+menu:
+  - title: Categories
+    url: /pages/categories.html
+  - title: Search
+    url: /pages/search.html
+  - title: Links
+    url: /pages/links.html
+  - title: Chat
+    url: /pages/chat.html
+  - title: About
+    url: /pages/about.html
 
 # 文章url前缀，固定格式，不要动
 permalink: /posts/:year/:month/:day/:title.html

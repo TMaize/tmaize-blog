@@ -5,7 +5,7 @@ title: 首页
 css: [blog.css]
 js: [blog.js,plugin.js]
 ---
-<div class="container page-index">
+<div class="container page-index animation-fade-up">
 	{% for post in site.posts  %}
 		{% capture post_year %}{{ post.date | date: "%Y" }}{% endcapture %}
 		{% capture post_previous_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
