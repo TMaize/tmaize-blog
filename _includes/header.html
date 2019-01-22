@@ -3,7 +3,6 @@
   <span class="title">{{ site.title }}</span>
   <input type="checkbox" id="menu-checkbox">
   <nav class="menu">
-    <a href="{{ site.baseUrl }}/" class="hover-underline">Home</a>
     {% for menu in site.menu %}
     <a href="{{ site.baseUrl }}{{ menu.url }}" class="hover-underline">{{ menu.title }}</a>
     {% endfor %}

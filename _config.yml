@@ -13,6 +13,8 @@ baseUrl: ''
 
 # 菜单
 menu:
+  - title: Home
+    url: /
   - title: Categories
     url: /pages/categories.html
   - title: Search
