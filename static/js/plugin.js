@@ -1,10 +1,12 @@
 // 愚人节快乐
 blog.addLoadEvent(function() {
-  var calendar = new Date();
-  var month = calendar.getMonth();
-  var date = calendar.getDate();
-  if ((month == 3) && (date == 1)){
-    var style = 'transform: rotate(-180deg);-moz-transform: rotate(-180deg);-webkit-transform: rotate(-180deg);-o-transform: rotate(-180deg);'
+  var calendar = new Date()
+  var month = calendar.getMonth()
+  var date = calendar.getDate()
+  if (month == 3 && date == 1 && localStorage && !localStorage.cancelFool) {
+    console.log('愚人节快乐~')
+    var style =
+      'transform: rotate(-180deg);-moz-transform: rotate(-180deg);-webkit-transform: rotate(-180deg);-o-transform: rotate(-180deg);'
     document.body.style = style
   }
 })
