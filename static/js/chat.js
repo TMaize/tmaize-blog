@@ -142,7 +142,7 @@ blog.addLoadEvent(function() {
     updateObject.set('content', content)
     updateObject.save(null, {
       success: function(object) {
-        alert('留言成功，如需联系博主请查看About页面')
+        alert('留言成功，本博客不支持留言提醒，如需联系博主请查看About页面获取联系方式')
         window.location.href = window.location.href
       },
       error: function(model, error) {

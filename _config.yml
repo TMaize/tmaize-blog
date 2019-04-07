@@ -7,8 +7,10 @@ keywords: TMaize,Blog,Java,Html,JavaScript
 author: TMaize
 footerText: 'Copyright © 2016 皖ICP备16016174号'
 
-# 路径配置
+# 域名配置,生成sitemap会用到，友链也会用到
 domainUrl: 'http://blog.tmaize.net'
+# 路径配置，静态资源404一般是这里不对
+# 直接域名访问设置为'',有如果是user.github.io/blog/访问的话设置为'/blog'
 baseUrl: ''
 
 # 菜单
@@ -33,4 +35,4 @@ kramdown:
   auto_ids: true
   input: GFM
 
-exclude: ["CNAME", "README.md", "build-tool"]
+exclude: ['CNAME', 'README.md', 'build-tool']

@@ -4,19 +4,15 @@ blog.addLoadEvent(function() {
   var month = calendar.getMonth()
   var date = calendar.getDate()
   if (month == 3 && date == 1 && localStorage && !localStorage.cancelFool) {
-    console.log('愚人节快乐~')
-    var style =
-      'transform: rotate(-180deg);-moz-transform: rotate(-180deg);-webkit-transform: rotate(-180deg);-o-transform: rotate(-180deg);'
+    var style = '-webkit-transform: rotate(-180deg);transform: rotate(-180deg);'
     document.body.style = style
   }
 })
 
 // 打印主题标识
 blog.addLoadEvent(function() {
-  console.info(
-    'Theme By %chttps://github.com/TMaize/tmaize-blog',
-    'color: #FF0000;'
-  )
+  console.info('Theme By %ctmaize-blog', 'color: #FF0000;')
+  console.info('GitHub https://github.com/TMaize/tmaize-blog')
 })
 
 // 新建DIV包裹TABLE
