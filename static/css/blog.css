@@ -311,10 +311,6 @@ body::-webkit-scrollbar {
   font-size: 13px;
   padding: 5px 16px;
   border-radius: 16px;
-  transition: all 200ms ease-in-out;
-}
-.page-chat form span:hover {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 .page-chat .page-chat-load-container {
   margin-top: 18px;
@@ -323,16 +319,19 @@ body::-webkit-scrollbar {
 }
 .page-chat .page-chat-load {
   display: inline-block;
+  line-height: 1;
   cursor: pointer;
   background-color: #ededed;
   font-size: 13px;
-  padding: 5px 16px;
+  padding: 7px 16px;
   border-radius: 16px;
 }
 .page-chat-list li {
   margin-top: 16px;
   padding: 14px;
   border: 1px solid #dddddd;
+  display: flex;
+  display: -webkit-flex;
 }
 .page-chat-list li .info {
   height: 35px;

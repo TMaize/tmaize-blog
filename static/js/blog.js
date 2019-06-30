@@ -107,3 +107,24 @@ blog.encodeHtml = function(html) {
   o = null
   return temp
 }
+
+/**
+ * 工具，显示加载层
+ * @param {字符串} str
+ */
+blog.loading = function() {
+  var d = document.createElement('div')
+  var i = document.createElement('img')
+  d.append(i)
+  d.setAttribute('style','position: fixed;z-index: 10000;background-color: #00000032;top: 0;left: 0;right: 0;bottom: 0;display: -webkit-flex;display: flex;align-items: center;justify-content: center;')
+  i.setAttribute('src',blog.baseUrl+'/static/img/loading.svg')
+  i.setAttribute('style','width: 45px;height: 45px;')
+  blog.addEvent(d,'touchmove',function(e){
+    e.preventDefault();
+  } ,false)
+  blog.addEvent(d,'mousewheel',function(e){
+    e.preventDefault();
+  } ,false)
+  document.body.append(d)
+  return d
+}

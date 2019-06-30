@@ -7,10 +7,16 @@ keywords: TMaize,Blog,Java,Html,JavaScript
 author: TMaize
 footerText: 'Copyright © 2016 皖ICP备16016174号'
 
-# 域名配置,生成sitemap会用到，友链也会用到
+# 留言配置, 建议自己申请一个，表结构见README文件
+# 不需要的话值设置为空，同时删除 # 菜单 配置项中的留言页面
+# 官网 https://www.bmob.cn
+# 文档 https://bmob.github.io/hydrogen-js-sdk
+bmobApplicationId: 34f0386ac5bd50fd77fe82190af00faf
+bmobRestApiKey: 6f1419c800083315432f2df7dcb503d4
+
+# 域名配置
+# baseUrl配置,如果网站部署在根目录下的目录中，请设置为 /目录名
 domainUrl: 'http://blog.tmaize.net'
-# 路径配置，静态资源404一般是这里不对
-# 直接域名访问设置为'',有如果是user.github.io/blog/访问的话设置为'/blog'
 baseUrl: ''
 
 # 菜单
@@ -28,11 +34,17 @@ menu:
   - title: About
     url: /pages/about.html
 
-# 文章url前缀，固定格式，不要动
-permalink: /posts/:year/:month/:day/:title.html
+# 腾讯移动分析设置
+# 官网 https://mta.qq.com
+# 如果需要请申请自己的，sid，cid 在统计代码里找
+# 不需要请设置为false，mtaSid，mtaCid置空
+mta: true
+mtaSid: 500581966
+mtaCid: 500581972
 
+# 这些不要动
+permalink: /posts/:year/:month/:day/:title.html
 kramdown:
   auto_ids: true
   input: GFM
-
 exclude: ['CNAME', 'README.md', 'build-tool']
