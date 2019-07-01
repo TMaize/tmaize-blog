@@ -20,6 +20,16 @@ textarea {
   -webkit-appearance: none;
   outline: 0;
   border: 0;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+  line-height: 1;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
 }
 a {
   text-decoration: none;
@@ -31,6 +41,7 @@ a {
   -webkit-box-sizing: border-box;
   padding: 0;
   margin: 0;
+  line-height: 1;
   color: #313131;
   -webkit-tap-highlight-color: transparent;
   font-weight: normal;
@@ -213,7 +224,7 @@ body::-webkit-scrollbar {
 }
 .page-title {
   font-size: 20px;
-  margin: 14px 0;
+  margin: 16px 0;
   font-weight: bold;
 }
 .list-group {
@@ -222,10 +233,10 @@ body::-webkit-scrollbar {
 .list-group > h2 {
   font-size: 15px;
   font-weight: bold;
-  margin: 14px 0;
+  margin: 15px 0;
 }
 .list-group li {
-  padding: 10px 0;
+  padding: 12px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -288,9 +299,13 @@ body::-webkit-scrollbar {
   display: block;
   border-bottom: 1px dashed #cccccc;
   width: 100%;
-  line-height: 30px;
+  padding: 6px 0;
   margin-bottom: 10px;
   transition: border 300ms linear;
+}
+.page-chat form input::-webkit-input-placeholder {
+  font-size: 13px;
+  padding: 6px 0;
 }
 .page-chat form input:focus {
   border-bottom: 1px dashed #444;
@@ -298,15 +313,18 @@ body::-webkit-scrollbar {
 .page-chat form textarea {
   display: block;
   width: 100%;
-  line-height: 1.8;
+  line-height: 1.6;
   resize: none;
   font-size: 13px;
+}
+.page-chat form textarea::-webkit-input-placeholder {
+  line-height: 1.6;
 }
 .page-chat form span {
   cursor: pointer;
   position: absolute;
-  right: 8px;
-  bottom: 8px;
+  right: 10px;
+  bottom: 10px;
   background-color: #ededed;
   font-size: 13px;
   padding: 5px 16px;
@@ -327,57 +345,56 @@ body::-webkit-scrollbar {
   border-radius: 16px;
 }
 .page-chat-list li {
-  margin-top: 16px;
-  padding: 14px;
+  margin-top: 14px;
+  padding: 10px;
   border: 1px solid #dddddd;
   display: flex;
-  display: -webkit-flex;
+  flex-flow: column nowrap;
 }
 .page-chat-list li .info {
   height: 35px;
   position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
 }
 .page-chat-list li .head {
-  height: 100%;
-  width: auto;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  vertical-align: middle;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
 }
 .page-chat-list li .name {
   cursor: default;
   display: inline-block;
   color: #5f5f5f;
   font-size: 13px;
-  margin-left: 8px;
-  max-width: 110px;
+  flex-grow: 1;
+  width: 0;
+  padding-left: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  vertical-align: middle;
 }
-.page-chat-list li .name-true {
+.page-chat-list li .name-website span {
   cursor: pointer;
+  display: inline-block;
+  padding-bottom: 1px;
   border-bottom: 1px solid #313131;
 }
 .page-chat-list li .date {
-  height: 100%;
-  float: right;
-}
-.page-chat-list li .date::before {
-  content: ' ';
-  display: inline-block;
-  vertical-align: middle;
-  height: 100%;
-}
-.page-chat-list li .date span {
-  color: #b3b3b3;
-  vertical-align: middle;
+  width: 80px;
+  text-align: right;
+  flex-shrink: 0;
 }
 .page-chat-list li .content {
   word-break: break-all;
   font-size: 13px;
-  margin-top: 10px;
+  padding-top: 14px;
+  padding-left: 4px;
+  line-height: 1.6;
 }
 @media screen and (max-width: 600px) {
   .container {
@@ -474,7 +491,7 @@ body::-webkit-scrollbar {
     text-align: center;
     display: block;
     margin: 0 !important;
-    padding: 8px 22px;
+    padding: 9px 22px;
     font-size: 12px;
     transition: background-color 400ms linear;
     -webkit-transition: background-color 400ms linear;
@@ -510,7 +527,7 @@ body::-webkit-scrollbar {
     font-size: 10px;
   }
   .list-group li {
-    padding: 8px 0;
+    padding: 9px 0;
   }
   .page-categories > ul li a {
     font-size: 12px;
@@ -521,24 +538,16 @@ body::-webkit-scrollbar {
     margin-bottom: 25px;
     border-bottom: 2px solid #eaeaea;
   }
+  .page-chat-list li .head {
+    width: 30px;
+    height: 30px;
+  }
   .page-chat form input,
   .page-chat form textarea,
-  .page-chat-list li .name {
+  .page-chat-list li .name span,
+  .page-chat-list li .date,
+  .page-chat-list li .content,
+  .page-chat-load  {
     font-size: 12px;
-  }
-  .page-chat form span,
-  .page-chat-list li .date span,
-  .page-chat .page-chat-load {
-    font-size: 11px;
-  }
-  .page-chat-list li .content {
-    font-size: 11px;
-    line-height: 1.8;
-  }
-  .page-chat-list li {
-    padding: 10px;
-  }
-  .page-chat-list li .info {
-    height: 32px;
   }
 }

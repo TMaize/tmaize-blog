@@ -47,10 +47,11 @@ blog.addLoadEvent(function() {
           var website = 'javascript:void(0);'
           if (item['website']) {
             website = item['website']
-            blog.addClass(commentName, 'name-true')
+            commentName.querySelector('span').innerText = item['nickName']
+            blog.addClass(commentName, 'name-website')
           }
           commentName.setAttribute('href', website)
-          commentName.innerText = item['nickName']
+          commentName.querySelector('span').innerText = item['nickName']
           commentDate.innerText = item['createdAt'].substr(0, 10)
           commentContent.innerText = item['content']
           list.appendChild(commentItem)

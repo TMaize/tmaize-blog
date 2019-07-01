@@ -31,6 +31,7 @@ blog.addLoadEvent(function() {
   }
 })
 
+// 菜单
 // 回到顶部
 blog.addLoadEvent(function() {
   var upDom = document.getElementById('moveUp')
@@ -47,6 +48,9 @@ blog.addLoadEvent(function() {
   }
 
   blog.addEvent(window, 'scroll', function() {
+    // 菜单
+    document.querySelector('#menu-checkbox').checked = false
+    // 回到顶部
     if (getScrollTop() > 200) {
       upDom.style.bottom = bottom + 'px'
     } else {
