@@ -21,7 +21,7 @@ js: [blog.js,plugin.js]
 			{% for post in category[1] %}
 			<li>
 				<span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
-				<a href="{{site.baseUrl}}{{ post.url }}" class="title hover-underline">{{ post.title }}</a>
+				<a href="{{ site.baseUrl | append: post.url }}" class="title hover-underline">{{ post.title }}</a>
 				{% for categorie in post.categories %}
 				<a href="#{{ categorie }}" class="categorie hover-underline">{{ categorie }}</a>
 				{% endfor %}

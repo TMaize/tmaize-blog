@@ -52,7 +52,7 @@ blog.addLoadEvent(function() {
           }
           commentName.setAttribute('href', website)
           commentName.querySelector('span').innerText = item['nickName']
-          commentDate.innerText = item['createdAt'].substr(0, 10)
+          commentDate.innerText = item['time'].iso.substr(0, 10)
           commentContent.innerText = item['content']
           list.appendChild(commentItem)
         })

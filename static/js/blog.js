@@ -117,13 +117,72 @@ blog.loading = function() {
   var i = document.createElement('img')
   d.append(i)
   d.setAttribute('class', 'select-none loading-cover')
-  i.setAttribute('src',blog.baseUrl+'/static/img/loading.svg')
-  blog.addEvent(d,'touchmove',function(e){
-    e.preventDefault();
-  } ,false)
-  blog.addEvent(d,'mousewheel',function(e){
-    e.preventDefault();
-  } ,false)
+  i.setAttribute('src', blog.baseUrl + '/static/img/loading.svg')
+  blog.addEvent(
+    d,
+    'touchmove',
+    function(e) {
+      e.preventDefault()
+    },
+    false
+  )
+  blog.addEvent(
+    d,
+    'mousewheel',
+    function(e) {
+      e.preventDefault()
+    },
+    false
+  )
   document.body.append(d)
   return d
+}
+
+/**
+ * 工具，Ajax
+ * @param {字符串} str
+ */
+blog.ajax = function(option, success, fial) {
+  var xmlHttp = null
+  if (window.XMLHttpRequest) {
+    xmlHttp = new XMLHttpRequest()
+  } else {
+    xmlHttp = new ActiveXObject('Microsoft.XMLHTTP')
+  }
+  var url = option.url
+  var method = option.method.toUpperCase() || 'GET'
+  var sync = option.sync || true
+  var timeout = option.timeout || 10000
+
+  var timer
+  var isTimeout = false
+  xmlHttp.open(method, url, sync)
+  xmlHttp.onreadystatechange = function() {
+    if (isTimeout) {
+      fial({
+        error: '请求超时'
+      })
+    } else {
+      if (xmlHttp.readyState == 4) {
+        if (xmlHttp.status == 200) {
+          success(xmlHttp.responseText)
+        } else {
+          fial({
+            error: '状态错误',
+            code: xmlHttp.status
+          })
+        }
+        //清除未执行的定时函数
+        clearTimeout(timer)
+      }
+    }
+  }
+  timer = setTimeout(function() {
+    isTimeout = true
+    fial({
+      error: '请求超时'
+    })
+    xmlHttp.abort()
+  }, timeout)
+  xmlHttp.send()
 }

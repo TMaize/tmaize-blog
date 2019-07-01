@@ -1,5 +1,10 @@
 // 搜索功能
 blog.addLoadEvent(function() {
+  // 同步加载数据
+  // if (!localStorage.db || localStorage.dbVersion != blog.buildAt) {
+  //   var loading = blog.loading()
+
+  // }
   // 缓存字符
   var texts = []
   var items = document.getElementsByClassName('search-item')
