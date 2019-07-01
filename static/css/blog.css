@@ -16,6 +16,7 @@ select,
 textarea {
   font-family: inherit;
   border-radius: 0;
+  -moz-appearance: none;
   appearance: none;
   -webkit-appearance: none;
   outline: 0;
@@ -29,6 +30,7 @@ input::-webkit-input-placeholder {
   line-height: 1;
 }
 input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px white inset !important;
   -webkit-box-shadow: 0 0 0 1000px white inset !important;
 }
 a {
@@ -63,22 +65,30 @@ body::-webkit-scrollbar {
   display: none;
 }
 .select-none {
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   -webkit-user-select: none;
 }
 .animation-fade-up {
+  -webkit-animation-timing-function: ease;
   animation-timing-function: ease;
+  -webkit-animation-duration: 800ms;
   animation-duration: 800ms;
+  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+  -webkit-animation-name: fade-up;
   animation-name: fade-up;
 }
 @keyframes fade-up {
   from {
     opacity: 0;
+    -webkit-transform: translateY(36px);
     transform: translateY(36px);
   }
   to {
     opacity: 1;
+    -webkit-transform: none;
     transform: none;
   }
 }
@@ -106,13 +116,38 @@ body::-webkit-scrollbar {
   visibility: hidden;
   transform: scaleX(0);
   -webkit-transform: scaleX(0);
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
   transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
   -webkit-transition: transform 200ms ease-in-out;
 }
 .hover-underline:hover:after {
   visibility: visible;
   transform: scaleX(1);
   -webkit-transform: scaleX(1);
+}
+.loading-cover {
+  position: fixed;
+  z-index: 10000;
+  background-color: #00000032;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.loading-cover > img {
+  width: 45px;
+  height: 45px;
 }
 .container {
   width: 100%;
@@ -129,8 +164,12 @@ body::-webkit-scrollbar {
   width: 42px;
   height: 42px;
   border-radius: 50%;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  -webkit-transition: -webkit-transform 500ms linear;
+  transition: -webkit-transform 500ms linear;
   transition: transform 500ms linear;
+  transition: transform 500ms linear, -webkit-transform 500ms linear;
   -webkit-transition: transform 500ms linear;
 }
 .header .logo:hover {
@@ -301,6 +340,7 @@ body::-webkit-scrollbar {
   width: 100%;
   padding: 6px 0;
   margin-bottom: 10px;
+  -webkit-transition: border 300ms linear;
   transition: border 300ms linear;
 }
 .page-chat form input::-webkit-input-placeholder {
@@ -348,22 +388,38 @@ body::-webkit-scrollbar {
   margin-top: 14px;
   padding: 10px;
   border: 1px solid #dddddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
 }
 .page-chat-list li .info {
   height: 35px;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .page-chat-list li .head {
   width: 35px;
   height: 35px;
   border-radius: 50%;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 .page-chat-list li .name {
@@ -371,6 +427,8 @@ body::-webkit-scrollbar {
   display: inline-block;
   color: #5f5f5f;
   font-size: 13px;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   width: 0;
   padding-left: 10px;
@@ -387,6 +445,7 @@ body::-webkit-scrollbar {
 .page-chat-list li .date {
   width: 80px;
   text-align: right;
+  -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 .page-chat-list li .content {
@@ -424,6 +483,7 @@ body::-webkit-scrollbar {
     padding-right: 0 !important;
     padding-top: 10px;
     padding-bottom: 10px;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   }
   .header .logo {
@@ -481,6 +541,7 @@ body::-webkit-scrollbar {
     /*透明度为0，点击无效*/
     opacity: 0;
     pointer-events: none;
+    -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 300ms ease-in-out;
@@ -544,10 +605,10 @@ body::-webkit-scrollbar {
   }
   .page-chat form input,
   .page-chat form textarea,
-  .page-chat-list li .name span,
-  .page-chat-list li .date,
-  .page-chat-list li .content,
-  .page-chat-load  {
+  .page-chat .page-chat-list li .name span,
+  .page-chat .page-chat-list li .date,
+  .page-chat .page-chat-list li .content,
+  .page-chat .page-chat-load {
     font-size: 12px;
   }
 }

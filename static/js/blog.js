@@ -116,10 +116,8 @@ blog.loading = function() {
   var d = document.createElement('div')
   var i = document.createElement('img')
   d.append(i)
-  d.setAttribute('style','position: fixed;z-index: 10000;background-color: #00000032;top: 0;left: 0;right: 0;bottom: 0;display: -webkit-flex;display: flex;align-items: center;justify-content: center;')
-  d.setAttribute('class', 'select-none')
+  d.setAttribute('class', 'select-none loading-cover')
   i.setAttribute('src',blog.baseUrl+'/static/img/loading.svg')
-  i.setAttribute('style','width: 45px;height: 45px;')
   blog.addEvent(d,'touchmove',function(e){
     e.preventDefault();
   } ,false)

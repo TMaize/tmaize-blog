@@ -1,6 +1,6 @@
 blog.addLoadEvent(function() {
   Bmob.initialize(blog.bmobApplicationId, blog.bmobRestApiKey)
-  var commentUrl = 'blog.tmaize.net/pages/chat.html'
+  var commentUrl = window.location.hostname + window.location.pathname
   var gravatarUrl = 'http://www.gravatar.com/avatar/'
   var loaded = 0
   var pageSize = 10
@@ -32,12 +32,12 @@ blog.addLoadEvent(function() {
           var commentItem = templet.cloneNode(true)
           commentItem.removeAttribute('hidden')
           blog.removeClass(commentItem, 'page-chat-list-templet')
-          
+
           var commentHead = commentItem.querySelector('.head')
           var commentName = commentItem.querySelector('.name')
           var commentDate = commentItem.querySelector('.date')
           var commentContent = commentItem.querySelector('.content')
-          
+
           var headImage = gravatarUrl
           if (item['email']) {
             headImage += blog.md5(item['email'])

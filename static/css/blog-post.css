@@ -86,6 +86,7 @@
   max-width: 100%;
   margin: 0 auto;
   height: auto;
+  -webkit-box-shadow: 0 0 5px #e0e0e0;
   box-shadow: 0 0 5px #e0e0e0;
   margin-top: 14x;
   margin-bottom: 14px;
@@ -109,6 +110,8 @@
   border-radius: 2px;
   background-color: #f6f8fa;
   max-height: 550px;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
   tab-size: 4;
 }
 .post pre code {
@@ -118,7 +121,7 @@
   font-size: 13px;
   line-height: 22px;
 }
-.post pre code span{
+.post pre code span {
   font-size: inherit;
 }
 .post table {
