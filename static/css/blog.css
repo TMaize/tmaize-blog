@@ -263,7 +263,7 @@ body::-webkit-scrollbar {
 }
 .page-title {
   font-size: 20px;
-  margin: 16px 0;
+  margin: 16px 0 18px 0;
   font-weight: bold;
 }
 .list-group {
@@ -323,9 +323,14 @@ body::-webkit-scrollbar {
   display: block;
   width: 100%;
   text-align: center;
+  font-size: 14px;
   padding: 0 0 10px 0;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
   border-bottom: 2px solid #eeeeee;
+}
+.page-search #search-input::-webkit-input-placeholder {
+  font-size: 14px;
+  padding: 0 0 10px 0;
 }
 .page-chat form {
   display: block;
@@ -595,9 +600,11 @@ body::-webkit-scrollbar {
   }
   .page-search #search-input {
     font-size: 12px;
-    padding: 0 0 8px 0;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     border-bottom: 2px solid #eaeaea;
+  }
+  .page-search #search-input::-webkit-input-placeholder {
+    font-size: 12px;
   }
   .page-chat-list li .head {
     width: 30px;

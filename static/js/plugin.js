@@ -57,6 +57,7 @@ blog.addLoadEvent(function() {
   blog.addEvent(window, 'scroll', function() {
     // 菜单
     document.querySelector('#menu-checkbox').checked = false
+    upDom.style.display = 'block'
     // 回到顶部
     if (getScrollTop() > 200) {
       upDom.style.bottom = bottom + 'px'

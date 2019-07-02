@@ -126,14 +126,14 @@ blog.addLoadEvent(function() {
       .save()
       .then(res => {
         dom_form.reset()
-        loading.parentNode.removeChild(loading)
+        loading.hide()
         if (sucessTip) {
           alert(sucessTip)
         }
         reloadComment()
       })
       .catch(err => {
-        loading.parentNode.removeChild(loading)
+        loading.hide()
         console.error(err)
         alert('提交评论失败')
       })

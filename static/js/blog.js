@@ -135,14 +135,19 @@ blog.loading = function() {
     false
   )
   document.body.append(d)
-  return d
+  return {
+    el: d,
+    hide: function() {
+      d.parentNode.removeChild(d)
+    }
+  }
 }
 
 /**
  * 工具，Ajax
  * @param {字符串} str
  */
-blog.ajax = function(option, success, fial) {
+blog.ajax = function(option, success, fail) {
   var xmlHttp = null
   if (window.XMLHttpRequest) {
     xmlHttp = new XMLHttpRequest()
@@ -150,8 +155,8 @@ blog.ajax = function(option, success, fial) {
     xmlHttp = new ActiveXObject('Microsoft.XMLHTTP')
   }
   var url = option.url
-  var method = option.method.toUpperCase() || 'GET'
-  var sync = option.sync || true
+  var method = (option.method || 'GET').toUpperCase()
+  var sync = option.sync === false ? false : true
   var timeout = option.timeout || 10000
 
   var timer
@@ -159,7 +164,7 @@ blog.ajax = function(option, success, fial) {
   xmlHttp.open(method, url, sync)
   xmlHttp.onreadystatechange = function() {
     if (isTimeout) {
-      fial({
+      fail({
         error: '请求超时'
       })
     } else {
@@ -167,7 +172,7 @@ blog.ajax = function(option, success, fial) {
         if (xmlHttp.status == 200) {
           success(xmlHttp.responseText)
         } else {
-          fial({
+          fail({
             error: '状态错误',
             code: xmlHttp.status
           })
@@ -179,7 +184,7 @@ blog.ajax = function(option, success, fial) {
   }
   timer = setTimeout(function() {
     isTimeout = true
-    fial({
+    fail({
       error: '请求超时'
     })
     xmlHttp.abort()
