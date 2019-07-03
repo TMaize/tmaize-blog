@@ -97,6 +97,18 @@ blog.trim = function(str) {
 }
 
 /**
+ * 转义html字符
+ * @param {字符串} str
+ */
+blog.htmlEscape = function(str) {
+  var temp = document.createElement('div')
+  temp.innerText = str
+  str = temp.innerHTML
+  temp = null
+  return str
+}
+
+/**
  * 工具，转换实体字符防止XSS
  * @param {字符串} str
  */

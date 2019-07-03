@@ -10,13 +10,11 @@ js: [blog.js,search.js,plugin.js]
 	<input id="search-input" type="text" placeholder="小技巧：空格分隔多个关键字^_^"></input>
 	<ul class="search-list">
 		{% for post in site.posts  %}
-		<li>
-			<span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
-			<a href="{{site.baseUrl}}{{ post.url }}" class="title hover-underline">{{ post.title }}</a>
-			{% for categorie in post.categories %}
-			<a href="{{site.baseUrl}}/pages/categories.html#{{ categorie }}" class="categorie hover-underline">{{ categorie }}</a>
-			{% endfor %}
-			<p class="content">123456</p>
+		<li hidden>
+			<a href="{{site.baseUrl}}{{ post.url }}">
+				<p class="title">{{ post.title }}</p>
+				<p class="content"></p>
+			</a>
 		</li>
 		{% endfor %}
 	</ul>
