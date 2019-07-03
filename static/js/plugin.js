@@ -4,15 +4,22 @@ blog.addLoadEvent(function() {
   var month = calendar.getMonth()
   var date = calendar.getDate()
   if (month == 3 && date == 1 && localStorage && !localStorage.cancelFool) {
+    console.log('愚人节快乐╰(￣▽￣)╭')
     var style = '-webkit-transform: rotate(-180deg);transform: rotate(-180deg);'
     document.body.style = style
   }
 })
 
-// 打印主题标识
+// 打印主题标识,请保留出处
 blog.addLoadEvent(function() {
-  console.info('Theme By %ctmaize-blog', 'color: #FF0000;')
-  console.info('GitHub https://github.com/TMaize/tmaize-blog')
+  var style1 = 'background:#4BB596;color:#ffffff;border-radius: 2px;'
+  var style2 = 'color:#000000;'
+  var author = ' TMaize'
+  var github = ' https://github.com/TMaize/tmaize-blog'
+  var build = ' ' + blog.buildAt
+  console.info('%c Theme Author %c' + author, style1, style2)
+  console.info('%c Theme GitHub %c' + github, style1, style2)
+  console.info('%c Site  Build  %c' + build, style1, style2)
 })
 
 // 新建DIV包裹TABLE
@@ -31,6 +38,7 @@ blog.addLoadEvent(function() {
   }
 })
 
+// 菜单
 // 回到顶部
 blog.addLoadEvent(function() {
   var upDom = document.getElementById('moveUp')
@@ -47,6 +55,10 @@ blog.addLoadEvent(function() {
   }
 
   blog.addEvent(window, 'scroll', function() {
+    // 菜单
+    document.querySelector('#menu-checkbox').checked = false
+    upDom.style.display = 'block'
+    // 回到顶部
     if (getScrollTop() > 200) {
       upDom.style.bottom = bottom + 'px'
     } else {

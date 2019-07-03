@@ -3,7 +3,7 @@ layout: page
 isPage: true
 title: 留言板
 css: [blog.css]
-js: [blog.js, md5.js, bmob.js, chat.js,plugin.js]
+js: [blog.js, md5.js, Bmob-1.6.6.min.js, chat.js,plugin.js]
 ---
 
 <div class="container page-chat animation-fade-up">
@@ -17,16 +17,16 @@ js: [blog.js, md5.js, bmob.js, chat.js,plugin.js]
   </form>
   <ul class="page-chat-list"></ul>
   <div class="page-chat-load-container">
-    <span class="page-chat-load select-none">评论拉取中</span>
+    <span class="page-chat-load select-none">暂无更多评论</span>
   </div>
-  <div class="page-chat-list-templet" style="display:none;">
-    <li>
-      <div class="info">
-        <img class="head" {blank}src="http://www.gravatar.com/avatar/{emailMD5}" />
-        <a class="name name-{hasSite}" target="_blank" href="{site}">{name}</a>
-        <div class="date"><span>{date}</span></div>
-      </div>
-      <div class="content">{content}</div>
-    </li>
-  </div>
+  <li class="page-chat-list-templet" hidden>
+    <div class="info">
+      <img class="head" src="http://www.gravatar.com/avatar/"/>
+      <a class="name" target="_blank" href="http://blog.tmaize.net">
+        <span>TMaize</span>
+      </a>
+      <div class="date">2019-06-30</div>
+    </div>
+    <div class="content">Hello World!</div>
+  </li>
 </div>

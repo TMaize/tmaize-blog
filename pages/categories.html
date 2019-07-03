@@ -10,7 +10,7 @@ js: [blog.js,plugin.js]
 	<ul>
 		{% for category in site.categories %}
 		<li>
-			<a href="#{{ category[0] }}">{{ category[0] }}</a>
+			<a href="javascript:document.getElementById('{{ category[0] }}').scrollIntoView()">{{ category[0] }}</a>
 		</li>
 		{% endfor %}
 	</ul>
@@ -21,10 +21,7 @@ js: [blog.js,plugin.js]
 			{% for post in category[1] %}
 			<li>
 				<span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
-				<a href="{{site.baseUrl}}{{ post.url }}" class="title hover-underline">{{ post.title }}</a>
-				{% for categorie in post.categories %}
-				<a href="#{{ categorie }}" class="categorie hover-underline">{{ categorie }}</a>
-				{% endfor %}
+				<a href="{{ site.baseUrl | append: post.url }}" class="title hover-underline">{{ post.title }}</a>
 			</li>
 			{% endfor %}
 		</ul>
