@@ -20,6 +20,7 @@ blog.addLoadEvent(function() {
         loading.hide()
         localStorage.db = data
         localStorage.dbVersion = blog.buildAt
+        initContentDB()
       },
       function(err) {
         loading.hide()
@@ -31,6 +32,13 @@ blog.addLoadEvent(function() {
   }
 
   if (localStorage.db) {
+    initContentDB()
+  }
+  document.querySelectorAll('.search-list .title').forEach(function(title) {
+    titles.push(blog.htmlEscape(title.innerHTML))
+  })
+
+  function initContentDB() {
     var root = document.createElement('div')
     root.innerHTML = localStorage.db
     root.querySelectorAll('li').forEach(function(content) {
@@ -44,9 +52,6 @@ blog.addLoadEvent(function() {
       contents.push(blog.htmlEscape(str))
     })
   }
-  document.querySelectorAll('.search-list .title').forEach(function(title) {
-    titles.push(blog.htmlEscape(title.innerHTML))
-  })
   // 防止输入正则关键词
   function filterRegChar(str) {
     // \ 必须在第一位
@@ -121,7 +126,7 @@ blog.addLoadEvent(function() {
         dom_content.innerHTML = content.replace(r1, h1 + key + h2) + '...'
       }
       // 内容未命中标题命中，内容直接展示前100个字符
-      if (!cResult && !hide) {
+      if (!cResult && !hide && content) {
         dom_content.innerHTML = content.substring(0, 100) + '...'
       }
       if (hide) {
