@@ -10,6 +10,13 @@ blog.addLoadEvent(function() {
   var inputLock = false
   // 本地无缓存/站点重新编译，弹框阻塞，加载全文检索内容
   if (!localStorage.db || localStorage.dbVersion != blog.buildAt) {
+    // 删除失效缓存
+    if (localStorage.db) {
+      localStorage.removeItem('db')
+    }
+    if (localStorage.dbVersion) {
+      localStorage.removeItem('dbVersion')
+    }
     var loading = blog.loading()
     blog.ajax(
       {
@@ -22,11 +29,9 @@ blog.addLoadEvent(function() {
         localStorage.dbVersion = blog.buildAt
         initContentDB()
       },
-      function(err) {
+      function() {
         loading.hide()
         console.error('全文检索数据加载失败...')
-        localStorage.removeItem('db')
-        localStorage.removeItem('dbVersion')
       }
     )
   }
