@@ -1,5 +1,6 @@
 {%- assign pageCSS = page.css -%}
 {%- assign pageJS = page.js -%}
+{%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
 <!DOCTYPE html>
 <html>
 {% include head.html %}
@@ -7,6 +8,5 @@
 {% include header.html %}
 {{ content }}
 {% include footer.html %}
-{% include script.html %}
 </body>
 </html>

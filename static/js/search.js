@@ -10,6 +10,13 @@ blog.addLoadEvent(function() {
   var inputLock = false
   // 本地无缓存/站点重新编译，弹框阻塞，加载全文检索内容
   if (!localStorage.db || localStorage.dbVersion != blog.buildAt) {
+    // 删除失效缓存
+    if (localStorage.db) {
+      localStorage.removeItem('db')
+    }
+    if (localStorage.dbVersion) {
+      localStorage.removeItem('dbVersion')
+    }
     var loading = blog.loading()
     blog.ajax(
       {
@@ -20,17 +27,23 @@ blog.addLoadEvent(function() {
         loading.hide()
         localStorage.db = data
         localStorage.dbVersion = blog.buildAt
+        initContentDB()
       },
-      function(err) {
+      function() {
         loading.hide()
         console.error('全文检索数据加载失败...')
-        localStorage.removeItem('db')
-        localStorage.removeItem('dbVersion')
       }
     )
   }
 
   if (localStorage.db) {
+    initContentDB()
+  }
+  document.querySelectorAll('.search-list .title').forEach(function(title) {
+    titles.push(blog.htmlEscape(title.innerHTML))
+  })
+
+  function initContentDB() {
     var root = document.createElement('div')
     root.innerHTML = localStorage.db
     root.querySelectorAll('li').forEach(function(content) {
@@ -44,9 +57,6 @@ blog.addLoadEvent(function() {
       contents.push(blog.htmlEscape(str))
     })
   }
-  document.querySelectorAll('.search-list .title').forEach(function(title) {
-    titles.push(blog.htmlEscape(title.innerHTML))
-  })
   // 防止输入正则关键词
   function filterRegChar(str) {
     // \ 必须在第一位
@@ -121,7 +131,7 @@ blog.addLoadEvent(function() {
         dom_content.innerHTML = content.replace(r1, h1 + key + h2) + '...'
       }
       // 内容未命中标题命中，内容直接展示前100个字符
-      if (!cResult && !hide) {
+      if (!cResult && !hide && content) {
         dom_content.innerHTML = content.substring(0, 100) + '...'
       }
       if (hide) {

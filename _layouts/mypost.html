@@ -1,6 +1,7 @@
 {%- assign pageCSS = "blog.css,blog-post.css,highlight.css" -%}
 {%- assign pageCSS = pageCSS | split: "," -%}
-{%- assign pageJS = "blog.js,plugin.js" | split: "," -%}
+{%- assign pageJS = "blog.js" | split: "," -%}
+{%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
 <!DOCTYPE html>
 <html>
 {% include head.html %}
@@ -13,6 +14,5 @@
   </div>
 </div>
 {% include footer.html %}
-{% include script.html %}
 </body>
 </html>

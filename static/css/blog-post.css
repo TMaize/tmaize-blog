@@ -1,8 +1,7 @@
 .post {
   font-size: 14px;
   color: #313131;
-  font-family: 'Helvetica Neue', Helvetica, Arial, 'Microsoft Yahei',
-    'Hiragino Sans GB', 'PingFang SC', 'WenQuanYi Micro Hei', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, 'Microsoft Yahei';
 }
 .post * {
   margin: 0;
@@ -93,7 +92,7 @@
 }
 .post code {
   background-color: #f6f8fa;
-  font-family: Consolas, Menlo, Mono, Monaco, 'Microsoft YaHei' !important;
+  font-family: Consolas, 'Helvetica Neue', Helvetica, 'Microsoft Yahei';
   word-break: break-all;
   line-height: 1;
   /*行内代码*/
