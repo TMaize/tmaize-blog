@@ -11,7 +11,7 @@ footerText: 'Copyright © 2016 皖ICP备16016174号'
 # 官网 https://www.bmob.cn
 # 文档 https://bmob.github.io/hydrogen-js-sdk
 # 建议自己申请一个，表结构如下
-# 表名 Comment ,字段如下 
+# 表名 Comment ,字段如下
 # url      String
 # time     Date
 # nickName String
@@ -41,13 +41,18 @@ menu:
   - title: About
     url: /pages/about.html
 
-# 腾讯移动分析设置
-# 官网 https://mta.qq.com
-# 如果需要请申请自己的，sid，cid 在统计代码里找
-# 不需要请设置为false，mtaSid，mtaCid置空
-mta: true
-mtaSid: 500581966
-mtaCid: 500581972
+# 自定义插件,具体说明请看README文档
+customPlugins:
+  - use: true
+    file: 'plugin-mta-stats.html'
+    sid: 500581966
+    cid: 500581972
+  - use: true
+    file: 'plugin-baidu-push.html'
+  - use: true
+    file: 'plugin-click-effect.html'
+  - use: false
+    file: 'plugin-mathjax.html'
 
 # 这些不要动
 permalink: /posts/:year/:month/:day/:title.html

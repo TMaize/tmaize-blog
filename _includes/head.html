@@ -16,6 +16,6 @@
   <link rel="icon" href="{{site.baseUrl}}/static/img/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="{{site.baseUrl}}/static/img/favicon.ico" type="image/x-icon"/>
   {% for css in pageCSS %}
-  <link rel="stylesheet" href="{{site.baseUrl}}/static/css/{{ css }}?t={{ site.time | date: "%Y%m%d%H%M%S" }}">
+  <link rel="stylesheet" href="{{site.baseUrl}}/static/css/{{ css }}?t={{buildAt}}">
   {% endfor %}
 </head>

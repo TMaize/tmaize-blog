@@ -22,6 +22,28 @@
 
 8. 最后，如果你把项目 fork 过去了，想要删除我的提交记录可以先软重置到第一个提交，然后再提交一次，最后强制推送一次就行了
 
+## 插件配置
+
+这里是 customPlugins 节点下的一些配置说明
+
+- plugin-mta-stats
+
+  腾讯移动分析,[官网](https://mta.qq.com)，如果需要请申请自己的！！！sid，cid 在统计代码里找
+
+  不需要的话 use 请设置为 false
+
+- plugin-baidu-push
+
+  百度收录自动推送，不需要的话 use 请设置为 false
+
+- plugin-click-effect
+
+  页面点击，出现文字冒泡特效，不喜欢这个花里胡哨功能的 use 请设置为 false
+
+- plugin-mathjax
+
+  数学公式支持，比较影响加载速度，不需要的话 use 请设置为 false
+
 # 使用
 
 文章放在`/_posts`目录，命名为`yyyy-MM-dd-xxxx-xxxx.md`，内容格式如下
