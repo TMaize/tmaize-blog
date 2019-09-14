@@ -1,3 +1,4 @@
 /build-tool/dev
 /build-tool/dist
-/_site
+/build-tool/dist.tar
+/build-tool/upload.exe
