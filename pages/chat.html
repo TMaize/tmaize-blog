@@ -2,31 +2,20 @@
 layout: page
 isPage: true
 title: 留言板
-css: [blog.css]
-js: [blog.js, md5.js, Bmob-1.6.6.min.js, chat.js]
+css: [blog.css,blog-post.css]
+js: [blog.js]
 ---
 
 <div class="container page-chat animation-fade-up">
   <h1 class="page-title" id="{{ page.title }}">{{ page.title }}</h1>
-  <form>
-    <input type="text" placeholder="昵称" autocomplete="off" />
-    <input type="email" placeholder="邮箱" autocomplete="off" />
-    <input type="text" placeholder="站点(http://)" autocomplete="off" />
-    <textarea rows="4" placeholder="请填写你的留言,小于200字"></textarea>
-    <span class="select-none page-chat-submit">提交</span>
-  </form>
-  <ul class="page-chat-list"></ul>
-  <div class="page-chat-load-container">
-    <span class="page-chat-load select-none">评论加载中</span>
+  <div class="post">
+    <p>留言功能已迁移到"吐个槽"，跳转中...</p>
+    <p>
+      <a href="{{site.tucaoUrl}}">如未跳转请手动点击这里</a>
+    </p>
   </div>
-  <li class="page-chat-list-templet" hidden>
-    <div class="info">
-      <img class="head" src="http://www.gravatar.com/avatar/"/>
-      <a class="name" target="_blank" href="http://blog.tmaize.net">
-        <span>TMaize</span>
-      </a>
-      <div class="date">2019-06-30</div>
-    </div>
-    <div class="content">Hello World!</div>
-  </li>
 </div>
+
+<script language="javascript"type="text/javascript"> 
+  window.location.href="{{site.tucaoUrl}}"; 
+</script>

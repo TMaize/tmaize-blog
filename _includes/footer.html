@@ -7,7 +7,7 @@
   <div id="moveUp" style="display: none"></div>
 </footer>
 <!-- 全局属性blog -->
-<script>window.blog={baseUrl:"{{site.baseUrl}}", buildAt:"{{buildAt}}", bmobApplicationId: "{{site.bmobApplicationId}}", bmobRestApiKey: "{{site.bmobRestApiKey}}"}</script>
+<script>window.blog={baseUrl:"{{site.baseUrl}}", buildAt:"{{buildAt}}"}</script>
 <!-- 引入页面中配置的JS -->
 {% for js in pageJS %}
 <script type="text/javascript" src="{{site.baseUrl}}/static/js/{{ js }}?t={{ buildAt }}"></script>
