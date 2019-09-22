@@ -4,7 +4,23 @@
 
 下面有具体的样式截图，或者你可以到[TMaize Blog](http://blog.tmaize.net/)查看运行效果
 
-# 注意
+# 版本说明
+
+之前乱打的 tag 全删了，从新从 1.0 开始
+
+## V1.0
+
+- 精简代码 35 files changed, 829 insertions(+), 1043 deletions(-)
+
+- 整体样式细节调整，移动端自动引入 Consolas 字体
+
+- menu 改成中文，取消移动端 menu 的 fix 布局
+
+- 修复全局搜索不支持尖括号
+
+- 删除留言板，切换到吐个槽
+
+# 项目配置
 
 1. 如果使用自己的域名，`/CNAME`文件里的内容请换成你自己的域名，然后 CNAME 解析到`用户名.github.com`
 
@@ -43,11 +59,3 @@ categories: [分类1,分类2]
 
 [xxx.zip下载](xxx.zip)
 ```
-
-# 移动端截图
-
-![mobile](static/readme/mobile.jpg)
-
-# PC 端截图
-
-![pc](static/readme/pc.jpg)
