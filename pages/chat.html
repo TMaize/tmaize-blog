@@ -1,21 +1,12 @@
 ---
-layout: page
-isPage: true
+layout: mypost
 title: 留言板
-css: [blog.css,blog-post.css]
-js: [blog.js]
 ---
 
-<div class="container page-chat animation-fade-up">
-  <h1 class="page-title" id="{{ page.title }}">{{ page.title }}</h1>
-  <div class="post">
-    <p>留言功能已迁移到"吐个槽"，跳转中...</p>
-    <p>
-      <a href="{{site.tucaoUrl}}">如未跳转请手动点击这里</a>
-    </p>
-  </div>
-</div>
+<p>留言功能已迁移到"吐个槽"，跳转中...</p>
 
-<script language="javascript"type="text/javascript"> 
-  window.location.href="{{site.tucaoUrl}}"; 
+<p><a href="{{ site.tucaoUrl }}">如未跳转请手动点击这里</a></p>
+
+<script language="javascript" type="text/javascript">
+  window.location.href = '{{site.tucaoUrl}}'
 </script>

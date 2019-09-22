@@ -1,25 +1,24 @@
 ---
 layout: page
-isPage: true
 title: 首页
-css: [blog.css]
+css: [common.css,page.css]
 js: [blog.js]
 ---
-<div class="container page-index animation-fade-up">
+<div class="page page-index animation-fade-up">
 	{% for post in site.posts  %}
 		{% capture post_year %}{{ post.date | date: "%Y" }}{% endcapture %}
 		{% capture post_previous_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
 		{% capture post_next_year %}{{ post.next.date | date: "%Y" }}{% endcapture %}
 
 		{% if forloop.first or post_next_year != post_year %}
-		<div class="list-group"><h2 id="{{post_year}}">{{post_year}}</h2><ul>
+		<div class="list-post"><h2 id="{{post_year}}">{{post_year}}</h2><ul>
 		{% endif %}
 
 		<li>
 			<span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
 			<a href="{{ site.baseUrl | append: post.url }}" class="title hover-underline">{{ post.title }}</a>
 			{% for categorie in post.categories %}
-			<a href="{{site.baseUrl}}/pages/categories.html#{{ categorie }}" class="categorie hover-underline">{{ categorie }}</a>
+			<a href="{{site.baseUrl}}/pages/categories.html#{{ categorie }}" class="category hover-underline">{{ categorie }}</a>
 			{% endfor %}
 		</li>
 		

@@ -1,6 +1,6 @@
 # 介绍
 
-一款 jekyll 主题（[GitHub 地址](https://github.com/TMaize/tmaize-blog)），简洁纯净，未引入任何框架，秒开页面，支持自适应，支持全文检索
+一款 jekyll 主题（[GitHub 地址](https://github.com/TMaize/tmaize-blog)），简洁纯净(主题资源请求<20KB)，未引入任何框架，秒开页面，支持自适应，支持全文检索
 
 下面有具体的样式截图，或者你可以到[TMaize Blog](http://blog.tmaize.net/)查看运行效果
 
@@ -21,28 +21,6 @@
 7. 网站的 logo 放在了`/static/img/`下
 
 8. 最后，如果你把项目 fork 过去了，想要删除我的提交记录可以先软重置到第一个提交，然后再提交一次，最后强制推送一次就行了
-
-## 插件配置
-
-这里是 customPlugins 节点下的一些配置说明
-
-- plugin-mta-stats
-
-  腾讯移动分析,[官网](https://mta.qq.com)，如果需要请申请自己的！！！sid，cid 在统计代码里找
-
-  不需要的话 use 请设置为 false
-
-- plugin-baidu-push
-
-  百度收录自动推送，不需要的话 use 请设置为 false
-
-- plugin-click-effect
-
-  页面点击，出现文字冒泡特效，不喜欢这个花里胡哨功能的 use 请设置为 false
-
-- plugin-mathjax
-
-  数学公式支持，比较影响加载速度，不需要的话 use 请设置为 false
 
 # 使用
 

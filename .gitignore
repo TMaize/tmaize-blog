@@ -1,4 +1,5 @@
-/build-tool/dev
-/build-tool/dist
-/build-tool/dist.tar
-/build-tool/upload.exe
+/build/dev
+/build/dist
+/build/draft
+/build/dist.tar
+/build/upload.exe

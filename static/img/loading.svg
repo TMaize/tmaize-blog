@@ -14,7 +14,7 @@
       }
       .m-loading-icon .m-loading-icon-active-path{
         fill: none;
-        stroke: #a7a7a7;
+        stroke: #666666;
         transform-origin: 50% 50%;
       }
       .m-loading-wipe .m-loading-icon-active-path{

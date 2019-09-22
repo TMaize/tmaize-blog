@@ -1,0 +1,162 @@
+.page-post {
+  font-size: 14px;
+  line-height: 2;
+  word-break: break-all;
+}
+.page-post .title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666666;
+  line-height: 1;
+  padding-bottom: 16px;
+}
+.page-post .subtitle {
+  font-size: 13px;
+  color: #999999;
+  position: relative;
+  top: -6px;
+  line-height: 1;
+}
+.page-post .post > * {
+  margin: 18px 0;
+}
+.page-post .post > iframe {
+  margin: 0;
+  width: 100%;
+}
+.page-post h1,
+.page-post h2 {
+  font-weight: normal;
+  font-size: 17px;
+  position: relative;
+}
+.page-post h1::before,
+.page-post h2::before {
+  content: '#';
+  top: 0;
+  font-weight: bold;
+  padding-right: 6px;
+  color: #000000;
+}
+.page-post h3,
+.page-post h4,
+.page-post h5,
+.page-post h6 {
+  font-size: 15px;
+  font-weight: bold;
+}
+.page-post blockquote {
+  border-left: 3px solid #333333;
+  background-color: #f7f7f7;
+  padding: 9px 9px 9px 15px;
+}
+
+.page-post a {
+  color: #000000;
+  margin: 0 2px;
+  border-bottom: 1px solid #000000;
+}
+.page-post strong,
+.page-post b {
+  color: #000000;
+}
+.page-post .post ul,
+.page-post .post ol {
+  margin-left: 16px;
+}
+.page-post ul li {
+  list-style: disc;
+}
+.page-post ol li {
+  list-style: decimal;
+}
+.page-post img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+  -webkit-box-shadow: 0 0 5px #e0e0e0;
+  box-shadow: 0 0 5px #e0e0e0;
+}
+.page-post code {
+  background-color: #eeeeee;
+  word-break: break-all;
+  padding: 0 4px;
+  margin: 0 2px;
+  border-radius: 4px;
+  color: #4d4d4c;
+}
+.page-post pre {
+  font-size: 0;
+  padding: 10px;
+  overflow: auto;
+  border-radius: 2px;
+  background-color: #f7f7f7;
+  max-height: 550px;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+.page-post pre code {
+  background-color: transparent;
+  font-size: 13px;
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+}
+.page-post hr {
+  border: none;
+  height: 1px;
+  background-color: #f5f5f5;
+}
+.page-post table {
+  min-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #dddddd;
+}
+.page-post tr {
+  border-bottom: 1px solid #dddddd;
+}
+.page-post th {
+  font-weight: bold;
+}
+.page-post th,
+.page-post td {
+  padding: 5px 10px;
+  text-align: left;
+}
+.page-post table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.page-post .table-container {
+  overflow: auto;
+  margin: 14px 0;
+  border: 1px solid #dddddd;
+}
+.page-post .table-container table {
+  margin: 0;
+  border: 0;
+}
+.page-post .table-container table tbody tr:last-child {
+  border-bottom: 0;
+}
+@media screen and (max-width: 560px) {
+  .page-post {
+    font-size: 13px;
+  }
+  .page-post .title {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .page-post .subtitle {
+    top: -2px;
+    font-size: 11px;
+  }
+  .page-post pre code {
+    font-size: 12px;
+  }
+  .page-post .post > * {
+    margin: 15px 0;
+  }
+}

@@ -1,0 +1,124 @@
+.list-post > h2 {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 12px 0;
+}
+.list-post li {
+  padding: 12px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: center;
+}
+.list-post li .date {
+  padding: 0 8px 0 16px;
+  color: #666666;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.list-post li .title {
+  font-size: 15px;
+  padding: 3px 0;
+  vertical-align: middle;
+}
+.list-post li .category {
+  font-size: 12px;
+  color: #666666;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.list-category h2 {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 12px 0;
+}
+.list-category div {
+  padding: 8px 0 8px 10px;
+}
+.list-category div a {
+  margin: 4px 6px;
+  white-space: nowrap;
+  font-size: 15px;
+  display: inline-block;
+  border-bottom: 1px solid #333333;
+}
+.page-search #search-input {
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 2px solid #eaeaea;
+  width: 100%;
+  line-height: 1;
+  padding: 10px 0;
+}
+.page-search #search-input::-webkit-input-placeholder {
+  font-size: 14px;
+  line-height: 1;
+  padding: 10px 0;
+}
+.page-search h1 {
+  padding: 12px 0;
+}
+.page-search h1 span {
+  font-size: 16px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+.page-search h1 img {
+  display: inline-block;
+  width: 21px;
+  margin-left: 8px;
+  vertical-align: middle;
+  opacity: 0;
+}
+.page-search .list-search li {
+  list-style: disc;
+  margin-left: 15px;
+  margin-bottom: 20px;
+}
+.page-search .list-search a {
+  display: block;
+  border-bottom: 1px dashed #ccc;
+}
+.page-search .list-search .title {
+  display: inline-block;
+  word-break: break-all;
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #999;
+}
+.page-search .list-search .content {
+  display: block;
+  font-size: 14px;
+  color: #5a5a5a;
+  word-break: break-all;
+  padding: 10px 0;
+}
+.page-search .list-search .hint {
+  font-size: inherit;
+  font-weight: bold;
+  color: #ff7f7f;
+}
+@media screen and (max-width: 560px) {
+  .list-post > h2 {
+    padding: 10px 0;
+  }
+  .list-post li {
+    padding: 10px 0;
+  }
+  .list-post li .date {
+    font-size: 12px;
+  }
+  .list-post li .title {
+    font-size: 13px;
+  }
+  .list-post li .category {
+    font-size: 11px;
+  }
+  .list-category h2 {
+    padding: 10px 0;
+  }
+  .list-category div a {
+    font-size: 13px;
+  }
+}

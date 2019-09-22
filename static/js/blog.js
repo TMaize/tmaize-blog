@@ -121,38 +121,32 @@ blog.encodeHtml = function(html) {
 }
 
 /**
- * 工具，显示加载层
+ * 工具， 转义正则关键字
  * @param {字符串} str
  */
-blog.loading = function() {
-  var d = document.createElement('div')
-  var i = document.createElement('img')
-  d.append(i)
-  d.setAttribute('class', 'select-none loading-cover')
-  i.setAttribute('src', blog.baseUrl + '/static/img/loading.svg')
-  blog.addEvent(
-    d,
-    'touchmove',
-    function(e) {
-      e.preventDefault()
-    },
-    false
-  )
-  blog.addEvent(
-    d,
-    'mousewheel',
-    function(e) {
-      e.preventDefault()
-    },
-    false
-  )
-  document.body.append(d)
-  return {
-    el: d,
-    hide: function() {
-      d.parentNode.removeChild(d)
-    }
-  }
+blog.encodeRegChar = function(str) {
+  // \ 必须在第一位
+  var arr = [
+    '\\',
+    '.',
+    '^',
+    '$',
+    '*',
+    '+',
+    '?',
+    '{',
+    '}',
+    '[',
+    ']',
+    '|',
+    '(',
+    ')'
+  ]
+  arr.forEach(function(c) {
+    var r = new RegExp('\\' + c, 'g')
+    str = str.replace(r, '\\' + c)
+  })
+  return str
 }
 
 /**
@@ -232,13 +226,9 @@ blog.addLoadEvent(function() {
   }
 })
 
-// 菜单
 // 回到顶部
 blog.addLoadEvent(function() {
   var upDom = document.getElementById('moveUp')
-  var bottom = parseInt(window.getComputedStyle(upDom).bottom)
-  // 隐藏
-  upDom.style.bottom = -2 * bottom + 'px'
 
   function getScrollTop() {
     if (document.documentElement && document.documentElement.scrollTop) {
@@ -248,23 +238,25 @@ blog.addLoadEvent(function() {
     }
   }
 
-  blog.addEvent(window, 'scroll', function() {
-    // 菜单
-    document.querySelector('#menu-checkbox').checked = false
-    upDom.style.display = 'block'
-    // 回到顶部
+  function toggleButton() {
     if (getScrollTop() > 200) {
-      upDom.style.bottom = bottom + 'px'
+      blog.addClass(upDom, 'show')
     } else {
-      upDom.style.bottom = -2 * bottom + 'px'
+      blog.removeClass(upDom, 'show')
     }
-  })
+  }
 
-  blog.addEvent(upDom, 'click', function() {
+  blog.addEvent(window, 'scroll', toggleButton)
+
+  blog.addEvent(upDom, 'click', function(event) {
+    blog.removeClass(upDom, 'show')
     if (document.documentElement && document.documentElement.scrollTop) {
       document.documentElement.scrollTop = 0
     } else if (document.body) {
       document.body.scrollTop = 0
     }
+    event.stopPropagation()
   })
+
+  toggleButton()
 })
