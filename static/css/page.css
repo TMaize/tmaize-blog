@@ -8,7 +8,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  align-items: center;
 }
 .list-post li .date {
   padding: 0 8px 0 16px;
