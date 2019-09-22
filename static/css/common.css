@@ -1,0 +1,222 @@
+@media screen and (max-width: 560px) {
+  @font-face {
+    font-family: 'Consolas';
+    src: url('../font/consola.ttf');
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  scroll-behavior: smooth;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: Consolas, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC',
+    'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei',
+    sans-serif;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  color: #333333;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+li,
+blockquote {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+input,
+select,
+textarea {
+  font-family: inherit;
+  outline: 0;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+}
+pre,
+code {
+  font-family: inherit;
+}
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+a {
+  text-decoration: none;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #999999;
+}
+::selection {
+  background-color: #4a4a4a;
+  color: #f9f9f9;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.select-none {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.animation-fade-up {
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fade-up;
+  animation-name: fade-up;
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@-webkit-keyframes fade-up {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+.hover-underline {
+  position: relative;
+}
+.hover-underline:hover:after {
+  visibility: visible;
+  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+}
+.hover-underline:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #333333;
+  visibility: hidden;
+  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  -webkit-transition: transform 200ms ease-in-out;
+}
+body {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 14px;
+  margin: 0 auto;
+}
+.header {
+  padding: 40px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.header .logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-right: 9px;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+.header .menu {
+  flex-grow: 1;
+}
+.header .menu a {
+  font-size: 15px;
+  display: inline-block;
+  margin: 0 9px;
+  padding: 3px 0;
+  white-space: nowrap;
+}
+.footer {
+  padding: 15px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.footer a {
+  text-decoration: underline;
+  color: #000000;
+  padding: 0 4px;
+  white-space: nowrap;
+}
+#moveUp {
+  position: fixed;
+  right: 20px;
+  bottom: -40px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: bottom 500ms ease-in-out 0ms;
+  -webkit-transition: bottom 500ms ease-in-out 0ms;
+}
+#moveUp.show {
+  bottom: 20px;
+}
+@media screen and (max-width: 560px) {
+  .header {
+    padding: 35px 0 20px 0;
+  }
+  .header .logo {
+    width: 40px;
+    height: 40px;
+  }
+  .header .menu a {
+    margin: 0 4px;
+    font-size: 14px;
+  }
+  .footer {
+    font-size: 13px;
+  }
+  #moveUp {
+    right: 14px;
+    bottom: -40px;
+  }
+  #moveUp.show {
+    bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .header .logo {
+    display: none;
+  }
+}

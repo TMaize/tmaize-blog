@@ -17,20 +17,22 @@ blog.addLoadEvent(function() {
     if (localStorage.dbVersion) {
       localStorage.removeItem('dbVersion')
     }
-    var loading = blog.loading()
+    var loadingDOM = document.querySelector('.page-search h1 img')
+    loadingDOM.style.opacity = 1
+
     blog.ajax(
       {
         timeout: 20000,
         url: blog.baseUrl + '/static/other/search.xml'
       },
       function(data) {
-        loading.hide()
         localStorage.db = data
         localStorage.dbVersion = blog.buildAt
         initContentDB()
+        search(document.querySelector('#search-input').value)
+        loadingDOM.style.opacity = 0
       },
       function() {
-        loading.hide()
         console.error('全文检索数据加载失败...')
       }
     )
@@ -39,7 +41,7 @@ blog.addLoadEvent(function() {
   if (localStorage.db) {
     initContentDB()
   }
-  document.querySelectorAll('.search-list .title').forEach(function(title) {
+  document.querySelectorAll('.list-search .title').forEach(function(title) {
     titles.push(blog.htmlEscape(title.innerHTML))
   })
 
@@ -54,33 +56,8 @@ blog.addLoadEvent(function() {
         str = result[1]
       }
       str = str.replace(/^\s+|\s+$/g, '')
-      contents.push(blog.htmlEscape(str))
+      contents.push(str)
     })
-  }
-  // 防止输入正则关键词
-  function filterRegChar(str) {
-    // \ 必须在第一位
-    var arr = [
-      '\\',
-      '.',
-      '^',
-      '$',
-      '*',
-      '+',
-      '?',
-      '{',
-      '}',
-      '[',
-      ']',
-      '|',
-      '(',
-      ')'
-    ]
-    arr.forEach(function(c) {
-      var r = new RegExp('\\' + c, 'g')
-      str = str.replace(r, '\\' + c)
-    })
-    return str
   }
 
   function search(key) {
@@ -88,8 +65,11 @@ blog.addLoadEvent(function() {
     if (key == keyBefore) {
       return
     }
+    // <> 替换
+    key = key.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
     keyBefore = key
-    var doms = document.querySelectorAll('.search-list li')
+    var doms = document.querySelectorAll('.list-search li')
     var h1 = '<span class="hint">'
     var h2 = '</span>'
     for (let i = 0; i < doms.length; i++) {
@@ -108,8 +88,8 @@ blog.addLoadEvent(function() {
         continue
       }
       var hide = true
-      var r1 = new RegExp(filterRegChar(key), 'gi')
-      var r2 = new RegExp(filterRegChar(key), 'i')
+      var r1 = new RegExp(blog.encodeRegChar(key), 'gi')
+      var r2 = new RegExp(blog.encodeRegChar(key), 'i')
 
       // 标题全局替换
       if (r1.test(title)) {

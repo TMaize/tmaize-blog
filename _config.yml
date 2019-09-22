@@ -7,41 +7,45 @@ keywords: TMaize,Blog,Java,Html,JavaScript
 author: TMaize
 footerText: 'Copyright © 2016 皖ICP备16016174号'
 
-# 留言配置, 不需要的话值设置为空，同时删除 # 菜单 配置项中的留言页面
-# 官网 https://www.bmob.cn
-# 文档 https://bmob.github.io/hydrogen-js-sdk
-# 建议自己申请一个，表结构如下
-# 表名 Comment ,字段如下
-# url      String
-# time     Date
-# nickName String
-# email    String
-# content  String
-# website  String
-bmobApplicationId: 34f0386ac5bd50fd77fe82190af00faf
-bmobRestApiKey: 6f1419c800083315432f2df7dcb503d4
+# 这些不要动
+permalink: /posts/:year/:month/:day/:title.html
+kramdown:
+  auto_ids: true
+  input: GFM
+exclude: ['CNAME', 'README.md', 'build-tool']
 
 # 域名配置
 # baseUrl配置,如果网站部署在根目录下的目录中，请设置为 /目录名
 domainUrl: 'http://blog.tmaize.net'
 baseUrl: ''
 
+# 吐个槽地址，会在chat页面中重定向到该地址
+tucaoUrl: https://support.qq.com/product/86335
+
 # 菜单
 menu:
-  - title: Home
+  - title: 首页
     url: /
-  - title: Categories
+  - title: 归类
     url: /pages/categories.html
-  - title: Search
+  - title: 搜索
     url: /pages/search.html
-  - title: Links
+  - title: 友链
     url: /pages/links.html
-  - title: Chat
+  - title: 留言
     url: /pages/chat.html
-  - title: About
+  - title: 关于
     url: /pages/about.html
 
-# 自定义插件,具体说明请看README文档
+# 自定义插件
+# plugin-mta-stats
+# 腾讯移动分析(https://mta.qq.com)，如果需要请申请自己的，不需要的话 use 请设置为 false
+# plugin-baidu-push
+# 百度收录自动推送，不需要的话 use 请设置为 false
+# plugin-click-effect
+# 页面点击，出现核心主义价值观
+# plugin-mathjax
+# 数学公式支持，比较影响加载速度，请设置为 false
 customPlugins:
   - use: true
     file: 'plugin-mta-stats.html'
@@ -54,9 +58,19 @@ customPlugins:
   - use: false
     file: 'plugin-mathjax.html'
 
-# 这些不要动
-permalink: /posts/:year/:month/:day/:title.html
-kramdown:
-  auto_ids: true
-  input: GFM
-exclude: ['CNAME', 'README.md', 'build-tool']
+# 友情链接
+links:
+  - title: TMaize的个人博客
+    url: http://blog.tmaize.net
+  - title: 文科中的技术宅
+    url: https://www.townwang.com
+  - title: Auuu Nya Blog
+    url: http://mu1er.cn
+  - title: 春风十里
+    url: https://www.geek-era.com
+  - title: 阿川的个人博客
+    url: https://achuan.io
+  - title: 魏文成博客
+    url: https://www.wwc.ren
+  - title: 06m
+    url: https://www.06m.me

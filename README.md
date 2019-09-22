@@ -1,10 +1,26 @@
 # 介绍
 
-一款 jekyll 主题（[GitHub 地址](https://github.com/TMaize/tmaize-blog)），简洁纯净，未引入任何框架，秒开页面，支持自适应，支持全文检索
+一款 jekyll 主题（[GitHub 地址](https://github.com/TMaize/tmaize-blog)），简洁纯净(主题资源请求<20KB)，未引入任何框架，秒开页面，支持自适应，支持全文检索
 
 下面有具体的样式截图，或者你可以到[TMaize Blog](http://blog.tmaize.net/)查看运行效果
 
-# 注意
+# 版本说明
+
+之前乱打的 tag 全删了，从新从 1.0 开始
+
+## V1.0
+
+- 精简代码 35 files changed, 829 insertions(+), 1043 deletions(-)
+
+- 整体样式细节调整，移动端自动引入 Consolas 字体
+
+- menu 改成中文，取消移动端 menu 的 fix 布局
+
+- 修复全局搜索不支持尖括号
+
+- 删除留言板，切换到吐个槽
+
+# 项目配置
 
 1. 如果使用自己的域名，`/CNAME`文件里的内容请换成你自己的域名，然后 CNAME 解析到`用户名.github.com`
 
@@ -21,28 +37,6 @@
 7. 网站的 logo 放在了`/static/img/`下
 
 8. 最后，如果你把项目 fork 过去了，想要删除我的提交记录可以先软重置到第一个提交，然后再提交一次，最后强制推送一次就行了
-
-## 插件配置
-
-这里是 customPlugins 节点下的一些配置说明
-
-- plugin-mta-stats
-
-  腾讯移动分析,[官网](https://mta.qq.com)，如果需要请申请自己的！！！sid，cid 在统计代码里找
-
-  不需要的话 use 请设置为 false
-
-- plugin-baidu-push
-
-  百度收录自动推送，不需要的话 use 请设置为 false
-
-- plugin-click-effect
-
-  页面点击，出现文字冒泡特效，不喜欢这个花里胡哨功能的 use 请设置为 false
-
-- plugin-mathjax
-
-  数学公式支持，比较影响加载速度，不需要的话 use 请设置为 false
 
 # 使用
 
@@ -65,11 +59,3 @@ categories: [分类1,分类2]
 
 [xxx.zip下载](xxx.zip)
 ```
-
-# 移动端截图
-
-![mobile](static/readme/mobile.jpg)
-
-# PC 端截图
-
-![pc](static/readme/pc.jpg)
