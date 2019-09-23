@@ -158,12 +158,21 @@ body {
 .header .logo {
   width: 42px;
   height: 42px;
+  cursor: pointer;
   border-radius: 50%;
   -ms-flex-negative: 0;
   flex-shrink: 0;
   margin-right: 9px;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+}
+.header .logo:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 .header .menu {
   -webkit-box-flex: 1;
