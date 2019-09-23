@@ -1,0 +1,25 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{site.title}}</title>
+    <link>{{site.domainUrl | append: site.baseUrl }}</link>
+    <description>{{site.description}}</description>
+    <language>zh-CN</language>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{site.time | date_to_rfc822}}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    <atom:link href="{{ site.domainUrl | append: site.baseUrll }}/static/xml/rss.xml" rel="self" type="application/rss+xml" />
+    {%- for post in site.posts %}
+    <item>
+      <title>{{post.title | escape}}</title>
+      <link>{{site.domainUrl | append: site.baseUrl | append: post.url}}</link>
+      <description>{{post.content | strip_html | strip_newlines | replace: " ", "" | replace: "	", "" | truncate: 120 | escape}}</description>
+      <pubDate>{{post.date | date_to_rfc822}}</pubDate>
+      <gui>{{site.domainUrl | append: site.baseUrl | append: post.url}}</gui>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

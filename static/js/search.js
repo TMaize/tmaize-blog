@@ -23,7 +23,7 @@ blog.addLoadEvent(function() {
     blog.ajax(
       {
         timeout: 20000,
-        url: blog.baseUrl + '/static/other/search.xml'
+        url: blog.baseUrl + '/static/xml/search.xml'
       },
       function(data) {
         localStorage.db = data
@@ -50,12 +50,6 @@ blog.addLoadEvent(function() {
     root.innerHTML = localStorage.db
     root.querySelectorAll('li').forEach(function(content) {
       var str = content.innerHTML
-      var distill = /\[CDATA\[(.*)\]\]/
-      var result = distill.exec(str)
-      if (result) {
-        str = result[1]
-      }
-      str = str.replace(/^\s+|\s+$/g, '')
       contents.push(str)
     })
   }
