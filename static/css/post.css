@@ -24,19 +24,19 @@
   margin: 0;
   width: 100%;
 }
-.page-post h1,
-.page-post h2 {
+.page-post .post h1,
+.page-post .post h2 {
   font-weight: normal;
   font-size: 17px;
   position: relative;
 }
-.page-post h1::before,
-.page-post h2::before {
+.page-post .post h1::before,
+.page-post .post h2::before {
   content: '#';
   top: 0;
   font-weight: bold;
   padding-right: 6px;
-  color: #000000;
+  color: #333333;
 }
 .page-post h3,
 .page-post h4,
@@ -60,9 +60,11 @@
 .page-post b {
   color: #000000;
 }
-.page-post .post ul,
-.page-post .post ol {
+.page-post .post ul {
   margin-left: 16px;
+}
+.page-post .post ol {
+  margin-left: 23px;
 }
 .page-post ul li {
   list-style: disc;
