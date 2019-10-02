@@ -8,11 +8,11 @@
 
 主题更新帮助
 
-1. 备份`_config.yml, posts, _posts`文件，删除整个项目目录(.git 不要删)
+1. 备份`_config.yml, posts, _posts, CNAME`文件，然后删除整个项目目录(.git 不要删)
 
 2. 下载 [release](https://github.com/TMaize/tmaize-blog/releases)的最新版本，解压到你的项目中
 
-3. 删除`posts, _posts`目录，把刚刚备份的在复制回来
+3. 删除`posts, _posts, CNAME`文件，把刚刚备份的再复制回来
 
 4. 打开备份的`_config.yml`和最新的`_config.yml`,对比配置把一些配置项复制回来
 
