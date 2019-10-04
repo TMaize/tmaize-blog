@@ -4,98 +4,93 @@ title: GitHub配置SSH登陆
 categories: [小技巧]
 ---
 
-## https 和 SSH 的区别
-
-两者都可以克隆项目到本地，使用https比较方便，直接就clone到本地了，而使用SSH clone却需要先配置和添加好SSH key 
-
-1. 前者可以随意克隆github上的项目，而不管是谁的；而后者则是你必须是你要克隆的项目的拥有者或管理员，且需要先添加 SSH key ，否则无法克隆
-
-2. https url 在push的时候是需要验证用户名和密码的；而 SSH 在push的时候，是不需要输入用户名的，如果配置SSH key的时候设置了密码，则需要输入密码的，否则直接是不需要输入密码的。
+http 和 ssh 的区别都可以克隆项目到本地。使用 http 客户端无需额外的配置；而使用 ssh 需要先配置和公钥私钥，好处是使用 git 操作的时候可以不用不填写用户名，如果密钥不设置密码连密码也省去了填写
 
 ## 基本步骤
 
-
 ### 生成公钥私钥
 
-1. windows下打开Git安装目录，找到git-bash.exe即可使用ssh-keygen命令
+1. windows 平台
 
-2. windows下或者使用XShell自带的图形工具。工具-新建密钥生成向导
+   1. git 安装目录`usr/bin/ssh-keygen.exe`
+   2. 或者使用 XShell 自带的图形工具：工具-新建密钥生成向导
 
-3. linux下直接使用ssh-keygen命令
+2. linux 下直接使用 ssh-keygen 命令
 
 命令`#ssh-keygen -t [rsa|dsa] [-C "email"]`
 
-```
-ssh-keygen -t rsa -C "1772314831@qq.com"
-#提示输入文件名,直接回车，如果设置文件名可能比较麻烦
-#提示输入密码
-#重复输入密码
-```
-
-如果出现下面的图形，则说明生成成功。在`C:\Users\宇明\.ssh`目录就可以看到多了两个文件，一个是id_rsa一个是id_rsa.pub
-
-```
-The key's randomart image is:
-+---[RSA 2048]----+
-|  ..=oo.+oo      |
-| ..O o.o o.= o   |
-|. E.B. .++O.+ .  |
-| . *.+ ++*+. .   |
-|    = +.S  .     |
-|     + . o       |
-|      . =        |
-|       o o       |
-|        .        |
-+----[SHA256]-----+
+```sh
+# 提示输入文件名,默认为id_rsa
+# 提示输入密码,默认无密码
+# 重复输入密码
+ssh-keygen -t rsa -C "youremail@demo.com"
 ```
 
-### 将公钥内容复制并上传于github
+之后就会在`C:\Users\tmaize\.ssh`目录就可以看到多了两个文件，如果上述步骤没有输入文件名，则一个是 id_rsa 一个是 id_rsa.pub
 
-1. 在个人信息设置SSH and GPG keys为所有项目设置一个统一的
+### 将公钥内容复制并上传于 github
 
-2. 在单个项目的设置里面设置Deploy keys，记得勾选Allow write access
+1. 在个人信息设置 SSH and GPG keys 为所有项目设置一个统一的
+
+2. 在单个项目的设置里面设置 Deploy keys，记得勾选 Allow write access
 
 ### 测试连接
 
-通过下面的命令如果成功说明可以了
-
 ```
-$ ssh -T git@github.com
-The authenticity of host 'github.com (192.30.255.113)' can't be established.
-RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'github.com,192.30.255.113' (RSA) to the list of known hosts.
-Enter passphrase for key '/c/Users/宇明/.ssh/id_rsa':
+ssh -T git@github.com
+Enter passphrase for key '/c/Users/tmaize/.ssh/id_rsa':
 Hi TMaize! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
 ### 项目测试
 
-将你的项目通过ssh clone到本地，如果为密钥设置了密码，会提示输入密钥密码，在push的时候会再次提示输入密钥的密码。如果在建立公钥私钥的时候没有设置密码，那么在clone push的在整个过程中都无需密码。
+将你的项目通过 ssh clone 到本地，如果为密钥设置了密码，会提示输入密钥密码，在 push 的时候会再次提示输入密钥的密码。如果在建立公钥私钥的时候没有设置密码，那么在 clone push 的在整个过程中都无需密码。
+
+## 为不同域名配置不同密钥
+
+一般情况下都是默认使用 id_rsa，当然也可以针对不用的域名使用不同的密钥
+
+再次生成一对 id_rsa_nopwd 和 id_rsa_nopwd.pub,加入我要把这个密钥应用与 gitee，guthub 不变依旧使用默认的 id_rsa
+
+在`C:\Users\用户名\.ssh`下面新建文件 config，换行格式使用 LF
+
+假设克隆地址为`git@gitee.com/user/project.git`,HostName 取`gitee.com`User 取`git`,Host 是别名用于区分同一个域名不同项目的，一般设置的都是全局的密钥，Host 直接取 HostName 就行了
+
+如果要区分同一域名下的不同项目，需要设置不同的 Host 就行了假设 Host 设置为了 test，则克隆地址要变为`git@test/user/project.git`
+
+```
+Host gitee.com
+     HostName gitee.com
+     IdentityFile C:/Users/tmaize/.ssh/id_rsa_nopwd
+     PreferredAuthentications publickey
+     User git
+```
+
+最后记得删除下同目录下 known_hosts 文件。至此就实现了不同域名使用不同密钥
 
 ## 一些问题
 
-### 使用TortoiseGit失败
+### 使用 TortoiseGit 失败
 
-在使用TortoiseGit图形界面clone时老是失败，只需要修改TortoiseGit的设计即可
+在使用 TortoiseGit 图形界面 clone 时老是失败，只需要修改 TortoiseGit 的设置即可
 
-在设置-网络里配置SSH客户端为`E:\Git\usr\bin\ssh.exe`即可
+在设置-网络里配置 SSH 客户端为`E:\Git\usr\bin\ssh.exe`即可
 
-![p01](01.jpg)
-
-### 将本地项目的远端https修改为ssh
+### 将本地项目的协议由 http 修改为 ssh
 
 方法有三种：
 
 1. 修改命令
-    
-    `git remote origin set-url [url]`
+
+   `git remote origin set-url [url]`
 
 2. 先删后加
 
-    ```
-    git remote rm origin
-    git remote add origin [url]
-    ```
+   ```
+   git remote rm origin
+   git remote add origin [url]
+   ```
 
 3. 直接修改`项目目录/.git/config`文件
+
+4. 使用 TortoiseGit 设置-Git-远端
