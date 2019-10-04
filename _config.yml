@@ -15,7 +15,7 @@ kramdown:
 exclude: ['CNAME', 'README.md', 'LICENSE', 'build']
 
 # 域名配置
-# baseUrl配置,如果网站部署在根目录下的目录中，请设置为 /目录名
+# baseUrl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
 domainUrl: 'http://blog.tmaize.net'
 baseUrl: ''
 

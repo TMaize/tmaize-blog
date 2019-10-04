@@ -42,7 +42,7 @@ blog.addLoadEvent(function() {
     initContentDB()
   }
   document.querySelectorAll('.list-search .title').forEach(function(title) {
-    titles.push(blog.htmlEscape(title.innerHTML))
+    titles.push(title.innerHTML)
   })
 
   function initContentDB() {
@@ -59,8 +59,8 @@ blog.addLoadEvent(function() {
     if (key == keyBefore) {
       return
     }
-    // <> 替换
-    key = key.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    // <>& 替换
+    key = key.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/&/g, '&amp;')
 
     keyBefore = key
     var doms = document.querySelectorAll('.list-search li')
