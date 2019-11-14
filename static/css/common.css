@@ -139,7 +139,7 @@ body::-webkit-scrollbar {
 }
 body {
   width: 100%;
-  max-width: 600px;
+  max-width: 680px;
   padding: 0 14px;
   margin: 0 auto;
 }
