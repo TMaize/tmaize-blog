@@ -8,12 +8,12 @@ js: [blog.js,search.js]
 	<input id="search-input" type="text" placeholder="请在这里输入关键词^_^"></input>
 	<h1>
 		<span>搜索结果</span>
-		<img src="{{site.baseUrl}}/static/img/loading.svg">
+		<img src="{{site.baseurl}}/static/img/loading.svg">
 	</h1>
 	<ul class="list-search">
 		{% for post in site.posts  %}
 		<li hidden>
-			<a href="{{site.baseUrl}}{{ post.url }}">
+			<a href="{{site.baseurl}}{{ post.url }}">
 				<p class="title">{{ post.title }}</p>
 				<p class="content"></p>
 			</a>

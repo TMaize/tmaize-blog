@@ -23,7 +23,7 @@ blog.addLoadEvent(function() {
     blog.ajax(
       {
         timeout: 20000,
-        url: blog.baseUrl + '/static/xml/search.xml'
+        url: blog.baseurl + '/static/xml/search.xml'
       },
       function(data) {
         localStorage.db = data

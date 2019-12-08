@@ -15,9 +15,9 @@ kramdown:
 exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'cli.bat']
 
 # 域名配置
-# baseUrl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
+# baseurl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
 domainUrl: 'http://blog.tmaize.net'
-baseUrl: ''
+baseurl: ''
 
 # 吐个槽地址，会在chat页面中重定向到该地址
 tucaoUrl: https://support.qq.com/product/86335
