@@ -1,5 +1,5 @@
-/build/dev
-/build/dist
-/build/draft
-/build/dist.tar
-/build/upload.exe
+/_site
+/dist
+/dist.tar
+/Gemfile.lock
+/.jekyll-cache
