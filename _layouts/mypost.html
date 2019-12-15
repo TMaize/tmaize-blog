@@ -15,6 +15,11 @@
   <div class="post">
     {{ content }}
   </div>
+  {% if site.adsense %}
+  <div class="adsense" style="overflow: hidden;">
+    {% include adsense.html %}
+  </div>
+  {% endif %}
 </div>
 {% include footer.html %}
 </body>

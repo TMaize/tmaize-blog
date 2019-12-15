@@ -18,7 +18,4 @@
   {% for css in pageCSS %}
   <link rel="stylesheet" href="{{site.baseurl}}/static/css/{{ css }}?t={{buildAt}}">
   {% endfor %}
-  {% if site.adsense and "" != site.adsense %}
-  <script data-ad-client="{{site.adsense}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  {% endif %}
 </head>

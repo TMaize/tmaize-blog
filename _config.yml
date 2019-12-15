@@ -37,9 +37,9 @@ menu:
   - title: 关于
     url: /pages/about.html
 
-# Google AdSense
-# 没有置空
-adsense: 'ca-pub-1121695299360400'
+# 文章底部广告
+# 位置 _includes/adsense.html
+adsense: true
 
 # 自定义插件
 # plugin-mta-stats
