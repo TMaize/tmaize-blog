@@ -1,20 +1,8 @@
 <footer class="footer select-none animation-fade-up">
   <span>{{ site.footerText }}</span>
   <a href="{{ site.baseurl }}/static/xml/rss.xml">RSS订阅</a>
-  <!-- 请保留主题来源 -->
+  {%- comment %} 请保留主题来源，么么哒~ {% endcomment %}
   <span>Theme By</span>
   <a href="https://github.com/TMaize/tmaize-blog">TMaize</a>
 </footer>
 <img id="moveUp" class="select-none" src="{{site.baseurl}}/static/img/up.svg">
-<!-- 全局属性blog -->
-<script>window.blog={baseurl:"{{site.baseurl}}", buildAt:"{{buildAt}}"}</script>
-<!-- 引入页面中配置的JS -->
-{% for js in pageJS %}
-<script type="text/javascript" src="{{site.baseurl}}/static/js/{{ js }}?t={{ buildAt }}"></script>
-{% endfor %}
-<!-- 引入配置的插件 -->
-{% for cp in site.customPlugins %}
-  {% if cp.use %}
-  {% include {{cp.file}} values=cp %}
-  {% endif %}
-{% endfor %}

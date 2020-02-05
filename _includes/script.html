@@ -1,0 +1,28 @@
+{%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
+<script>window.blog={baseurl:"{{site.baseurl}}", buildAt:"{{buildAt}}"}</script>
+<script type="text/javascript" src="{{site.baseurl}}/static/js/blog.js?t={{ buildAt }}"></script>
+{% if page.searchPage -%}
+<script type="text/javascript" src="{{site.baseurl}}/static/js/search.js?t={{ buildAt }}"></script>
+{% endif %}
+
+{%- if site.extClickEffect %}
+<!-- 点击页面文字冒出特效 -->
+<script>
+;(function(){
+  var textArr = ['富强', '民主', '文明', '和谐', '自由', '平等', '公正', '法治', '爱国', '敬业', '诚信', '友善']
+  window.blog.initClickEffect(textArr)
+})()
+</script>
+{% endif %}
+
+{%- if site.extMTA %}
+{% include ext-mta.html %}
+{% endif %}
+
+{%- if site.extBaidu -%}
+{% include ext-baidu.html %}
+{% endif %}
+
+{%- if site.extMath and page.layout=="mypost" -%}
+{% include ext-mathjax.html %}
+{% endif %}

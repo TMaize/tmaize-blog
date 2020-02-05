@@ -6,17 +6,21 @@
 
 # 本地运行
 
-jekyll 是使用 ruby 写的，所以先自行安装 ruby
+一般提交到 github 过个几十秒就可以看到效果，如果你需要对在本地查看效果需要安装 ruby 环境
 
+```bash
+gem install jekyll
+gem install bundler
 ```
-# 第一次运行先执行 bundle install
+
+```bash
+# 第一次运行需要在项目下执行 bundle install
+# 国内依赖下载慢可以使用ruby-china的镜像站进行请求重定向
+# bundle config mirror.https://rubygems.org https://gems.ruby-china.com
 bundle exec jekyll serve --watch --host=0.0.0.0 --port=8080
 ```
 
-```
-# 国内依赖下载慢可以使用ruby-china的镜像站进行请求重定向
-bundle config mirror.https://rubygems.org https://gems.ruby-china.com
-```
+如果是 windows 系统，环境搭建好后可以运行项目下的`cli.bat`快速启动
 
 # 项目配置
 
@@ -44,7 +48,6 @@ layout: mypost
 title: 标题
 categories: [分类1, 分类2]
 ---
-
 文章内容，Markdown格式
 ```
 

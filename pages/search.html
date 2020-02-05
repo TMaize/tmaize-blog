@@ -1,24 +1,23 @@
 ---
 layout: page
 title: 搜索
-css: [common.css,page.css]
-js: [blog.js,search.js]
+searchPage: true
 ---
-<div class="page page-search animation-fade-up">
-	<input id="search-input" type="text" placeholder="请在这里输入关键词^_^"></input>
-	<h1>
-		<span>搜索结果</span>
-		<img src="{{site.baseurl}}/static/img/loading.svg">
-	</h1>
-	<ul class="list-search">
-		{% for post in site.posts  %}
-		<li hidden>
-			<a href="{{site.baseurl}}{{ post.url }}">
-				<p class="title">{{ post.title }}</p>
-				<p class="content"></p>
-			</a>
-		</li>
-		{% endfor %}
-	</ul>
-</div>
 
+<div class="page page-search animation-fade-up">
+  <input id="search-input" type="text" placeholder="请在这里输入关键词^_^"></input>
+  <h1>
+    <span>搜索结果</span>
+    <img src="{{site.baseurl}}/static/img/loading.svg">
+  </h1>
+  <ul class="list-search">
+    {%- for post in site.posts  %}
+    <li hidden>
+      <a href="{{site.baseurl}}{{ post.url }}">
+        <p class="title">{{ post.title }}</p>
+        <p class="content"></p>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+</div>

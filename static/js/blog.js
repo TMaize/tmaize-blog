@@ -1,3 +1,15 @@
+// 打印主题标识,请保留出处
+;(function() {
+  var style1 = 'background:#4BB596;color:#ffffff;border-radius: 2px;'
+  var style2 = 'color:#000000;'
+  var author = ' TMaize'
+  var github = ' https://github.com/TMaize/tmaize-blog'
+  var build = ' ' + blog.buildAt
+  console.info('%c Theme Author %c' + author, style1, style2)
+  console.info('%c Theme GitHub %c' + github, style1, style2)
+  console.info('%c Site  Build  %c' + build, style1, style2)
+})()
+
 /**
  * 工具，允许多次onload不被覆盖
  * @param {方法} func
@@ -97,7 +109,7 @@ blog.trim = function(str) {
 }
 
 /**
- * 转义html字符
+ * 工具，转义html字符
  * @param {字符串} str
  */
 blog.htmlEscape = function(str) {
@@ -126,22 +138,7 @@ blog.encodeHtml = function(html) {
  */
 blog.encodeRegChar = function(str) {
   // \ 必须在第一位
-  var arr = [
-    '\\',
-    '.',
-    '^',
-    '$',
-    '*',
-    '+',
-    '?',
-    '{',
-    '}',
-    '[',
-    ']',
-    '|',
-    '(',
-    ')'
-  ]
+  var arr = ['\\', '.', '^', '$', '*', '+', '?', '{', '}', '[', ']', '|', '(', ')']
   arr.forEach(function(c) {
     var r = new RegExp('\\' + c, 'g')
     str = str.replace(r, '\\' + c)
@@ -198,17 +195,57 @@ blog.ajax = function(option, success, fail) {
   xmlHttp.send()
 }
 
-// 打印主题标识,请保留出处
-blog.addLoadEvent(function() {
-  var style1 = 'background:#4BB596;color:#ffffff;border-radius: 2px;'
-  var style2 = 'color:#000000;'
-  var author = ' TMaize'
-  var github = ' https://github.com/TMaize/tmaize-blog'
-  var build = ' ' + blog.buildAt
-  console.info('%c Theme Author %c' + author, style1, style2)
-  console.info('%c Theme GitHub %c' + github, style1, style2)
-  console.info('%c Site  Build  %c' + build, style1, style2)
-})
+/**
+ * 特效：点击页面文字冒出特效
+ */
+blog.initClickEffect = function(textArr) {
+  function createDOM(text) {
+    var dom = document.createElement('span')
+    dom.innerText = text
+    dom.style.left = 0
+    dom.style.top = 0
+    dom.style.position = 'fixed'
+    dom.style.fontSize = '12px'
+    dom.style.whiteSpace = 'nowrap'
+    dom.style.webkitUserSelect = 'none'
+    dom.style.userSelect = 'none'
+    dom.style.opacity = 0
+    dom.style.transform = 'translateY(0)'
+    dom.style.webkitTransform = 'translateY(0)'
+    return dom
+  }
+
+  blog.addEvent(window, 'click', function(ev) {
+    var tagName = ev.target.tagName.toLocaleLowerCase()
+    if (tagName == 'a') {
+      return
+    }
+    var text = textArr[parseInt(Math.random() * textArr.length)]
+    var dom = createDOM(text)
+
+    document.body.appendChild(dom)
+    var w = parseInt(window.getComputedStyle(dom, null).getPropertyValue('width'))
+    var h = parseInt(window.getComputedStyle(dom, null).getPropertyValue('height'))
+
+    var sh = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+    dom.style.left = ev.pageX - w / 2 + 'px'
+    dom.style.top = ev.pageY - sh - h + 'px'
+    dom.style.opacity = 1
+
+    setTimeout(function() {
+      dom.style.transition = 'transform 500ms ease-out, opacity 500ms ease-out'
+      dom.style.webkitTransition = 'transform 500ms ease-out, opacity 500ms ease-out'
+      dom.style.opacity = 0
+      dom.style.transform = 'translateY(-26px)'
+      dom.style.webkitTransform = 'translateY(-26px)'
+    }, 20)
+
+    setTimeout(function() {
+      document.body.removeChild(dom)
+      dom = null
+    }, 520)
+  })
+}
 
 // 新建DIV包裹TABLE
 blog.addLoadEvent(function() {

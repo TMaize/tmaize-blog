@@ -1,6 +1,6 @@
 @echo off
 
-echo 0.安装  1.启动   2.编译   3.部署
+echo 0.安装  1.启动(8899)  2.编译  3.部署
 set input=
 set /p input=请输入选项:
 

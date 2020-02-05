@@ -37,30 +37,22 @@ menu:
   - title: 关于
     url: /pages/about.html
 
-# 文章底部广告
-# 位置 _includes/adsense.html
-adsense: true
+# 点击页面文字冒出特效,不需要请设置为false
+extClickEffect: true
 
-# 自定义插件
-# plugin-mta-stats
-# 腾讯移动分析(https://mta.qq.com)，如果需要请申请自己的，不需要的话 use 请设置为 false
-# plugin-baidu-push
-# 百度收录自动推送，不需要的话 use 请设置为 false
-# plugin-click-effect
-# 页面点击，出现核心主义价值观
-# plugin-mathjax
-# 数学公式支持，比较影响加载速度，请设置为 false
-customPlugins:
-  - use: true
-    file: 'plugin-mta-stats.html'
-    sid: 500581966
-    cid: 500581972
-  - use: true
-    file: 'plugin-baidu-push.html'
-  - use: true
-    file: 'plugin-click-effect.html'
-  - use: false
-    file: 'plugin-mathjax.html'
+# Google Adsense,不需要请设置为false
+# _includes/ext-adsense.html 里面修改为自己的配置
+extAdsense: true
+
+# 腾讯MTA移动分析,不需要请设置为false
+# _includes/ext-adsense.html 里面修改为自己的配置
+extMTA: true
+
+# 百度收录自动推送,不需要请设置为false
+extBaidu: true
+
+# 数学公式支持，比较影响加载速度,不需要请设置为false
+extMath: false
 
 # 友情链接
 links:

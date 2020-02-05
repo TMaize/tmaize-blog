@@ -1,12 +1,8 @@
-{%- assign pageCSS = "common.css,post.css,highlight.css" -%}
-{%- assign pageCSS = pageCSS | split: "," -%}
-{%- assign pageJS = "blog.js" | split: "," -%}
-{%- assign buildAt = site.time | date: "%Y%m%d%H%M%S" -%}
 <!DOCTYPE html>
 <html>
-{% include head.html %}
+{% include head.html -%}
 <body ondragstart="return false;">
-{% include header.html %}
+{% include header.html -%}
 <div class="page page-post animation-fade-up">
   <h1 class="title" id="{{ page.title }}">{{ page.title }}</h1>
   {% if page.date %}
@@ -15,12 +11,13 @@
   <div class="post">
     {{ content }}
   </div>
-  {% if site.adsense %}
+  {% if site.extAdsense -%}
   <div class="adsense" style="overflow: hidden;">
-    {% include adsense.html %}
+    {% include ext-adsense.html -%}
   </div>
   {% endif %}
 </div>
-{% include footer.html %}
+{% include footer.html -%}
+{% include script.html -%}
 </body>
 </html>

@@ -1,9 +1,8 @@
 <header class="header select-none">
   <img class="logo" src="{{ site.baseurl }}/static/img/logo.jpg" />
   <nav class="menu">
-    {% for menu in site.menu %}
+    {% for menu in site.menu -%}
     <a href="{{ site.baseurl }}{{ menu.url }}" class="hover-underline">{{ menu.title }}</a>
-    {% endfor %}
+    {% endfor -%}
   </nav>
 </header>
-
