@@ -13,9 +13,8 @@ body {
   scroll-behavior: smooth;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-family: Consolas, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC',
-    'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei',
-    sans-serif;
+  font-family: Consolas, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC',
+    'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -79,38 +78,6 @@ body::-webkit-scrollbar {
   -ms-user-select: none;
   user-select: none;
   -webkit-user-select: none;
-}
-.animation-fade-up {
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-duration: 500ms;
-  animation-duration: 500ms;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-name: fade-up;
-  animation-name: fade-up;
-}
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(30px);
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-@-webkit-keyframes fade-up {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-  }
 }
 .hover-underline {
   position: relative;
@@ -198,18 +165,39 @@ body {
   padding: 0 4px;
   white-space: nowrap;
 }
-#moveUp {
+#to-top {
   position: fixed;
-  right: 20px;
-  bottom: -40px;
-  width: 40px;
-  height: 40px;
+  z-index: 999;
+  right: 16px;
+  bottom: 12px;
+  width: 34px;
+  height: 34px;
   cursor: pointer;
-  transition: bottom 500ms ease-in-out 0ms;
-  -webkit-transition: bottom 500ms ease-in-out 0ms;
+  border-radius: 10%;
+  background-color: #000000;
+  opacity: 0.45;
+  overflow: hidden;
+  transform: translateY(66px);
+  transition: transform 200ms ease-in-out;
 }
-#moveUp.show {
-  bottom: 20px;
+#to-top.show {
+  transform: translateY(0);
+}
+#to-top > span {
+  display: block;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  top: 13px;
+  transform: translateX(-50%) rotate(45deg);
+}
+#to-top > span:first-child {
+  background-color: #ffffff;
+}
+#to-top > span:last-child {
+  background-color: #000000;
+  transform: translate(-50%, 16%) rotate(45deg);
 }
 @media screen and (max-width: 560px) {
   .header {
@@ -225,18 +213,5 @@ body {
   }
   .footer {
     font-size: 13px;
-  }
-  #moveUp {
-    right: 14px;
-    bottom: -40px;
-  }
-  #moveUp.show {
-    bottom: 10px;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .header .logo {
-    display: none;
   }
 }

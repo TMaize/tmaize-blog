@@ -265,7 +265,7 @@ blog.addLoadEvent(function() {
 
 // 回到顶部
 blog.addLoadEvent(function() {
-  var upDom = document.getElementById('moveUp')
+  var toTopDOM = document.getElementById('to-top')
 
   function getScrollTop() {
     if (document.documentElement && document.documentElement.scrollTop) {
@@ -274,26 +274,25 @@ blog.addLoadEvent(function() {
       return document.body.scrollTop
     }
   }
-
-  function toggleButton() {
-    if (getScrollTop() > 200) {
-      blog.addClass(upDom, 'show')
-    } else {
-      blog.removeClass(upDom, 'show')
+  function scrollTo(top) {
+    if (document.documentElement && document.documentElement.scrollTop) {
+      document.documentElement.scrollTop = parseInt(top) || 0
+    } else if (document.body) {
+      document.body.scrollTop = parseInt(top) || 0
     }
   }
 
-  blog.addEvent(window, 'scroll', toggleButton)
-
-  blog.addEvent(upDom, 'click', function(event) {
-    blog.removeClass(upDom, 'show')
-    if (document.documentElement && document.documentElement.scrollTop) {
-      document.documentElement.scrollTop = 0
-    } else if (document.body) {
-      document.body.scrollTop = 0
+  blog.addEvent(window, 'scroll', function() {
+    if (getScrollTop() > 200) {
+      blog.addClass(toTopDOM, 'show')
+    } else {
+      blog.removeClass(toTopDOM, 'show')
     }
-    event.stopPropagation()
   })
 
-  toggleButton()
+  blog.addEvent(toTopDOM, 'click', function(event) {
+    event.stopPropagation()
+    blog.removeClass(toTopDOM, 'show')
+    scrollTo(0)
+  })
 })

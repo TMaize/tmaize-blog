@@ -2,7 +2,7 @@
 layout: page
 title: 首页
 ---
-<div class="page page-index animation-fade-up">
+<div class="page page-index">
   {% for post in site.posts  -%}
     {%- capture post_year %}{{ post.date | date: "%Y" }}{% endcapture -%}
     {%- capture post_previous_year %}{{ post.previous.date | date: "%Y" }}{% endcapture -%}
