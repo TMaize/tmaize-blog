@@ -42,7 +42,7 @@ extClickEffect: true
 
 # Google Adsense,不需要请设置为false
 # _includes/ext-adsense.html 里面修改为自己的配置
-extAdsense: true
+extAdsense: false
 
 # 腾讯MTA移动分析,不需要请设置为false
 # _includes/ext-adsense.html 里面修改为自己的配置
