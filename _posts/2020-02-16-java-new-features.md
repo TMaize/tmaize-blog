@@ -97,6 +97,72 @@ System.out.println(getLen1.get());
 System.out.println(getLen2.get());
 ```
 
+## 新日期时间 API
+
+说起日期，平常使用的如下
+
+- 日期 `java.util.Date`
+
+- 日期格式化 `java.text.SimpleDateFormat`
+
+- 日历 `java.util.Calendar`
+
+由于旧的时间类非线程安全，设计不佳，时区处理困难，因此 Java 8 重新设计了所有日期时间、日历及时区相关的 API。全部放在了`java.time`包下面
+
+常用的有 `LocalDate` 、`LocalTime` 和 `LocalDateTime`，`ZonedDateTime`，`DateTimeFormatter`
+
+```java
+// 月份从一开始
+LocalDateTime dateTime = LocalDateTime.of(2020, 2, 18, 0, 0, 0);
+System.out.println(dateTime);
+
+// 使用with返回新的实例
+dateTime = dateTime.withHour(8);
+System.out.println(dateTime);
+
+LocalDate currentDate = LocalDate.now();
+System.out.println(currentDate.compareTo(dateTime.toLocalDate()));
+
+System.out.println(dateTime.format(DateTimeFormatter.ISO_DATE_TIME));
+System.out.println(dateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")));
+
+DateTimeFormatter fmt = new DateTimeFormatterBuilder().appendValue(ChronoField.YEAR, 4).appendLiteral("/").toFormatter();
+System.out.println(dateTime.format(fmt));
+```
+
+## Base64 支持
+
+不用再引入 sun 包里面的的了
+
+```java
+String result = Base64.getEncoder().encodeToString("你好".getBytes(StandardCharsets.UTF_8));
+System.out.println(result);
+System.out.println(new String(Base64.getDecoder().decode(result), StandardCharsets.UTF_8));
+
+```
+
+## Stream
+
+通过将集合转换为这么一种叫做 “流” 的元素序列，通过声明性方式，能够对集合中的每个元素进行一系列并行或串行的流水线操作
+
+常用的方法有：count，collect，forEach，filter，distinct，sorted，map，limit，skip，flatMap，anyMatch，allMatch，noneMatch，findAny，reduce
+
+Stream 操作结合 Lambda 表达式写出来的代码非常简洁
+
+```java
+List<Integer> numbers = Arrays.asList(1, 4, 4, 3, 2, 1);
+List<Integer> result = numbers.stream()
+        .distinct()
+        .sorted((o1, o2) -> o2 - o1)
+        .map(i -> i * i)
+        .collect(Collectors.toList());
+System.out.println(result);
+```
+
 ## 参考
 
 [Java8 新特性之二：方法引用](https://www.cnblogs.com/wuhenzhidu/p/10727065.html)
+
+[Java 8 新特性](https://www.twle.cn/l/yufei/java/java-basic-java8-new-features.html)
+
+[Java 9 新特性 - 介绍](https://www.twle.cn/c/yufei/java9/java9-basic-index.html)
