@@ -80,6 +80,14 @@
   -webkit-box-shadow: 0 0 5px #e0e0e0;
   box-shadow: 0 0 5px #e0e0e0;
 }
+.page-post img[alt='line'] {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: transparent;
+  box-shadow: none;
+  margin: 0 4px;
+  line-height: 1;
+}
 .page-post code {
   background-color: #eeeeee;
   word-break: break-all;
