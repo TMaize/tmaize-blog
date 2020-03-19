@@ -28,7 +28,7 @@ REM 编译
 call :buildFunc
 REM 切换到发布工具目录
 D:
-cd D:\vscode-work-space\workspace-go\ssh-autodeploy
+cd D:\vscode-work-space\workspace-go\blog-deploy
 go run main.go
 REM 回到脚本目录
 %~d0

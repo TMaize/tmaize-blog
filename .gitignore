@@ -1,5 +1,5 @@
 /_site
 /dist
-/dist.tar
+/dist.tar.gz
 /Gemfile.lock
 /.jekyll-cache
