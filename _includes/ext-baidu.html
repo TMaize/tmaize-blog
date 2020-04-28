@@ -1,6 +1,9 @@
 <!-- 百度自动推送 -->
 <script>
-  ;(function() {
+  ;(function () {
+    if (window.location.hostname == '127.0.0.1') {
+      return
+    }
     var bp = document.createElement('script')
     var curProtocol = window.location.protocol.split(':')[0]
     if (curProtocol === 'https') {

@@ -1,5 +1,5 @@
 // 打印主题标识,请保留出处
-;(function() {
+;(function () {
   var style1 = 'background:#4BB596;color:#ffffff;border-radius: 2px;'
   var style2 = 'color:#000000;'
   var author = ' TMaize'
@@ -14,12 +14,12 @@
  * 工具，允许多次onload不被覆盖
  * @param {方法} func
  */
-blog.addLoadEvent = function(func) {
+blog.addLoadEvent = function (func) {
   var oldonload = window.onload
   if (typeof window.onload != 'function') {
     window.onload = func
   } else {
-    window.onload = function() {
+    window.onload = function () {
       oldonload()
       func()
     }
@@ -33,7 +33,7 @@ blog.addLoadEvent = function(func) {
  * @param {事件方法} func
  * @param {是否捕获} useCapture
  */
-blog.addEvent = function(dom, eventName, func, useCapture) {
+blog.addEvent = function (dom, eventName, func, useCapture) {
   if (window.attachEvent) {
     dom.attachEvent('on' + eventName, func)
   } else if (window.addEventListener) {
@@ -50,7 +50,7 @@ blog.addEvent = function(dom, eventName, func, useCapture) {
  * @param {单个DOM节点} dom
  * @param {class名} className
  */
-blog.addClass = function(dom, className) {
+blog.addClass = function (dom, className) {
   if (!blog.hasClass(dom, className)) {
     var c = dom.className || ''
     dom.className = c + ' ' + className
@@ -63,7 +63,7 @@ blog.addClass = function(dom, className) {
  * @param {单个DOM节点} dom
  * @param {class名} className
  */
-blog.hasClass = function(dom, className) {
+blog.hasClass = function (dom, className) {
   var list = (dom.className || '').split(/\s+/)
   for (var i = 0; i < list.length; i++) {
     if (list[i] == className) return true
@@ -76,7 +76,7 @@ blog.hasClass = function(dom, className) {
  * @param {单个DOM节点} dom
  * @param {class名} className
  */
-blog.removeClass = function(dom, className) {
+blog.removeClass = function (dom, className) {
   if (blog.hasClass(dom, className)) {
     var list = (dom.className || '').split(/\s+/)
     var newName = ''
@@ -92,7 +92,7 @@ blog.removeClass = function(dom, className) {
  * @param {单个DOM节点} dom
  * @param {class名} className
  */
-blog.toggleClass = function(dom, className) {
+blog.toggleClass = function (dom, className) {
   if (blog.hasClass(dom, className)) {
     blog.removeClass(dom, className)
   } else {
@@ -104,7 +104,7 @@ blog.toggleClass = function(dom, className) {
  * 工具，兼容问题，某些OPPO手机不支持ES5的trim方法
  * @param {字符串} str
  */
-blog.trim = function(str) {
+blog.trim = function (str) {
   return str.replace(/^\s+|\s+$/g, '')
 }
 
@@ -112,7 +112,7 @@ blog.trim = function(str) {
  * 工具，转义html字符
  * @param {字符串} str
  */
-blog.htmlEscape = function(str) {
+blog.htmlEscape = function (str) {
   var temp = document.createElement('div')
   temp.innerText = str
   str = temp.innerHTML
@@ -124,7 +124,7 @@ blog.htmlEscape = function(str) {
  * 工具，转换实体字符防止XSS
  * @param {字符串} str
  */
-blog.encodeHtml = function(html) {
+blog.encodeHtml = function (html) {
   var o = document.createElement('div')
   o.innerText = html
   var temp = o.innerHTML
@@ -136,10 +136,10 @@ blog.encodeHtml = function(html) {
  * 工具， 转义正则关键字
  * @param {字符串} str
  */
-blog.encodeRegChar = function(str) {
+blog.encodeRegChar = function (str) {
   // \ 必须在第一位
   var arr = ['\\', '.', '^', '$', '*', '+', '?', '{', '}', '[', ']', '|', '(', ')']
-  arr.forEach(function(c) {
+  arr.forEach(function (c) {
     var r = new RegExp('\\' + c, 'g')
     str = str.replace(r, '\\' + c)
   })
@@ -150,7 +150,7 @@ blog.encodeRegChar = function(str) {
  * 工具，Ajax
  * @param {字符串} str
  */
-blog.ajax = function(option, success, fail) {
+blog.ajax = function (option, success, fail) {
   var xmlHttp = null
   if (window.XMLHttpRequest) {
     xmlHttp = new XMLHttpRequest()
@@ -165,7 +165,7 @@ blog.ajax = function(option, success, fail) {
   var timer
   var isTimeout = false
   xmlHttp.open(method, url, sync)
-  xmlHttp.onreadystatechange = function() {
+  xmlHttp.onreadystatechange = function () {
     if (isTimeout) {
       fail({
         error: '请求超时'
@@ -185,7 +185,7 @@ blog.ajax = function(option, success, fail) {
       }
     }
   }
-  timer = setTimeout(function() {
+  timer = setTimeout(function () {
     isTimeout = true
     fail({
       error: '请求超时'
@@ -198,7 +198,7 @@ blog.ajax = function(option, success, fail) {
 /**
  * 特效：点击页面文字冒出特效
  */
-blog.initClickEffect = function(textArr) {
+blog.initClickEffect = function (textArr) {
   function createDOM(text) {
     var dom = document.createElement('span')
     dom.innerText = text
@@ -215,7 +215,7 @@ blog.initClickEffect = function(textArr) {
     return dom
   }
 
-  blog.addEvent(window, 'click', function(ev) {
+  blog.addEvent(window, 'click', function (ev) {
     var tagName = ev.target.tagName.toLocaleLowerCase()
     if (tagName == 'a') {
       return
@@ -232,7 +232,7 @@ blog.initClickEffect = function(textArr) {
     dom.style.top = ev.pageY - sh - h + 'px'
     dom.style.opacity = 1
 
-    setTimeout(function() {
+    setTimeout(function () {
       dom.style.transition = 'transform 500ms ease-out, opacity 500ms ease-out'
       dom.style.webkitTransition = 'transform 500ms ease-out, opacity 500ms ease-out'
       dom.style.opacity = 0
@@ -240,7 +240,7 @@ blog.initClickEffect = function(textArr) {
       dom.style.webkitTransform = 'translateY(-26px)'
     }, 20)
 
-    setTimeout(function() {
+    setTimeout(function () {
       document.body.removeChild(dom)
       dom = null
     }, 520)
@@ -248,7 +248,7 @@ blog.initClickEffect = function(textArr) {
 }
 
 // 新建DIV包裹TABLE
-blog.addLoadEvent(function() {
+blog.addLoadEvent(function () {
   // 文章页生效
   if (document.getElementsByClassName('page-post').length == 0) {
     return
@@ -264,7 +264,7 @@ blog.addLoadEvent(function() {
 })
 
 // 回到顶部
-blog.addLoadEvent(function() {
+blog.addLoadEvent(function () {
   var toTopDOM = document.getElementById('to-top')
 
   function getScrollTop() {
@@ -274,25 +274,24 @@ blog.addLoadEvent(function() {
       return document.body.scrollTop
     }
   }
-  function scrollTo(top) {
-    if (document.documentElement && document.documentElement.scrollTop) {
-      document.documentElement.scrollTop = parseInt(top) || 0
+  function scrollTo(position) {
+    var t = typeof position == 'object' ? 0 : parseInt(position) || 0
+    if (document.documentElement) {
+      document.documentElement.scrollTop = t
     } else if (document.body) {
-      document.body.scrollTop = parseInt(top) || 0
+      document.body.scrollTop = t
     }
   }
-
-  blog.addEvent(window, 'scroll', function() {
+  window.st = scrollTo
+  function ckeckToShow() {
     if (getScrollTop() > 200) {
       blog.addClass(toTopDOM, 'show')
     } else {
       blog.removeClass(toTopDOM, 'show')
     }
-  })
+  }
 
-  blog.addEvent(toTopDOM, 'click', function(event) {
-    event.stopPropagation()
-    blog.removeClass(toTopDOM, 'show')
-    scrollTo(0)
-  })
+  blog.addEvent(window, 'scroll', ckeckToShow)
+  blog.addEvent(toTopDOM, 'click', scrollTo)
+  ckeckToShow()
 })
