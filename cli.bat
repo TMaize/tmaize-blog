@@ -33,6 +33,4 @@ go run main.go
 REM 回到脚本目录
 %~d0
 cd %~dp0
-REM 删除临时文件
-rm dist.tar
 goto :eof
