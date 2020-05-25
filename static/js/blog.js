@@ -278,15 +278,6 @@ blog.addLoadEvent(function () {
       return document.body.scrollTop
     }
   }
-  function scrollTo(position) {
-    var t = typeof position == 'object' ? 0 : parseInt(position) || 0
-    if (document.documentElement) {
-      document.documentElement.scrollTop = t
-    } else if (document.body) {
-      document.body.scrollTop = t
-    }
-  }
-  window.st = scrollTo
   function ckeckToShow() {
     if (getScrollTop() > 200) {
       blog.addClass(toTopDOM, 'show')
@@ -294,8 +285,10 @@ blog.addLoadEvent(function () {
       blog.removeClass(toTopDOM, 'show')
     }
   }
-
   blog.addEvent(window, 'scroll', ckeckToShow)
-  blog.addEvent(toTopDOM, 'click', scrollTo)
+  blog.addEvent(toTopDOM, 'click', function(event){
+    window.scrollTo(0,0)
+    event.stopPropagation()
+  }, true)
   ckeckToShow()
 })
