@@ -5,22 +5,30 @@
   }
 }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
+html {
   background: #ffffff;
   scroll-behavior: smooth;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: Consolas, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC',
     'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+}
+body {
+  padding: 0;
+  margin: 0;
 }
 * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   color: #333333;
+}
+ol,
+ul {
+  list-style: none;
 }
 p,
 h1,
@@ -32,7 +40,6 @@ ul,
 ol,
 li,
 blockquote {
-  list-style: none;
   padding: 0;
   margin: 0;
 }
@@ -51,9 +58,17 @@ code {
   font-family: inherit;
 }
 input:-webkit-autofill {
-  box-shadow: 0 0 0 1000px white inset !important;
-  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  visibility: visible;
+  /* 自动填充的文本颜色 */
+  /* -webkit-text-fill-color: var(--text-color) !important; */
+
+  /* 方式1：使用内阴影覆盖自动填充的背景色 */
+  /* box-shadow: 0 0 0 1000px #ffffff inset !important; */
+
+  /* 方式2：通过延迟一个月，取消自动填充的背景色 */
+  /* transition: background-color 2592000s ease-in-out 0s; */
 }
+
 a {
   text-decoration: none;
 }
@@ -155,7 +170,6 @@ body {
 .footer {
   padding: 15px 0;
   font-size: 14px;
-  line-height: 1.5;
 }
 .footer a {
   text-decoration: underline;

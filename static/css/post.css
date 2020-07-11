@@ -7,15 +7,10 @@
   font-size: 18px;
   font-weight: bold;
   color: #666666;
-  line-height: 1;
-  padding-bottom: 16px;
 }
 .page-post .subtitle {
-  font-size: 13px;
+  font-size: 12px;
   color: #999999;
-  position: relative;
-  top: -6px;
-  line-height: 1;
 }
 .page-post .post > * {
   margin: 18px 0;
@@ -154,14 +149,6 @@
 @media screen and (max-width: 560px) {
   .page-post {
     font-size: 13px;
-  }
-  .page-post .title {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-  .page-post .subtitle {
-    top: -2px;
-    font-size: 11px;
   }
   .page-post pre code {
     font-size: 12px;
