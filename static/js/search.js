@@ -1,68 +1,86 @@
+// 加载所有文章数据，优先使用localStorage缓存
+function loadAllPostData(callback) {
+  if (localStorage.db && localStorage.dbVersion == blog.buildAt) {
+    console.log('loadAllPostData from localStorage')
+    callback ? callback(localStorage.db) : ''
+    return
+  }
+
+  console.log('loadAllPostData from ajax')
+  localStorage.removeItem('dbVersion')
+  localStorage.removeItem('db')
+
+  blog.ajax(
+    {
+      timeout: 20000,
+      url: blog.baseurl + '/static/xml/search.xml'
+    },
+    function (data) {
+      localStorage.db = data
+      localStorage.dbVersion = blog.buildAt
+      callback ? callback(data) : ''
+    },
+    function () {
+      console.error('全文检索数据加载失败...')
+      callback ? callback(null) : ''
+    }
+  )
+}
+
 // 搜索功能
-blog.addLoadEvent(function() {
+blog.addLoadEvent(function () {
   // 标题等信息
   var titles = []
   // 正文内容
   var contents = []
-  // 上一次输入
-  var keyBefore = ''
   // IOS 键盘中文输入bug
   var inputLock = false
-  // 本地无缓存/站点重新编译，弹框阻塞，加载全文检索内容
-  if (!localStorage.db || localStorage.dbVersion != blog.buildAt) {
-    // 删除失效缓存
-    if (localStorage.db) {
-      localStorage.removeItem('db')
-    }
-    if (localStorage.dbVersion) {
-      localStorage.removeItem('dbVersion')
-    }
-    var loadingDOM = document.querySelector('.page-search h1 img')
-    loadingDOM.style.opacity = 1
+  // 输入框
+  var input = document.getElementById('search-input')
 
-    blog.ajax(
-      {
-        timeout: 20000,
-        url: blog.baseurl + '/static/xml/search.xml'
-      },
-      function(data) {
-        localStorage.db = data
-        localStorage.dbVersion = blog.buildAt
-        initContentDB()
-        search(document.querySelector('#search-input').value)
-        loadingDOM.style.opacity = 0
-      },
-      function() {
-        console.error('全文检索数据加载失败...')
-      }
-    )
+  // 非搜索页面，预加载数据
+  if (!input) {
+    setTimeout(function () {
+      loadAllPostData()
+    }, 3500)
+    return
   }
 
-  if (localStorage.db) {
-    initContentDB()
-  }
-  document.querySelectorAll('.list-search .title').forEach(function(title) {
-    titles.push(title.innerHTML)
+  var loadingDOM = document.querySelector('.page-search h1 img')
+  loadingDOM.style.opacity = 1
+  loadAllPostData(function (data) {
+    console.log('loadAllPostData done')
+    loadingDOM.style.opacity = 0
+    titles = parseTitle(data)
+    contents = parseContent(data)
+    search(input.value)
   })
 
-  function initContentDB() {
-    var root = document.createElement('div')
-    root.innerHTML = localStorage.db
-    root.querySelectorAll('li').forEach(function(content) {
-      var str = content.innerHTML
-      contents.push(str)
+  function parseTitle() {
+    let arr = []
+    document.querySelectorAll('.list-search .title').forEach(function (title) {
+      arr.push(title.innerHTML)
     })
+    return arr
+  }
+
+  function parseContent(data) {
+    let arr = []
+    var root = document.createElement('div')
+    root.innerHTML = data
+    root.querySelectorAll('li').forEach(function (content) {
+      var str = content.innerHTML
+      arr.push(str)
+    })
+    root = null
+    return arr
   }
 
   function search(key) {
-    key = blog.trim(key)
-    if (key == keyBefore) {
-      return
-    }
     // <>& 替换
+    key = blog.trim(key)
     key = key.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/&/g, '&amp;')
 
-    keyBefore = key
     var doms = document.querySelectorAll('.list-search li')
     var h1 = '<span class="hint">'
     var h2 = '</span>'
@@ -116,16 +134,17 @@ blog.addLoadEvent(function() {
     }
   }
 
-  var input = document.getElementById('search-input')
-  blog.addEvent(input, 'input', function(event) {
+  blog.addEvent(input, 'input', function (event) {
     if (!inputLock) {
       search(event.target.value)
     }
   })
-  blog.addEvent(input, 'compositionstart', function(event) {
+
+  blog.addEvent(input, 'compositionstart', function (event) {
     inputLock = true
   })
-  blog.addEvent(input, 'compositionend', function(event) {
+
+  blog.addEvent(input, 'compositionend', function (event) {
     inputLock = false
     search(event.target.value)
   })

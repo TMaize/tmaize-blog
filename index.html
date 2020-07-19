@@ -2,7 +2,7 @@
 layout: page
 title: 首页
 ---
-<div class="page page-index test">
+<div class="page page-index">
   {% for post in site.posts  -%}
     {%- capture post_year %}{{ post.date | date: "%Y" }}{% endcapture -%}
     {%- capture post_previous_year %}{{ post.previous.date | date: "%Y" }}{% endcapture -%}
@@ -14,10 +14,14 @@ title: 首页
     {%- endif %}
         <li>
           <span class="date">{{ post.date | date: "%Y/%m/%d" }}</span>
-          <a href="{{ site.baseurl | append: post.url }}" class="title hover-underline">{{ post.title }}</a>
-          {% for categorie in post.categories -%}
-          <a href="{{site.baseurl}}/pages/categories.html#{{ categorie }}" class="category hover-underline">{{ categorie }}</a>
-          {%- endfor %}
+          <div class="title">
+            <a href="{{ site.baseurl | append: post.url }}" class="hover-underline">{{ post.title }}</a>
+          </div>
+          <div class="categories">
+            {% for categorie in post.categories -%}
+            <a href="{{site.baseurl}}/pages/categories.html#{{ categorie }}" class="hover-underline">{{ categorie }}</a>
+            {%- endfor %}
+          </div>
         </li>
     {%- if forloop.last or post_previous_year != post_year %}
       </ul>

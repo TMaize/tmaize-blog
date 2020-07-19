@@ -72,7 +72,6 @@
   max-width: 100%;
   margin: 0 auto;
   height: auto;
-  -webkit-box-shadow: 0 0 5px #e0e0e0;
   box-shadow: 0 0 5px #e0e0e0;
 }
 .page-post img[alt='line'] {
