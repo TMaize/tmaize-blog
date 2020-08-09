@@ -4,11 +4,11 @@
   var style2 = 'color:#000000;'
   var author = ' TMaize'
   var github = ' https://github.com/TMaize/tmaize-blog'
-  var build = ' ' + blog.buildAt.substr(0,4)
-  build += '/' + blog.buildAt.substr(4,2)
-  build += '/' + blog.buildAt.substr(6,2)
-  build += ' ' + blog.buildAt.substr(8,2)
-  build += ':' + blog.buildAt.substr(10,2)
+  var build = ' ' + blog.buildAt.substr(0, 4)
+  build += '/' + blog.buildAt.substr(4, 2)
+  build += '/' + blog.buildAt.substr(6, 2)
+  build += ' ' + blog.buildAt.substr(8, 2)
+  build += ':' + blog.buildAt.substr(10, 2)
   console.info('%c Author %c' + author, style1, style2)
   console.info('%c Build  %c' + build, style1, style2)
   console.info('%c GitHub %c' + github, style1, style2)
@@ -291,4 +291,126 @@ blog.addLoadEvent(function () {
     event.stopPropagation()
   }, true)
   ckeckToShow()
+})
+
+// 点击图片全屏预览
+blog.addLoadEvent(function () {
+  if (!document.querySelector('.page-post')) {
+    return
+  }
+  console.log('init post img click event')
+  let imgMoveOrigin = null
+  let restoreLock = false
+  let imgArr = document.querySelectorAll('.page-post img')
+
+  let css = `  .img-move-bg {
+    transition: opacity 300ms ease;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background-color: #666666;
+    z-index: 100;
+  }
+  .img-move-item {
+    transition: all 300ms ease;
+    position: fixed;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 101;
+  }`
+  var styleDOM = document.createElement('style')
+  styleDOM.type = 'text/css'
+  if (styleDOM.styleSheet) {
+    styleDOM.styleSheet.cssText = css
+  } else {
+    styleDOM.appendChild(document.createTextNode(css))
+  }
+  document.querySelector('head').appendChild(styleDOM)
+
+  window.addEventListener('resize', toCenter)
+
+  for (let i = 0; i < imgArr.length; i++) {
+    imgArr[i].addEventListener('click', imgClickEvent, true)
+  }
+
+  function prevent(ev) {
+    ev.preventDefault()
+  }
+
+  function toCenter() {
+    if (!imgMoveOrigin) {
+      return
+    }
+    let width = Math.min(imgMoveOrigin.naturalWidth, parseInt(document.documentElement.clientWidth * 0.9))
+    let height = (width * imgMoveOrigin.naturalHeight) / imgMoveOrigin.naturalWidth
+    if (window.innerHeight * 0.95 < height) {
+      height = Math.min(imgMoveOrigin.naturalHeight, parseInt(window.innerHeight * 0.95))
+      width = (height * imgMoveOrigin.naturalWidth) / imgMoveOrigin.naturalHeight
+    }
+
+    let img = document.querySelector('.img-move-item')
+    img.style.left = (document.documentElement.clientWidth - width) / 2 + 'px'
+    img.style.top = (window.innerHeight - height) / 2 + 'px'
+    img.style.width = width + 'px'
+    img.style.height = height + 'px'
+  }
+
+  function restore() {
+    if (restoreLock == true) {
+      return
+    }
+    restoreLock = true
+    let div = document.querySelector('.img-move-bg')
+    let img = document.querySelector('.img-move-item')
+
+    div.style.opacity = 0
+    img.style.opacity = 0
+    img.style.left = imgMoveOrigin.x + 'px'
+    img.style.top = imgMoveOrigin.y + 'px'
+    img.style.width = imgMoveOrigin.width + 'px'
+    img.style.height = imgMoveOrigin.height + 'px'
+
+    setTimeout(function () {
+      restoreLock = false
+      document.body.removeChild(div)
+      document.body.removeChild(img)
+      imgMoveOrigin = null
+    }, 300)
+  }
+
+  function imgClickEvent(event) {
+    imgMoveOrigin = event.target
+
+    let div = document.createElement('div')
+    div.className = 'img-move-bg'
+
+    let img = document.createElement('img')
+    img.className = 'img-move-item'
+    img.src = imgMoveOrigin.src
+    img.style.left = imgMoveOrigin.x + 'px'
+    img.style.top = imgMoveOrigin.y + 'px'
+    img.style.width = imgMoveOrigin.width + 'px'
+    img.style.height = imgMoveOrigin.height + 'px'
+
+    div.onclick = restore
+    div.onmousewheel = restore
+    div.ontouchmove = prevent
+
+    img.onclick = restore
+    img.onmousewheel = restore
+    img.ontouchmove = prevent
+    img.ondragstart = prevent
+
+    document.body.appendChild(div)
+    document.body.appendChild(img)
+
+    setTimeout(function () {
+      div.style.opacity = 0.5
+      img.style.opacity = 1
+      toCenter()
+    }, 0)
+  }
 })

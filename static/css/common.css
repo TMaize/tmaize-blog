@@ -156,7 +156,7 @@ input:-webkit-autofill {
 }
 #to-top {
   position: fixed;
-  z-index: 999;
+  z-index: 99;
   right: 16px;
   bottom: 12px;
   width: 34px;
