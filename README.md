@@ -8,6 +8,10 @@
 
 你可以到[TMaize Blog](http://blog.tmaize.net/)查看主题效果，欢迎添加友链
 
+## 感谢
+
+[JetBrains](https://www.jetbrains.com/?from=tmaize-blog) 免费提供的开发工具[![JetBrains](./static/img/jetbrains.svg)](https://www.jetbrains.com/?from=tmaize-blog)
+
 # 本地运行
 
 一般提交到 github 过个几十秒就可以看到效果，如果你需要对在本地查看效果需要安装 ruby 环境
