@@ -286,10 +286,15 @@ blog.addLoadEvent(function () {
     }
   }
   blog.addEvent(window, 'scroll', ckeckToShow)
-  blog.addEvent(toTopDOM, 'click', function(event){
-    window.scrollTo(0,0)
-    event.stopPropagation()
-  }, true)
+  blog.addEvent(
+    toTopDOM,
+    'click',
+    function (event) {
+      window.scrollTo(0, 0)
+      event.stopPropagation()
+    },
+    true
+  )
   ckeckToShow()
 })
 
@@ -303,7 +308,7 @@ blog.addLoadEvent(function () {
   let restoreLock = false
   let imgArr = document.querySelectorAll('.page-post img')
 
-  let css = `  .img-move-bg {
+  let css = `.img-move-bg {
     transition: opacity 300ms ease;
     position: fixed;
     left: 0;
