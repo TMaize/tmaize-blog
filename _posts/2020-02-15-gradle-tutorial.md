@@ -14,6 +14,46 @@ Gradle 是使用 Java 和 Groovy（基于 JVM 兼容 Java） 开发的一个项�
 
 3. `gradle -v` 测试配置是否成功
 
+## 国内下载慢
+
+添加`~/.gradle/init.gradle`全局配置文件，设置国内镜像
+
+```groovy
+allprojects{
+    repositories {
+        def ALIYUN_REPOSITORY = 'https://maven.aliyun.com/repository/public/'
+        def ALIYUN_JCENTER= 'https://maven.aliyun.com/repository/jcenter/'
+        def ALIYUN_GOOGLE = 'https://maven.aliyun.com/repository/google/'
+        def ALIYUN_GRADLE_PLUGIN = 'https://maven.aliyun.com/repository/gradle-plugin/'
+        all { ArtifactRepository repo ->
+            if(repo instanceof MavenArtifactRepository){
+                def url = repo.url.toString()
+                if (url.startsWith('https://repo1.maven.org/maven2/')) {
+                    project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_REPOSITORY."
+                    remove repo
+                }
+                if (url.startsWith('https://jcenter.bintray.com/')) {
+                    project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_JCENTER."
+                    remove repo
+                }
+                if (url.startsWith('https://dl.google.com/dl/android/maven2/')) {
+                    project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_GOOGLE."
+                    remove repo
+                }
+                if (url.startsWith('https://plugins.gradle.org/m2/')) {
+                    project.logger.lifecycle "Repository ${repo.url} replaced by $ALIYUN_GRADLE_PLUGIN."
+                    remove repo
+                }
+            }
+        }
+        maven { url ALIYUN_REPOSITORY }
+        maven { url ALIYUN_JCENTER }
+        maven { url ALIYUN_GOOGLE }
+        maven { url ALIYUN_GRADLE_PLUGIN}
+    }
+}
+```
+
 ## wrapper
 
 ```
@@ -23,7 +63,7 @@ gradle wrapper
 
 wrapper 的作用是解决在未安装 gradle 环境或者 本地 gradle 版本和 wrapper 中指定的版本不一致
 
-通过 gradlew 命令来运行项目，第一步会自动下载 gradle 到`~/..gradle/wrapper/dists`目录，然后再去执行 build.gradle
+通过 gradlew 命令来运行项目，第一步会自动下载 gradle 到`~/.gradle/wrapper/dists`目录，然后再去执行 build.gradle
 
 在实际项目中用到的更多的是 gradlew 而不是 gradle
 
