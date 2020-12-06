@@ -14,21 +14,26 @@
 
 # 本地运行
 
-一般提交到 github 过个几十秒就可以看到效果，如果你需要对在本地查看效果需要安装 ruby 环境
+一般提交到 github 过个几十秒就可以看到效果，如果你需要对在本地查看效果需要安装 ruby 环境和依赖
 
 ```bash
-gem install jekyll
+# linux下需要gcc
+
+# gem sources --add https://gems.ruby-china.com/
+# gem sources --remove https://rubygems.org/
+# gem sources --remove https://mirrors.aliyun.com/rubygems/
+# gem sources -l
 gem install bundler
+# bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+bundle install
 ```
+
+通过下面命令启动/编译项目
 
 ```bash
-# 第一次运行需要在项目下执行 bundle install
-# 国内依赖下载慢可以使用ruby-china的镜像站进行请求重定向
-# bundle config mirror.https://rubygems.org https://gems.ruby-china.com
-bundle exec jekyll serve --watch --host=0.0.0.0 --port=8080
+bundle exec jekyll serve --watch --host=127.0.0.1 --port=8080
+bundle exec jekyll build --destination=dist
 ```
-
-如果是 windows 系统，环境搭建好后可以运行项目下的`cli.bat`快速启动
 
 # 项目配置
 

@@ -12,7 +12,7 @@ permalink: /posts/:year/:month/:day/:title.html
 kramdown:
   auto_ids: true
   input: GFM
-exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'cli.bat', 'dist.tar.gz']
+exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'blog.sh']
 
 # 域名配置
 # baseurl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
