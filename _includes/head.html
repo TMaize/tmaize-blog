@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="content-language" content="zh-CN" />
   <meta name="theme-color" content="#ffffff" />
+  <meta name="supported-color-schemes" content="light dark">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="applicable-device" content="pc,mobile">
   <meta name="google-site-verification" content="ckhUaoa05QCmWoE1FafzTBcqYI4yBOy-UJKopXDS18M" />
@@ -17,13 +18,32 @@
   {% endif -%}
   <link rel="icon" href="{{site.baseurl}}/static/img/favicon.ico" />
   <link rel="apple-touch-icon" href="{{site.baseurl}}/static/img/logo.png" />
-  {%- if page.layout == "mypost" %}
   <link rel="stylesheet" href="{{site.baseurl}}/static/css/common.css?t={{buildAt}}">
+  <link rel="stylesheet" href="{{site.baseurl}}/static/css/theme-dark.css?t={{buildAt}}">
+  {%- if page.layout == "mypost" %}
   <link rel="stylesheet" href="{{site.baseurl}}/static/css/post.css?t={{buildAt}}">
-  <link rel="stylesheet" href="{{site.baseurl}}/static/css/highlight.css?t={{buildAt}}">
+  <link rel="stylesheet" href="{{site.baseurl}}/static/css/code-dark.css?t={{buildAt}}">
+  <link rel="stylesheet" href="{{site.baseurl}}/static/css/code-light.css?t={{buildAt}}">
   {%- endif %}
   {%- if page.layout == "page" %}
-  <link rel="stylesheet" href="{{site.baseurl}}/static/css/common.css?t={{buildAt}}">
   <link rel="stylesheet" href="{{site.baseurl}}/static/css/page.css?t={{buildAt}}">
   {%- endif %}
+  <script>
+    window.blog = {
+      baseurl:"{{site.baseurl}}",
+      buildAt:"{{buildAt}}",
+      darkTheme: false,
+      setDarkTheme: function (dark) {
+        this.darkTheme = Boolean(dark);
+        document.documentElement.className = this.darkTheme ? 'dark': '';
+        document.querySelector('meta[name=theme-color]').setAttribute('content', this.darkTheme ? '#2D2E32': '#FFFFFF');
+      }
+    }
+    // 跟随系统
+    blog.setDarkTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (window.matchMedia) {
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+      media.addListener(ev => isDarkModel = blog.setDarkTheme(ev.currentTarget.matches));
+    }
+  </script>
 </head>

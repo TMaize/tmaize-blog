@@ -1,5 +1,6 @@
 @font-face {
   font-family: 'Consolas';
+  font-display: fallback;
   src: url('../font/consola.ttf');
 }
 
@@ -13,15 +14,13 @@ html {
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: all 500ms ease;
   font-family: Consolas, 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
 }
 body {
   max-width: 680px;
   padding: 0 14px;
   margin: 0 auto;
-}
-body::-webkit-scrollbar {
-  display: none;
 }
 * {
   -webkit-tap-highlight-color: transparent;
@@ -74,23 +73,15 @@ input:-webkit-autofill {
   transition: background-color 2592000s ease-in-out 0s;
 }
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 2px;
   background-color: #999999;
 }
-::-moz-selection {
-  background-color: #4a4a4a;
-  color: #f9f9f9;
-}
 ::selection {
-  background-color: #4a4a4a;
-  color: #f9f9f9;
-}
-::-moz-selection {
   background-color: #4a4a4a;
   color: #f9f9f9;
 }
@@ -137,12 +128,14 @@ input:-webkit-autofill {
 .header .menu {
   margin-right: -9px;
   text-align: right;
+  user-select: none;
 }
 .header .menu a {
   display: inline-block;
   font-size: 16px;
   margin: 4px 9px;
   white-space: nowrap;
+  user-select: auto;
 }
 .footer {
   padding: 15px 0;

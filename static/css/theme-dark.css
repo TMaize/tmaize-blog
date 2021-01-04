@@ -1,0 +1,85 @@
+html.dark {
+  color: #c9d1d9;
+  background: #0d1117;
+}
+html.dark ::selection {
+  background-color: #327bd4;
+  color: #ffffff;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgba(153, 153, 153, 0.6);
+}
+html.dark img {
+  filter: brightness(0.8) contrast(1.2);
+}
+html.dark .footer a {
+  color: #58a6ff;
+}
+html.dark .list-category div a {
+  border-bottom: 1px solid #8b949e;
+}
+html.dark .list-post li .date {
+  color: #8b949e;
+}
+html.dark .list-post li .categories a {
+  color: #8b949e;
+}
+html.dark .hover-underline:after {
+  background-color: #c9d1d9;
+}
+html.dark .page-post .title {
+  color: #ffffff;
+}
+html.dark .page-post img {
+  box-shadow: none;
+}
+html.dark .page-post code {
+  background-color: rgba(240, 246, 252, 0.15);
+  color: #c9d1d9;
+}
+html.dark .page-post a {
+  color: #58a6ff;
+  border-bottom: 1px solid #58a6ff;
+}
+html.dark .page-post blockquote {
+  border-left: 3px solid #3b434b;
+  background-color: rgba(59, 67, 75, 0.15);
+  color: #8b949e;
+}
+html.dark .page-post .table-container {
+  border: 1px solid #3b434b;
+}
+html.dark .page-post table {
+  border: 1px solid #3b434b;
+}
+html.dark .page-post tr {
+  border-bottom: 1px solid #3b434b;
+}
+html.dark .page-post hr {
+  background-color: #30363d;
+}
+html.dark .page-post table tr:nth-child(even) {
+  background-color: #161b22;
+}
+
+html.dark .page-post iframe {
+  opacity: 0.8;
+}
+html.dark .page-search #search-input {
+  color: #f0f6fc;
+  border: 1px solid #21262d;
+}
+html.dark .page-search #search-input::-webkit-input-placeholder {
+  color: #c2c3c5;
+}
+html.dark .page-search .list-search .content {
+  color: #a6aeb7;
+}
+html.dark #to-top {
+  opacity: 0.6;
+  background-color: #4c4c4c;
+}
+html.dark #to-top > span:last-child {
+  background-color: #4c4c4c;
+}

@@ -12,6 +12,7 @@ permalink: /posts/:year/:month/:day/:title.html
 kramdown:
   auto_ids: true
   input: GFM
+  syntax_highlighter: rouge
 exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.lock', 'blog.sh']
 
 # 域名配置

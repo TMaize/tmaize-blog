@@ -12,6 +12,8 @@
 
 [JetBrains](https://www.jetbrains.com/?from=tmaize-blog) 免费提供的开发工具[![JetBrains](./static/img/jetbrains.svg)](https://www.jetbrains.com/?from=tmaize-blog)
 
+[mgyongyosi/OneDarkJekyll](https://github.com/mgyongyosi/OneDarkJekyll)
+
 # 本地运行
 
 一般提交到 github 过个几十秒就可以看到效果，如果你需要对在本地查看效果需要安装 ruby 环境和依赖
@@ -33,6 +35,13 @@ bundle install
 ```bash
 bundle exec jekyll serve --watch --host=127.0.0.1 --port=8080
 bundle exec jekyll build --destination=dist
+```
+
+如果需要替换代码高亮的样式可以通过下面的命令生成 css
+
+```bash
+rougify help style
+rougify style github > highlighting.css
 ```
 
 # 项目配置

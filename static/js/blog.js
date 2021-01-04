@@ -1,7 +1,7 @@
 // 打印主题标识,请保留出处
 ;(function () {
   var style1 = 'background:#4BB596;color:#ffffff;border-radius: 2px;'
-  var style2 = 'color:#000000;'
+  var style2 = 'color:auto;'
   var author = ' TMaize'
   var github = ' https://github.com/TMaize/tmaize-blog'
   var build = ' ' + blog.buildAt.substr(0, 4)
@@ -88,19 +88,6 @@ blog.removeClass = function (dom, className) {
       if (list[i] != className) newName = newName + ' ' + list[i]
     }
     dom.className = blog.trim(newName)
-  }
-}
-
-/**
- * 工具，DOM切换某个class
- * @param {单个DOM节点} dom
- * @param {class名} className
- */
-blog.toggleClass = function (dom, className) {
-  if (blog.hasClass(dom, className)) {
-    blog.removeClass(dom, className)
-  } else {
-    blog.addClass(dom, className)
   }
 }
 
@@ -303,7 +290,7 @@ blog.addLoadEvent(function () {
   if (!document.querySelector('.page-post')) {
     return
   }
-  console.log('init post img click event')
+  console.debug('init post img click event')
   let imgMoveOrigin = null
   let restoreLock = false
   let imgArr = document.querySelectorAll('.page-post img')
@@ -316,7 +303,7 @@ blog.addLoadEvent(function () {
     right: 0;
     bottom: 0;
     opacity: 0;
-    background-color: #666666;
+    background-color: #000000;
     z-index: 100;
   }
   .img-move-item {
