@@ -117,13 +117,8 @@ input:-webkit-autofill {
   border-radius: 50%;
   flex-shrink: 0;
   margin-right: 10px;
-  -webkit-user-select: none;
   user-select: none;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 500ms ease-in-out;
-}
-.header .logo:hover {
-  transform: rotate(360deg);
 }
 .header .menu {
   margin-right: -9px;
