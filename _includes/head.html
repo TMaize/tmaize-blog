@@ -39,11 +39,17 @@
         document.querySelector('meta[name=theme-color]').setAttribute('content', this.darkTheme ? '#2D2E32': '#FFFFFF');
       }
     }
-    // 跟随系统
-    blog.setDarkTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (sessionStorage.darkTheme !== undefined) {
+      blog.setDarkTheme(sessionStorage.darkTheme === 'true'); // 记忆值，单个窗口内有效
+    } else {
+      blog.setDarkTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches); // 跟随系统
+    }
     if (window.matchMedia) {
       var media = window.matchMedia('(prefers-color-scheme: dark)');
-      media.addListener(ev => isDarkModel = blog.setDarkTheme(ev.currentTarget.matches));
+      media.addListener(function (ev) {
+        blog.setDarkTheme(ev.currentTarget.matches);
+        sessionStorage.removeItem('darkTheme');
+      });
     }
   </script>
 </head>

@@ -412,6 +412,6 @@ blog.addLoadEvent(function () {
   var $logo = document.querySelector('.header .logo')
   blog.addEvent($logo, 'click', function () {
     blog.setDarkTheme(!blog.darkTheme)
-    // sessionStorage.darkTheme = blog.darkTheme
+    sessionStorage.darkTheme = blog.darkTheme
   })
 })
