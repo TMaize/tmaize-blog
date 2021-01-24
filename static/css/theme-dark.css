@@ -42,6 +42,9 @@ html.dark .page-post a {
   color: #58a6ff;
   border-bottom: 1px solid #58a6ff;
 }
+html.dark .page-post strong, .page-post b{
+  color: #ffffff;
+}
 html.dark .page-post blockquote {
   border-left: 3px solid #3b434b;
   background-color: rgba(59, 67, 75, 0.15);
