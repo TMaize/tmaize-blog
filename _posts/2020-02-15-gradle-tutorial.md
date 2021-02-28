@@ -84,7 +84,7 @@ gradlew --stop
 
 build.gradle 使用的是 Groovy 语法，Groovy 是基于 JVM 开发的一门脚本语言，兼容 Java，同时提供了大量语法糖
 
-Groovy 的语法很奇怪，恶意参考这个文档[Domain-Specific Languages](http://www.groovy-lang.org/dsls.html)
+Groovy 的语法很奇怪，可以参考这个文档[Domain-Specific Languages](http://www.groovy-lang.org/dsls.html)
 
 特性总结：
 
