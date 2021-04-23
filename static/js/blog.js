@@ -295,26 +295,27 @@ blog.addLoadEvent(function () {
   let restoreLock = false
   let imgArr = document.querySelectorAll('.page-post img')
 
-  let css = `.img-move-bg {
-    transition: opacity 300ms ease;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    background-color: #000000;
-    z-index: 100;
-  }
-  .img-move-item {
-    transition: all 300ms ease;
-    position: fixed;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 101;
-  }`
+  let css = [
+    '.img-move-bg {',
+    '  transition: opacity 300ms ease;',
+    '  position: fixed;',
+    '  left: 0;',
+    '  top: 0;',
+    '  right: 0;',
+    '  bottom: 0;',
+    '  opacity: 0;',
+    '  background-color: #000000;',
+    '  z-index: 100;',
+    '}',
+    '.img-move-item {',
+    '  transition: all 300ms ease;',
+    '  position: fixed;',
+    '  opacity: 0;',
+    '  cursor: pointer;',
+    '  z-index: 101;',
+    '}'
+  ].join('')
   var styleDOM = document.createElement('style')
-  styleDOM.type = 'text/css'
   if (styleDOM.styleSheet) {
     styleDOM.styleSheet.cssText = css
   } else {
