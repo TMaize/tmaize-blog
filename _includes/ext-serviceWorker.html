@@ -1,0 +1,17 @@
+<script>
+  ;(function () {
+    // var extServiceWorker = true
+    var extServiceWorker = '{{ site.extServiceWorker }}' === 'true'
+    if (!extServiceWorker) return
+    if (!navigator.serviceWorker) return
+    if (location.protocol !== 'https:' && location.hostname !== '127.0.0.1') return
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register(blog.baseurl + '/service-worker.js').catch(function (e) {
+        console.error('serviceWorker register fail', e)
+      })
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload()
+      })
+    })
+  })()
+</script>
