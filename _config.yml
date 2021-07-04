@@ -55,9 +55,6 @@ extBaidu: true
 # 数学公式支持，比较影响加载速度,不需要请设置为false
 extMath: false
 
-# serviceWorker整站缓存开关，可能会导致内容被强缓存网页无法及时更新，不熟悉的请不要开
-extServiceWorker: false
-
 # 友情链接
 links:
   - title: 文科中的技术宅
