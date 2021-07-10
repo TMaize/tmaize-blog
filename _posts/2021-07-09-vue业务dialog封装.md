@@ -250,3 +250,7 @@ if (process.env.NODE_ENV === 'production') {
   }
 }
 ```
+
+## 参考
+
+[Vue 3 with Composition API different object structure for getting context/globalProperties with Vue-CLI 4 in dev build or production build?](https://stackoverflow.com/questions/67168389/vue-3-with-composition-api-different-object-structure-for-getting-context-global)
