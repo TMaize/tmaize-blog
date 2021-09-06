@@ -63,18 +63,19 @@ const mixin = {
 }
 
 export default {
-  install(Vue, options) {
-    Vue.prototype.$dialog = (name, props) => {
+  install(Vue) {
+    Vue.prototype.$dialog = function (name, props) {
+      const parentC = this
       // 相对于该插件的位置，静态编译期间会检查的
       import('../components/dialogs/' + name)
         .then(module => {
-          const component = module.default
+          const component = { ...module.default }
           const mixins = component.mixins || []
           mixins.push(mixin) // 实现自动打开，动态了混入生命周期函数和销毁操作
           component.mixins = mixins
-          return Vue.extend(component)
-        })
-        .then(Dialog => {
+          component.parent = parentC // vuex 来自 $options.store / options.parent.$store
+
+          const Dialog = Vue.extend(component)
           const dialog = new Dialog({
             propsData: props || {}
           })
