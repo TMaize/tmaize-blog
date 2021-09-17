@@ -13,7 +13,7 @@ function loadAllPostData(callback) {
   blog.ajax(
     {
       timeout: 20000,
-      url: blog.baseurl + '/static/xml/search.xml'
+      url: blog.baseurl + '/static/xml/search.xml?t=' + blog.buildAt
     },
     function (data) {
       localStorage.db = data
@@ -38,11 +38,8 @@ blog.addLoadEvent(function () {
   // 输入框
   let input = document.getElementById('search-input')
 
-  // 非搜索页面，预加载数据
+  // 非搜索页面
   if (!input) {
-    setTimeout(function () {
-      loadAllPostData()
-    }, 3500)
     return
   }
 

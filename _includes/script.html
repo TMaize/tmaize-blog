@@ -12,14 +12,6 @@
 </script>
 {% endif %}
 
-{%- if site.extMTA %}
-{% include ext-mta.html %}
-{% endif %}
-
-{%- if site.extBaidu -%}
-{% include ext-baidu.html %}
-{% endif %}
-
 {%- if site.extMath and page.layout=="mypost" -%}
 {% include ext-mathjax.html %}
 {% endif %}

@@ -9,7 +9,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="applicable-device" content="pc,mobile">
-  <meta name="google-site-verification" content="ckhUaoa05QCmWoE1FafzTBcqYI4yBOy-UJKopXDS18M" />
   <meta name="author" content="{{ site.author }}" />
   {%- if page.categories %}
   <meta name="description" content="{{ page.title }}"/>
@@ -30,6 +29,8 @@
   {%- if page.layout == "page" %}
   <link rel="stylesheet" href="{{site.baseurl}}/static/css/page.css?t={{buildAt}}">
   {%- endif %}
+  <link rel="prefetch" href="{{site.baseurl}}/static/xml/search.xml?t={{ buildAt }}">
+  <link rel="prefetch" href="{{site.baseurl}}/static/js/search.js?t={{ buildAt }}">
   <script>
     window.blog = {
       baseurl:"{{site.baseurl}}",
