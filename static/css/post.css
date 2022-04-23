@@ -66,6 +66,9 @@
 .page-post ol li {
   list-style: decimal;
 }
+.page-post li > *{
+  margin: 6px 0;
+}
 .page-post img {
   display: block;
   max-width: 100%;

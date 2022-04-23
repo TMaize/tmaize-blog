@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: Web项目快速切换到Serverless
-categories: [小技巧]
+categories: [Serverless]
 ---
 
 使用腾讯云的云函数也有一段时间了，非常喜欢他的部署方式和计费方式，对于一些自己写的程序跑在上面几乎不花钱。同时也总结了一套方案把原有的 web 应用快速转移到 Serverless 上面。
