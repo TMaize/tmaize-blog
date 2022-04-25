@@ -24,6 +24,7 @@
   font-weight: normal;
   font-size: 17px;
   position: relative;
+  cursor: pointer;
 }
 .page-post .post h1::before,
 .page-post .post h2::before {

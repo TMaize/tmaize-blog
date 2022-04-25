@@ -416,3 +416,22 @@ blog.addLoadEvent(function () {
     sessionStorage.darkTheme = blog.darkTheme
   })
 })
+
+// 标题定位
+blog.addLoadEvent(function () {
+  if (!document.querySelector('.page-post')) {
+    return
+  }
+  const list = document.querySelectorAll('.post h1, .post h2')
+  for (var i = 0; i < list.length; i++) {
+    blog.addEvent(list[i], 'click', function (event) {
+      const el = event.target
+      if (el.scrollIntoView) {
+        el.scrollIntoView({ block: 'start' })
+      }
+      if (el.id && history.replaceState) {
+        history.replaceState({}, '', '#' + el.id)
+      }
+    })
+  }
+})
