@@ -11,7 +11,7 @@ elif test "$1" = "build"; then
 elif test "$1" = "deploy"; then
   bundle exec jekyll build --destination=dist
   cos-upload local:./dist blog:/
-  curl -fL -u freshCDN "https://scf.page404.cn/test/freshCDN/"
+  curl -fL -u freshCDN "https://cloud.page404.cn/api/fresh-cdn/"
 else
   echo "error param"
 fi
