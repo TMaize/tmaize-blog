@@ -61,10 +61,10 @@
 .page-post .post ol {
   margin-left: 23px;
 }
-.page-post ul li {
+.page-post ul > li {
   list-style: disc;
 }
-.page-post ol li {
+.page-post ol > li {
   list-style: decimal;
 }
 .page-post li > *{
