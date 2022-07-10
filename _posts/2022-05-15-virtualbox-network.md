@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: VirtualBox网路配置
-categories: [Serverless]
+categories: [小技巧]
 ---
 
 一直以来，VirtualBox 的网络配置的都是 NAT 和 Host-only。平时使用起来没有多大问题，NAT 用来访问外网， Host-only 用来分配一个 IP 用于在宿主机访问虚拟机内容。在模拟搭建集群的时候需要做到虚拟机-虚拟机互通和虚拟机-宿主机互通，这种情况只能使用桥接网络了。在配置的过程中遇到了一些小问题，这里做下记录
