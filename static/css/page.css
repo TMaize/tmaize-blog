@@ -57,25 +57,21 @@
 .page-search #search-input {
   text-align: center;
   font-size: 14px;
-  border-bottom: 2px solid #eaeaea;
+  border: 1px solid #eaeaea;
   width: 100%;
   padding: 10px 0;
   background-color: transparent;
 }
 .page-search h1 {
-  padding: 12px 0;
-}
-.page-search h1 span {
   font-size: 16px;
-  font-weight: bold;
-  vertical-align: middle;
+  height: 46px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
-.page-search h1 img {
-  display: inline-block;
-  width: 21px;
-  margin-left: 8px;
-  vertical-align: middle;
-  opacity: 0;
+.page-search h1 i {
+  font-size: 20px;
+  margin-left: 6px;
 }
 .page-search .list-search li {
   list-style: disc;

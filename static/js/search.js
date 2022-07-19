@@ -1,12 +1,11 @@
 // 加载所有文章数据，优先使用localStorage缓存
 function loadAllPostData(callback) {
   if (localStorage.db && localStorage.dbVersion == blog.buildAt) {
-    console.log('loadAllPostData from localStorage')
+    document.querySelector('.page-search .icon-loading').style.opacity = 0
     callback ? callback(localStorage.db) : ''
     return
   }
 
-  console.log('loadAllPostData from ajax')
   localStorage.removeItem('dbVersion')
   localStorage.removeItem('db')
 
@@ -16,6 +15,7 @@ function loadAllPostData(callback) {
       url: blog.baseurl + '/static/xml/search.xml?t=' + blog.buildAt
     },
     function (data) {
+      document.querySelector('.page-search .icon-loading').style.opacity = 0
       localStorage.db = data
       localStorage.dbVersion = blog.buildAt
       callback ? callback(data) : ''
@@ -33,7 +33,7 @@ blog.addLoadEvent(function () {
   let titles = []
   // 正文内容
   let contents = []
-  // IOS 键盘中文输入bug
+  // 低版本chrome，输入拼音的过程中也会触发input事件
   let inputLock = false
   // 输入框
   let input = document.getElementById('search-input')
@@ -43,11 +43,7 @@ blog.addLoadEvent(function () {
     return
   }
 
-  let loadingDOM = document.querySelector('.page-search h1 img')
-  loadingDOM.style.opacity = 1
   loadAllPostData(function (data) {
-    console.log('loadAllPostData done')
-    loadingDOM.style.opacity = 0
     titles = parseTitle()
     contents = parseContent(data)
     search(input.value)

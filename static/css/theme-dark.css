@@ -13,6 +13,9 @@ html.dark ::-webkit-scrollbar-thumb {
 html.dark img {
   filter: brightness(0.8) contrast(1.2);
 }
+html.dark .header .logo {
+  opacity: 0.8;
+}
 html.dark .footer a {
   color: #58a6ff;
 }
@@ -42,7 +45,9 @@ html.dark .page-post a {
   color: #58a6ff;
   border-bottom: 1px solid #58a6ff;
 }
-html.dark .page-post strong,
+html.dark .page-post strong {
+  color: #ffffff;
+}
 html.dark .page-post b {
   color: #ffffff;
 }
@@ -66,7 +71,6 @@ html.dark .page-post hr {
 html.dark .page-post table tr:nth-child(even) {
   background-color: #161b22;
 }
-
 html.dark .page-post iframe {
   opacity: 0.8;
 }
@@ -77,13 +81,15 @@ html.dark .page-search #search-input {
 html.dark .page-search #search-input::-webkit-input-placeholder {
   color: #c2c3c5;
 }
+html.dark .page-search h1 i {
+  background-color: #ffffff;
+}
 html.dark .page-search .list-search .content {
   color: #a6aeb7;
 }
-html.dark #to-top {
-  opacity: 0.6;
-  background-color: #4c4c4c;
+html.dark .footer-btn {
+  background-color: rgba(255, 255, 255, 0.4);
 }
-html.dark #to-top > span:last-child {
-  background-color: #4c4c4c;
+html.dark .footer-btn i {
+  opacity: 0.7;
 }

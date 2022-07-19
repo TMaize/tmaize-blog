@@ -207,10 +207,13 @@ blog.initClickEffect = function (textArr) {
   }
 
   blog.addEvent(window, 'click', function (ev) {
-    var tagName = ev.target.tagName.toLocaleLowerCase()
-    if (tagName == 'a') {
-      return
+    let target = ev.target
+    while (target !== document.documentElement) {
+      if (target.tagName.toLocaleLowerCase() == 'a') return
+      if (blog.hasClass(target, 'footer-btn')) return
+      target = target.parentNode
     }
+
     var text = textArr[parseInt(Math.random() * textArr.length)]
     var dom = createDOM(text)
 
@@ -256,8 +259,8 @@ blog.addLoadEvent(function () {
 
 // 回到顶部
 blog.addLoadEvent(function () {
-  var toTopDOM = document.getElementById('to-top')
-
+  var el = document.querySelector('.footer-btn.to-top')
+  if (!el) return
   function getScrollTop() {
     if (document.documentElement && document.documentElement.scrollTop) {
       return document.documentElement.scrollTop
@@ -267,14 +270,14 @@ blog.addLoadEvent(function () {
   }
   function ckeckToShow() {
     if (getScrollTop() > 200) {
-      blog.addClass(toTopDOM, 'show')
+      blog.addClass(el, 'show')
     } else {
-      blog.removeClass(toTopDOM, 'show')
+      blog.removeClass(el, 'show')
     }
   }
   blog.addEvent(window, 'scroll', ckeckToShow)
   blog.addEvent(
-    toTopDOM,
+    el,
     'click',
     function (event) {
       window.scrollTo(0, 0)
@@ -410,11 +413,44 @@ blog.addLoadEvent(function () {
 
 // 切换夜间模式
 blog.addLoadEvent(function () {
-  var $logo = document.querySelector('.header .logo')
-  blog.addEvent($logo, 'click', function () {
-    blog.setDarkTheme(!blog.darkTheme)
-    sessionStorage.darkTheme = blog.darkTheme
+  const $el = document.querySelector('.footer-btn.theme-toggler')
+  const $icon = $el.querySelector('.svg-icon')
+
+  blog.removeClass($el, 'hide')
+  if (blog.darkMode) {
+    blog.removeClass($icon, 'icon-theme-light')
+    blog.addClass($icon, 'icon-theme-dark')
+  }
+
+  function initDarkMode(flag) {
+    blog.removeClass($icon, 'icon-theme-light')
+    blog.removeClass($icon, 'icon-theme-dark')
+    if (flag === 'true') blog.addClass($icon, 'icon-theme-dark')
+    else blog.addClass($icon, 'icon-theme-light')
+
+    document.documentElement.setAttribute('transition', '')
+    setTimeout(function () {
+      document.documentElement.removeAttribute('transition')
+    }, 600)
+
+    blog.initDarkMode(flag)
+  }
+
+  blog.addEvent($el, 'click', function () {
+    const flag = blog.darkMode ? 'false' : 'true'
+    localStorage.darkMode = flag
+    initDarkMode(flag)
   })
+
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (ev) {
+      const systemDark = ev.target.matches
+      if (systemDark !== blog.darkMode) {
+        localStorage.darkMode = '' // 清除用户设置
+        initDarkMode(systemDark ? 'true' : 'false')
+      }
+    })
+  }
 })
 
 // 标题定位
