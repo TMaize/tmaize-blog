@@ -53,42 +53,25 @@ enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 ## Bridged
 
-桥接模式，这种模式网络功能支持的最好。VirtualBox 安装后会默认安装几个虚拟网卡可以用于桥接，当然真实的网卡也可以用于桥接
+桥接模式，这种模式网络功能支持的最好。可以桥接到真实的网卡，但是没网的话就不行了，所以推荐在本地创建一个虚拟网卡
 
-另外可以编辑网卡的的网段，也可以设置网络共享使其具备访问外网的能力
+![virtual-net](virtual-net.png)
+
+![config-net](config-net.png)
 
 ```
-以太网适配器 vEthernet (以太网):
+以太网适配器 VBOX Bridge:
 
    连接特定的 DNS 后缀 . . . . . . . :
-   本地链接 IPv6 地址. . . . . . . . : fe80::54b5:e07b:59f7:3f37%17
-   IPv4 地址 . . . . . . . . . . . . : 192.168.99.1
+   本地链接 IPv6 地址. . . . . . . . : fe80::7005:787e:d1b8:7495%2
+   IPv4 地址 . . . . . . . . . . . . : 192.168.88.1
    子网掩码  . . . . . . . . . . . . : 255.255.255.0
    默认网关. . . . . . . . . . . . . : 0.0.0.0
 ```
 
-```
-enp0s9: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 192.168.99.3  netmask 255.255.255.0  broadcast 192.168.99.255
-        inet6 fe80::263f:eaa7:e153:1e4c  prefixlen 64  scopeid 0x20<link>
-        ether 08:00:27:04:40:88  txqueuelen 1000  (Ethernet)
-        RX packets 56  bytes 3924 (3.8 KiB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 22  bytes 2156 (2.1 KiB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-```
-
-![windows-network](windows-network.png)
-
-![windows-network-edit](windows-network-edit.png)
-
 ![bridge-1](bridge-1.png)
 
-## 注意
-
-在桥接模式下，桥接到真实网卡时（比如 WIFI 网卡），由于路由器自带 DHCP，虚拟机可以分配到 IP 地址
-
-桥接到虚拟网卡（Hyper-V Virtual Ethernet Adapter \[#2,#3,#4\])时，由于没有 DHCP 服务器，虚拟机会分配不到到 IP 地址
+在桥接模式下，桥接到真实网卡时（比如 WIFI 网卡），由于路由器自带 DHCP，虚拟机可以分配到 IP 地址。桥接到虚拟网卡时，由于没有 DHCP 服务器，虚拟机会分配不到到 IP 地址
 
 - 方案 1
 
@@ -107,7 +90,7 @@ enp0s9: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
   ONBOOT=yes
   DEVICE=enp0s8
   NAME=enp0s8
-  IPADDR=192.168.99.2
+  IPADDR=192.168.88.2
   NETMASK=255.255.255.0
   ```
 
@@ -115,7 +98,7 @@ enp0s9: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
   ```
   nmcli conn show
-  nmcli con mod "有线连接 1" ipv4.addresses 192.168.99.2/24
+  nmcli con mod "有线连接 1" ipv4.addresses 192.168.88.2/24
   ```
 
   修改完成后重启网络
@@ -124,6 +107,21 @@ enp0s9: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
   service network restart
   ```
 
-如果在虚拟机内还是无法访问主机，可以检查下主机的防火墙配置
+  ```
+  enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+          inet 192.168.88.2  netmask 255.255.255.0  broadcast 192.168.88.255
+          inet6 fe80::a00:27ff:fe27:5466  prefixlen 64  scopeid 0x20<link>
+          ether 08:00:27:27:54:66  txqueuelen 1000  (Ethernet)
+          RX packets 142  bytes 15324 (14.9 KiB)
+          RX errors 0  dropped 0  overruns 0  frame 0
+          TX packets 109  bytes 28534 (27.8 KiB)
+          TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+  ```
+
+## 注意
+
+如果在桥接模式下，虚拟机内无法访问到主机，可以检查下主机的防火墙配置。如果关掉防火墙可以访问，那么说明是被入站规则拦截了，加一条规则就行了。
+
+需要注意的是规则有匹配顺序，如果配置规则后仍无法访问，可能是被另一条规则给拦住了
 
 ![firewall](firewall.png)
