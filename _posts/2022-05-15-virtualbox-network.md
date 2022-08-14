@@ -118,6 +118,26 @@ enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
           TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
   ```
 
+  Ubuntu 22 配置步骤
+
+  1. `ifconfig` 查看要设置的网卡名称，如果看不到执行 `ifconfig -a`，然后开启 `ifconfig up $name`
+
+  2. 编辑文件 `/etc/netplan/00-installer-config.yaml`，新增配置， 这里的名称是 enp0s8
+
+     ```yaml
+     network:
+       ethernets:
+         enp0s3:
+           dhcp4: true
+         enp0s8:
+           dhcp4: false
+           dhcp6: false
+           addresses: [192.168.88.4/24]
+       version: 2
+     ```
+
+  3. 执行 `netplan apply` 应用配置
+
 ## 注意
 
 如果在桥接模式下，虚拟机内无法访问到主机，可以检查下主机的防火墙配置。如果关掉防火墙可以访问，那么说明是被入站规则拦截了，加一条规则就行了。
