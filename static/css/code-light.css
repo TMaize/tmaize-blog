@@ -1,3 +1,6 @@
+.highlight pre {
+  font-family: monospace;
+}
 .highlight table td {
   padding: 5px;
 }
