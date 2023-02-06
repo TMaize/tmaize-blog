@@ -4,6 +4,11 @@
   {%- comment %} 请保留主题来源，么么哒~ {% endcomment %}
   <span>Theme By</span>
   <a href="https://github.com/TMaize/tmaize-blog">TMaize</a>
+
+  {%- if site.extCount %}
+    <span>总访问量</span>
+    <span id="busuanzi_value_site_pv"></span>
+  {% endif %}
   <div class="footer-btn theme-toggler hide">
     <i class="svg-icon icon-theme-light"></i>
   </div>

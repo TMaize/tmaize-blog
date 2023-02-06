@@ -50,6 +50,9 @@ extAdsense: false
 # 数学公式支持，比较影响加载速度,不需要请设置为false
 extMath: false
 
+# 显示访问量统计，由不蒜子提供服务
+extCount: false
+
 # 友情链接
 links:
   - title: 文科中的技术宅
