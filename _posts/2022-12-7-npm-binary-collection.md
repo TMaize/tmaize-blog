@@ -4,9 +4,11 @@ title: NPM Binary Mirror 汇总
 categories: [前端]
 ---
 
-一些 NPM 包是用 C++ 写的，在安装这些模块时会通过`node-gyp`在本地编译，由于开发环境和网络环境等因素，大部分都会失败 😅
+一些 NPM 包是用 C++ 写的，在安装这些模块时会通过`node-gyp`在本地编译，由于开发环境和网络环境等因素，大部分都会失败。以 `better-sqlite3` 为例，安装阶段会执行 `prebuild-install || node-gyp rebuild --release`
 
-如果配置了相应的参数（.npmrc | 环境变量），大部分包是支持自动下载对应平台下预编译的二进制文件，可以跳过编译的过程
+有的包会利用 [prebuild-install](https://www.npmjs.com/package/prebuild-install) 下载预构建的包，有的包会读取相应的参数（.npmrc \| 环境变量），在程序内部自己去下载预编译的包
+
+因此配置合适的 Binary Mirror 可以加快安装的速度
 
 [查询所有有镜像的包](https://registry.npmmirror.com/binary.html)
 
