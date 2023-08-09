@@ -21,14 +21,14 @@
 windows 下推荐在 wsl 下装 ruby，直接一句`apt install build-essential ruby ruby-dev` 就行了
 
 ```bash
-# linux下需要gcc
-
-# gem sources --add https://gems.ruby-china.com/
 # gem sources --remove https://rubygems.org/
-# gem sources --remove https://mirrors.aliyun.com/rubygems/
+# gem sources -a https://mirrors.tuna.tsinghua.edu.cn/rubygems/
 # gem sources -l
+# gem sources --clear-all
+# gem sources --update
 gem install bundler
-# bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+# bundle config mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems
+# bundle config list
 bundle install
 ```
 
