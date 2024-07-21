@@ -1,6 +1,6 @@
 ---
 layout: mypost
-title: Debian 12 安装
+title: Debian 12 安装记录
 categories: [Linux]
 ---
 
