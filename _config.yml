@@ -1,5 +1,8 @@
 encoding: utf-8
 
+plugins:
+  - jekyll-regex-replace
+
 # SEO相关信息
 title: TMaize Blog
 description: TMaize的个人博客

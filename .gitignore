@@ -2,3 +2,4 @@
 /dist
 /dist.tar.gz
 /.jekyll-cache
+/.bundle

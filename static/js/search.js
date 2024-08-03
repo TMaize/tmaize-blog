@@ -72,7 +72,7 @@ blog.addLoadEvent(function () {
   function search(key) {
     // <>& 替换
     key = blog.trim(key)
-    key = key.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/&/g, '&amp;')
+    key = key.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
     let doms = document.querySelectorAll('.list-search li')
     let h1 = '<span class="hint">'
@@ -93,30 +93,27 @@ blog.addLoadEvent(function () {
         continue
       }
       let hide = true
-      let r1 = new RegExp(blog.encodeRegChar(key), 'gi')
-      let r2 = new RegExp(blog.encodeRegChar(key), 'i')
 
-      // 标题全局替换
-      if (r1.test(title)) {
+      // 搜索标题
+      const idx1 = title.toLowerCase().indexOf(key.toLowerCase())
+      if (idx1 != -1) {
         hide = false
-        dom_title.innerHTML = title.replace(r1, h1 + key + h2)
+        dom_title.innerHTML =  title.substring(0, idx1) + h1 + title.substring(idx1, idx1 + key.length) + h2 + title.substring(idx1 + key.length)
       }
-      // 内容先找到第一个，然后确定100个字符，再对这100个字符做全局替换
-      let cResult = r2.exec(content)
-      if (cResult) {
+
+      // 搜索内容
+      const idx2 = content.toLowerCase().indexOf(key.toLowerCase())
+      if (idx2 != -1) {
         hide = false
-        let index = cResult.index
-        let leftShifting = 10
-        let left = index - leftShifting
-        let right = index + (100 - leftShifting)
-        if (left < 0) {
-          right = right - left
-        }
-        content = content.substring(left, right)
-        dom_content.innerHTML = content.replace(r1, h1 + key + h2) + '...'
+        const left = Math.max(idx2 - 20, 0)
+        const right = Math.min(left + Math.max(key.length, 100), content.length)
+        const newContent = content.substring(left, right)
+        const idx = newContent.toLowerCase().indexOf(key.toLowerCase())
+        const innerHTML = newContent.substring(0, idx) + h1 + newContent.substring(idx, idx + key.length) + h2 + newContent.substring(idx + key.length)
+        dom_content.innerHTML = innerHTML + '...'
       }
       // 内容未命中标题命中，内容直接展示前100个字符
-      if (!cResult && !hide && content) {
+      if (idx1 !== -1 && idx2 == -1) {
         dom_content.innerHTML = content.substring(0, 100) + '...'
       }
       if (hide) {

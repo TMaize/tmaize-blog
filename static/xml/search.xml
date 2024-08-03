@@ -4,6 +4,6 @@ layout: null
 <?xml version="1.0" encoding="utf-8"?>
 <ul>
   {%- for post in site.posts %}
-  <li>{{ post.content | strip_html | strip_newlines | strip | replace: " ", "" | replace: "	", ""}}</li>
+  <li>{{ post.content | strip_html | strip | regex_replace: '\n', ' ' | regex_replace: '\s\s+', ' ' }}</li>
   {%- endfor %}
 </ul>

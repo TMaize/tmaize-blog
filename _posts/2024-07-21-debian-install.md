@@ -34,7 +34,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main 
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware
 ```
 
-镜像配置好后更新下系统
+镜像配置好后更新下系统，如果更新时提示 SSL 错误，可以先将 `sources.list` 中的 https 改为 http，升级完成后再改回去
 
 ```
 apt update && apt upgrade
@@ -122,6 +122,7 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 
+apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
