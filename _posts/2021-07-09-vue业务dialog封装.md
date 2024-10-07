@@ -67,20 +67,19 @@ export default {
     Vue.prototype.$dialog = function (name, props) {
       const parentC = this
       // 相对于该插件的位置，静态编译期间会检查的
-      import('../components/dialogs/' + name)
-        .then(module => {
-          const component = { ...module.default }
-          const mixins = component.mixins || []
-          mixins.push(mixin) // 实现自动打开，动态了混入生命周期函数和销毁操作
-          component.mixins = mixins
-          component.parent = parentC // vuex 来自 $options.store / options.parent.$store
+      import('../components/dialogs/' + name).then(module => {
+        const component = { ...module.default }
+        const mixins = component.mixins || []
+        mixins.push(mixin) // 实现自动打开，动态了混入生命周期函数和销毁操作
+        component.mixins = mixins
+        component.parent = parentC // vuex 来自 $options.store / options.parent.$store
 
-          const Dialog = Vue.extend(component)
-          const dialog = new Dialog({
-            propsData: props || {}
-          })
-          dialog.$mount()
+        const Dialog = Vue.extend(component)
+        const dialog = new Dialog({
+          propsData: props || {}
         })
+        dialog.$mount()
+      })
     }
   }
 }
@@ -217,38 +216,56 @@ function initDialog(app, vm) {
 }
 ```
 
-## 一些比较 hack 的写法
+## Vue3 函数式写法
 
-vue3 组件实例获取应用实例
+如果需要共享应用的一些数据，可以通过设置 appContext 来达到效果。可以通过install的方式appContext共享给各个子组件
 
 ```js
-vm.$.appContext.app == app
+export default {
+  /**
+   * install
+   * @param {import('vue').App} app
+   * @param {*} options
+   */
+  install(app, options) {
+    app.provide('appContext', app._context)
+  }
+}
 ```
 
-vue3 应用实例获取组件实例，**注意\_instance 仅在 dev 环境能访问到**
-
 ```js
-app._instance.proxy == vm
-app._instance.root.proxy == vm
-app._instance.ctx.$root == vm
-```
+import { createVNode, render, inject } from 'vue'
+import TestDialog from '../components/TestDialog.vue'
 
-骚操作还是有的，但是最好不要用
+const scope = {
+  el: null
+}
 
-```js
-const app = createApp(App)
-const vm = app.mount('#app')
+export function useLogin(props) {
+  const appContext = inject('appContext')
 
-if (process.env.NODE_ENV === 'production') {
-  app._instance = {
-    proxy: vm,
-    root: {
-      proxy: vm
-    },
-    ctx: {
-      $root: vm
+  function destroy() {
+    if (scope.el) {
+      render(null, scope.el)
+      scope.el.remove()
+      scope.el = null
     }
   }
+
+  function open() {
+    if (!scope.el) {
+      scope.el = document.createElement('div')
+      document.body.appendChild(scope.el)
+      const vNode = createVNode(TestDialog, {
+        ...props,
+        destroy: destroy
+      })
+      vNode.appContext = appContext
+      render(vNode, scope.el)
+    }
+  }
+
+  return open
 }
 ```
 
