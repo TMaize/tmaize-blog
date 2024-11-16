@@ -136,20 +136,22 @@ export PATH=$PATH:/usr/libexec/docker/cli-plugins
 
 [国内DockerHub镜像加速器还有哪些可用？(2024年7月18日)](https://www.wangdu.site/course/2109.html)
 
+[public-image-mirror](https://github.com/DaoCloud/public-image-mirror/issues/2328)
+
 一些可用的镜像地址：
 
-- https://docker.beitai.cc
-- https://dockerpull.com
-- https://dockerproxy.cn
+- https://docker.cloudlayer.icu
+- https://docker.1panel.dev
+- https://dockerpull.org
 - https://dockerhub.icu
 
 使用方式 1：
 
 ```sh
 # docker pull nginx:latest
-docker pull dockerpull.com/library/nginx:latest
-docker tag dockerpull.com/library/nginx:latest nginx::latest
-docker rmi dockerpull.com/library/nginx:latest
+docker pull dockerpull.org/library/nginx:latest
+docker tag dockerpull.org/library/nginx:latest nginx::latest
+docker rmi dockerpull.org/library/nginx:latest
 ```
 
 使用方式 2：
@@ -158,9 +160,9 @@ docker rmi dockerpull.com/library/nginx:latest
 tee /etc/docker/daemon.json <<EOF
 {
     "registry-mirrors": [
-      "https://docker.beitai.cc",
-      "https://dockerpull.com",
-      "https://dockerproxy.cn",
+      "https://docker.cloudlayer.icu",
+      "https://docker.1panel.dev",
+      "https://dockerpull.org",
       "https://dockerhub.icu"
     ]
 }
