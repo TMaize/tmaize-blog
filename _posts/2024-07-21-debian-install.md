@@ -76,6 +76,8 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 apt install git
 git config --global user.name ming
 git config --global user.email admin@ming.net
+git config --global core.filemode false
+git config --global core.quotepath false
 git config --global --list
 ```
 
@@ -90,11 +92,6 @@ sh install.sh
 调整 `.zshrc`
 
 ```
-plugins=(git)
-
-# 解决 git 分支不显示
-zstyle ':omz:alpha:lib:git' async-prompt no
-
 # 关闭更新
 zstyle ':omz:update' mode disabled
 ```
