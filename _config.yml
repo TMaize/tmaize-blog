@@ -56,6 +56,15 @@ extMath: false
 # 显示访问量统计，由不蒜子提供服务
 extCount: false
 
+# 评论系统 Giscus
+# 请在 https://giscus.app/ 获取你的配置
+extGiscus: true
+giscus:
+  repo: '' # 你的仓库 owner/repo(data-repo)
+  repoId: '' # 你的仓库 ID(data-repo-id)
+  category: '' # 你的分类名称(data-category)
+  categoryId: '' # 你的分类 ID(data-category-id)
+
 # 友情链接
 links:
   - title: 文科中的技术宅

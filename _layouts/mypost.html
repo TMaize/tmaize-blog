@@ -22,6 +22,11 @@
     {% include ext-adsense.html -%}
   </div>
   {% endif %}
+  {% if site.extGiscus %}
+  <div class="giscus" style="margin-top: 2rem;">
+    {% include ext-giscus.html %}
+  </div>
+  {% endif %}
 </div>
 {% include footer.html -%}
 {% include script.html -%}
